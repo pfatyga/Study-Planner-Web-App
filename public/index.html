@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<div ng-controller="NavbarController" class="navbar navbar-default navbar-static-top" role="navigation" bs-navbar>
+		<div ng-controller="NavbarController" class="navbar navbar-default navbar-fixed-top" role="navigation" bs-navbar>
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">
 					<i class="icon-group"></i>
@@ -34,27 +34,30 @@
 			</ul>
 		</div>
 
-		<!-- Admin interface -->
-		<!-- TODO - only show if admin is logged in -->
-		<div class="container" ng-if="true">
-			<ul class="nav nav-tabs" bs-navbar>
-				<li data-match-route="/admin/home"><a href="admin/home">Home</a></li>
-				<li data-match-route="/admin/courses"><a href="admin/courses">Courses</a></li>
-				<li data-match-route="/admin/course-groups"><a href="admin/course-groups">Course Groups</a></li>
-				<li data-match-route="/admin/degrees"><a href="admin/degrees">Degrees</a></li>
-			</ul>
+		<div class="col-md-2">
+			<!-- Admin interface -->
+			<!-- TODO - only show if admin is logged in -->
+			<div class="bs-sidebar" style="margin-top: 60px; position: fixed">
+				<ul class="nav bs-sidenav">
+					<li data-match-route="/admin/courses"><a href="admin/courses">Courses</a></li>
+					<li data-match-route="/admin/course-groups"><a href="admin/course-groups">Course Groups</a></li>
+					<li data-match-route="/admin/degrees"><a href="admin/degrees">Degrees</a></li>
+				</ul>
+			</div>
+
+			<!-- TODO - student interface -->
+			<!-- TODO - only show if admin is logged in -->
+			<div class="container" ng-if="false">
+				<ul class="nav nav-tabs" bs-navbar>
+					<li data-match-route="/student/home"><a href="student/home">Home</a></li>
+					<li data-match-route="/student/study-plan"><a href="student/study-plan">Study Plan</a></li>
+				</ul>
+			</div>
 		</div>
 
-		<!-- TODO - student interface -->
-		<!-- TODO - only show if admin is logged in -->
-		<div class="container" ng-if="false">
-			<ul class="nav nav-tabs" bs-navbar>
-				<li data-match-route="/student/home"><a href="student/home">Home</a></li>
-				<li data-match-route="/student/study-plan"><a href="student/study-plan">Study Plan</a></li>
-			</ul>
+		<div class="col-md-10">
+			<div ng-view style="margin-top: 60px"></div>
 		</div>
-
-		<div ng-view></div>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
