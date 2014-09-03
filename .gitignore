@@ -8,3 +8,4 @@ tmp
 .idea
 *.png
 *.jpg
+/nbproject/private/
