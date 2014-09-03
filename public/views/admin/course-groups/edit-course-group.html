@@ -1,2 +1,12 @@
 <h2>Edit Course Group</h2>
 <p>TODO - edit course group form</p>
+<form name="editCourseGroupForm" role="form">
+	<div class="form-group">
+		<label for="courseGroupName">Name of course group</label>
+		<input class="form-control input" type="text" id="courseGroupName" name="courseGroupName"
+			ng-model="courseGroupName" placeholder="e.g. Technical Electives" required autofocus>
+	</div>
+	<button type="submit" class="btn btn-success">
+		Save Course Group
+	</button>
+</form>

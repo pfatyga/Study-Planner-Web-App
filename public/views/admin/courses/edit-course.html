@@ -1,2 +1,13 @@
 <h2>Edit Course</h2>
-<p>TODO - edit course form</p>
+<p>TODO - first, list courses that can be edited</p>
+<p>TODO - finish edit course form</p>
+<form name="editCourseForm" role="form">
+	<div class="form-group">
+		<label for="courseName">Name of course</label>
+		<input class="form-control input" type="text" id="courseName" name="courseName"
+			ng-model="courseName" placeholder="e.g. Data Structures" required autofocus>
+	</div>
+	<button type="submit" class="btn btn-success">
+		Save Course
+	</button>
+</form>
