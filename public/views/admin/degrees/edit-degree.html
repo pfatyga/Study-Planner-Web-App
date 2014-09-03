@@ -1,12 +1,51 @@
-<h2>Edit Degree</h2>
-<p>TODO - finish edit degree form</p>
+<h2>Computer Science program for students starting in Fall 2015 with CS 115</h2>
 <form name="editDegreeForm" role="form">
 	<div class="form-group">
-		<label for="degreeName">Name of degree</label>
-		<input class="form-control input" type="text" id="degreeName" name="degreeName"
-			ng-model="degreeName" placeholder="e.g. CS Honors" required autofocus>
+		<label for="degreeDates">This degree program is for students entering in</label>
+		<select size="1">
+			<option>Fall</option>
+			<option>Spring</option>
+			<option>...</option>
+		</select>
+		<select size="1">
+			<option>2015</option>
+			<option>2016</option>
+			<option>...</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="degreeName">Degree name</label>
+		<input class="form-control input" type="text" placeholder="e.g. Computer Science (CS)" value="Computer Science (CS)" />
+	</div>
+	<div class="form-group">
+		<label for="degreeName">Degree path</label>
+		<input class="form-control input" type="text" placeholder="e.g. Starting with CS 115" value="Starting with CS115" />
+	</div>
+	<h4>Select the courses that are part of this degree program</h4>
+	<div class="form-group">
+		This degree requires the student must take <select size="1"><option>at least</option><option selected="selected">all</option><option>some</option></select> of the CS Core classes.
+		<ol>
+			<li><input type="checkbox" name="" /> Introduction to Computer Science (CS115)</li>
+			<li><input type="checkbox" name="" /> Data Structures (CS284)</li>
+			<li><input type="checkbox" name="" /> Systems Programming (CS392)</li>
+			<li><input type="checkbox" name="" /> Software Development Process (CS347)</li>
+			<li><input type="checkbox" name="" /> Concurrent Programming (CS511)</li>
+			<li><input type="checkbox" name="" /> Operating Systems (CS492)</li>
+			<li><input type="checkbox" name="" /> Automata and Computation (CS334)</li>
+		</ol>
+	</div>
+	<div class="form-group">
+		This degree requires the student must take <select size="1"><option>at least</option><option>all</option><option>some</option></select> <select size="1"><option>1</option><option>2</option><option>...</option></select> of the Software Development Elective classes.
+		<ol>
+			<li><input type="checkbox" name="" /> Web Programming (CS546)</li>
+			<li><input type="checkbox" name="" /> TCP/IP Networking (CS521)</li>
+			<li><input type="checkbox" name="" /> Interactive Computer Graphics (CS537)</li>
+			<li><input type="checkbox" name="" /> Distributed and Cloud Computing (CS549)</li>
+			<li><input type="checkbox" name="" /> Compiler Design (CS516)</li>
+			<li><input type="checkbox" name="" /> Computer Vision (CS558)</li>
+		</ol>
 	</div>
 	<button type="submit" class="btn btn-success">
-		Save Degree
+		Save Changes
 	</button>
 </form>
