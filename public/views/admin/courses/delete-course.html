@@ -1,2 +1,7 @@
 <h2>Delete Course</h2>
-<p>TODO</p>
+<div ng-controller="CoursesController">
+	<div ng-repeat="course in courses">
+		<span class="glyphicon glyphicon-remove"></span>
+		{{ course.prefix + course.number }}
+	</div>
+</div>
