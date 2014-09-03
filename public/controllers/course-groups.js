@@ -16,6 +16,8 @@ angular.module('MyApp')
 			},
 		];
 
+		$scope.courses = [];
+
 		$scope.deleteModal = {
 		};
 
