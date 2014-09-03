@@ -1,2 +1,12 @@
 <h2>Edit Degree</h2>
-<p>TODO - edit degree form</p>
+<p>TODO - finish edit degree form</p>
+<form name="editDegreeForm" role="form">
+	<div class="form-group">
+		<label for="degreeName">Name of degree</label>
+		<input class="form-control input" type="text" id="degreeName" name="degreeName"
+			ng-model="degreeName" placeholder="e.g. CS Honors" required autofocus>
+	</div>
+	<button type="submit" class="btn btn-success">
+		Save Degree
+	</button>
+</form>
