@@ -1,8 +1,22 @@
-<div class="container">
+<div class="container-fluid">
 	<tabs data-type="nav-pills">
 		<pane title="Course Groups">
 			<h2>Course Groups</h2>
-			<p>TODO - list course groups</p>
+			<table class="table table-responsive">
+			  <thead>
+			    <tr>
+			      <th>Course Group Name</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="courseGroup in courseGroups">
+			      <td>{{ courseGroup.name }}</td>
+			      <td><a href="/admin/course-groups/edit-course-group.html">Edit</a> | <a href="" ng-click="deleteCourseGroup()">Delete</a></td>
+					<!--<td><button class="btn" data-animation="am-fade-and-scale" data-placement="center" data-template="/views/admin/course-groups/delete-course-group.html" bs-modal="deleteModal">Delete</button></td>-->
+			    </tr>
+			  </tbody>
+			</table>
 		</pane>
 		<pane title="Add Course Group">
 			<div ng-include src="'/views/admin/course-groups/add-course-group.html'"></div>
