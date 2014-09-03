@@ -2,7 +2,28 @@
 	<tabs data-type="nav-pills">
 		<pane title="Degrees">
 			<h2>Degrees</h2>
-			<p>TODO - list degrees</p>
+			<table class="table table-responsive">
+			  <thead>
+			    <tr>
+			      <th>Degree Name</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Computer Science (CS)</td>
+			      <td><a href="/degrees/edit-degree.html">Edit</a> | <a href="/views/admin/degrees/delete-degree.html">Delete</a></td>
+			    </tr>
+                <tr>
+			      <td>Cybersecurity (CyS)</td>
+			      <td><a href="/views/admin/degrees/edit-degree.html">Edit</a> | <a href="/views/admin/degrees/delete-degree.html">Delete</a></td>
+			    </tr>
+                <tr>
+			      <td>New Degree Program (NDP)</td>
+			      <td><a href="/views/admin/degrees/edit-degree.html">Edit</a> | <a href="/views/admin/degrees/delete-degree.html">Delete</a></td>
+			    </tr>
+			  </tbody>
+			</table>
 		</pane>
 		<pane id="add" title="Add Degree">
 			<div ng-include src="'/views/admin/degrees/add-degree.html'"></div>
