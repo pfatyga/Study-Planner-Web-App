@@ -1,4 +1,17 @@
 <h2>Available Courses</h2>
-<div ng-repeat="course in courses">
-	{{ course.prefix + course.number }}
-</div>
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="course in courses">
+      <td>
+		{{ course.prefix + course.number }}
+	  </td>
+      <td><a href="/admin/courses">Edit</a> | <a href="/admin/courses">Delete</a></td>
+    </tr>    
+  </tbody>
+</table>
