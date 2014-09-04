@@ -9,26 +9,14 @@
 	</div>
 	<div class="form-group">
 		<label for="addCourse" class="col-sm-2 control-label">Add Course</label>
-		<div class="col-sm-5">
+		<div class="col-sm-2">
 			<input class="form-control input" type="text" id="courseToAdd" name="courseToAdd"
 				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-enter="addCourse(courseToAdd); courseToAdd='';">
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="courses" class="col-sm-2 control-label">Courses</label>
-		<!--<div class="col-sm-5">
-			<superselect>
-				<superoption ng-repeat="course in courses" value="{{ course.name }}">{{ course.name }}</superoption>
-				<superoption></superoption>
-			</superselect>
-			<button type="button" class="btn btn-danger" style="vertical-align: top;">X</button>
-		</div>-->
-		<div class="col-sm-5">
-			<select multiple style="min-width: 50%">
-				<option ng-repeat="course in courses" value="{{ course.name }}">{{ course.name }}</option>
-				<option></option>
-			</select>
-			<button type="button" class="btn btn-danger" style="vertical-align: top;">X</button>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="course in courses" value="{{ course.name }}">{{ course.name }}
+					<a class="list-item-remove"><span class="glyphicon glyphicon-remove"></span></a>				
+				</li>
+			</ul>
 		</div>
 	</div>
 	<button type="submit" class="btn btn-success">Add Course Group</button>

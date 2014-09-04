@@ -26,7 +26,7 @@ angular.module('MyApp')
 		];
 
 		$scope.addCourse = function(name) {
-			$scope.courses.push({ name: name });
+			$scope.courses.unshift({ name: name });
 			name = "";
 		}
 

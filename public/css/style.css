@@ -19,6 +19,11 @@
 	padding-bottom: 7px;
 }
 
+.list-item-remove {
+	display:inline-block;
+	float:right;
+}
+
 /* superselect */
 .superselect {
 	min-width: 50%;
