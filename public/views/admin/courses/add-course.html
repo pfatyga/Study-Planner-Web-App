@@ -40,11 +40,16 @@
         </div>
 	</div>
 	<h3>Pre-Requisites (You can add more later)</h3>
-	<div class="form-group">		
+	<div class="form-group">	
 		<div ng-repeat="preReqGroup in preReqs">
 			<div style="display: inline;" ng-repeat="preReq in preReqGroup">
-				<input style="display:inline; width:10%" class="form-control" placeholder="e.g. CS392" type="text">
-				<button style="display:inline;" type="button" class="btn btn-primary" ng-click="preReqOr($parent.$index)">OR</button>			
+				<div class="input-group" style="width: 12%; display: inline-table;">
+					<input style="display:inline; " class="form-control" placeholder="e.g. CS392" type="text">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+					</span>
+				</div>
+				<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="preReqOr($parent.$index)">OR</button>			
 			</div>
 			<button style="display: block" type="button" class="btn btn-primary" ng-click="preReqAnd()">AND</button>
 		</div>
