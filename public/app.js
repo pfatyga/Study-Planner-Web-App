@@ -1,6 +1,6 @@
 angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui.router', 'mgcrea.ngStrap'])
 	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
-		//$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(true);
 
 		$urlRouterProvider.otherwise('/');
 
@@ -37,22 +37,62 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui
 			})
 			.state('admin.courses', {
 				url: '/courses',
-				templateUrl: 'views/admin/courses.html',
-				controller: 'CoursesController'
+				templateUrl: 'views/admin/courses/courses.html',
+				controller: 'AdminCoursesController'
+			})
+			.state('admin.courses.list', {
+				url: '/list',
+				templateUrl: 'views/admin/courses/course-list.html',
+				controller: 'AdminCourseListController'
 			})
 			.state('admin.courses.add', {
-				url: '/add-course',
+				url: '/add',
 				templateUrl: 'views/admin/courses/add-course.html',
-				controller: 'AddCourseController'
+				controller: 'AdminAddCourseController'
+			})
+			.state('admin.courses.edit', {
+				url: '/edit/:courseId',
+				templateUrl: 'views/admin/courses/edit-course.html',
+				controller: 'AdminEditCourseController'
 			})
 			.state('admin.course-groups', {
 				url: '/course-groups',
-				templateUrl: 'views/admin/course-groups.html',
-				controller: 'CourseGroupsController'
+				templateUrl: 'views/admin/course-groups/course-groups.html',
+				controller: 'AdminCourseGroupsController'
+			})
+			.state('admin.course-groups.list', {
+				url: '/list',
+				templateUrl: 'views/admin/course-groups/course-group-list.html',
+				controller: 'AdminCourseGroupListController'
+			})
+			.state('admin.course-groups.add', {
+				url: '/add',
+				templateUrl: 'views/admin/course-groups/add-course-group.html',
+				controller: 'AdminAddCourseGroupController'
+			})
+			.state('admin.course-groups.edit', {
+				url: '/edit/:courseGroupId',
+				templateUrl: 'views/admin/course-groups/edit-course-group.html',
+				controller: 'AdminEditCourseGroupController'
 			})
 			.state('admin.degrees', {
 				url: '/degrees',
-				templateUrl: 'views/admin/degrees.html',
-				controller: 'DegreesController'
+				templateUrl: 'views/admin/degrees/degrees.html',
+				controller: 'AdminDegreesController'
+			})
+			.state('admin.degrees.list', {
+				url: '/list',
+				templateUrl: 'views/admin/degrees/degree-list.html',
+				controller: 'AdminDegreeListController'
+			})
+			.state('admin.degrees.add', {
+				url: '/add',
+				templateUrl: 'views/admin/degrees/add-degree.html',
+				controller: 'AdminAddDegreeController'
+			})
+			.state('admin.degrees.edit', {
+				url: '/edit/:degreeId',
+				templateUrl: 'views/admin/degrees/edit-degree.html',
+				controller: 'AdminEditDegreeController'
 			});
 	}]);

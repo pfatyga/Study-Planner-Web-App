@@ -1,8 +1,9 @@
 angular.module('MyApp')
-	.controller('AddCourseController', ['$scope', function($scope) {
+	.controller('AdminCoursesController', ['$scope', function($scope) {
 		// Test courses, should be loaded from a database
 		$scope.courses = [
 			{
+				id: 0,
 				prefix: "CS",
 				number: 284,
 				name: "Data Stuctures",
@@ -23,4 +24,9 @@ angular.module('MyApp')
 				offeredSummerTwoWebCampus: false,
 			}
 		];
+
+		$scope.deleteModal = {
+			title: "Delete Course",
+			content: "Are you sure you want to delete this course?"
+		};
 	}]);

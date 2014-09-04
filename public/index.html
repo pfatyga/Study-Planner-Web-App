@@ -21,7 +21,7 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li data-match-route="/admin"><a ui-sref="admin">Admin</a></li>
+				<li data-match-route="/admin"><a ui-sref="admin.dashboard">Admin</a></li>
 				<!--<li data-match-route="/help"><a ui-sref="help">Help</a></li>-->
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
@@ -66,9 +66,17 @@
 		<script src="controllers/admin/admin.js"></script>
 		<script src="controllers/admin/admin-dashboard.js"></script>
 		<script src="controllers/admin/admin-help.js"></script>
-		<script src="controllers/admin/courses.js"></script>
-		<script src="controllers/admin/courses/add-course.js"></script>
-		<script src="controllers/admin/course-groups.js"></script>
-		<script src="controllers/admin/degrees.js"></script>
+		<script src="controllers/admin/admin-courses.js"></script>
+		<script src="controllers/admin/courses/admin-course-list.js"></script>
+		<script src="controllers/admin/courses/admin-add-course.js"></script>
+		<script src="controllers/admin/courses/admin-edit-course.js"></script>
+		<script src="controllers/admin/admin-course-groups.js"></script>
+		<script src="controllers/admin/course-groups/admin-course-group-list.js"></script>
+		<script src="controllers/admin/course-groups/admin-add-course-group.js"></script>
+		<script src="controllers/admin/course-groups/admin-edit-course-group.js"></script>
+		<script src="controllers/admin/admin-degrees.js"></script>
+		<script src="controllers/admin/degrees/admin-degree-list.js"></script>
+		<script src="controllers/admin/degrees/admin-add-degree.js"></script>
+		<script src="controllers/admin/degrees/admin-edit-degree.js"></script>
 	</body>
 </html>

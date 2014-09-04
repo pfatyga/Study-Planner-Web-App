@@ -1,5 +1,5 @@
 angular.module('MyApp')
-	.controller('CoursesController', ['$scope', function($scope) {
+	.controller('AdminAddCourseController', ['$scope', function($scope) {
 		// Test courses, should be loaded from a database
 		$scope.courses = [
 			{

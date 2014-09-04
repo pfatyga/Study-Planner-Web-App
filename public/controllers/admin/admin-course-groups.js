@@ -1,16 +1,19 @@
 angular.module('MyApp')
-	.controller('CourseGroupsController', ['$scope', function($scope) {
+	.controller('AdminCourseGroupsController', ['$scope', function($scope) {
 		// TODO - load from database
 		$scope.courseGroups = [
 			{
+				id: 0,
 				name: "Computer Science",
 				courses: []
 			},
 			{
+				id: 1,
 				name: "Technical Electives",
 				courses: []
 			},
 			{
+				id: 2,
 				name: "Software Development Electives",
 				courses: []
 			},
