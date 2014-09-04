@@ -14,18 +14,18 @@
 	<body>
 		<div ng-controller="NavbarController" class="navbar navbar-default navbar-fixed-top" role="navigation" bs-navbar>
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">
+				<a class="navbar-brand" ui-sref="home">
 					<i class="icon-group"></i>
 					<span class="glyphicon glyphicon-send"></span>
 					<strong>Study Planner</strong>
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li data-match-route="/$"><a href="/">Home</a></li>
-				<li data-match-route="/help"><a href="/help">Help</a></li>
+				<li data-match-route="/admin"><a ui-sref="admin">Admin</a></li>
+				<!--<li data-match-route="/help"><a ui-sref="help">Help</a></li>-->
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-				<li data-match-route="/login"><a href="/login">Login</a></li>
+				<li data-match-route="/login"><a ui-sref="login">Login</a></li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="currentUser">
 				<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->
@@ -34,37 +34,13 @@
 			</ul>
 		</div>
 
-		<div class="row">
-			<div class="col-md-2">
-				<!-- Admin interface -->
-				<!-- TODO - only show if admin is logged in -->
-				<div class="bs-sidebar sidebar-main">
-					<ul class="nav bs-sidenav">
-						<li data-match-route="/admin/courses"><a href="admin/courses">Courses</a></li>
-						<li data-match-route="/admin/course-groups"><a href="admin/course-groups">Course Groups</a></li>
-						<li data-match-route="/admin/degrees"><a href="admin/degrees">Degrees</a></li>
-					</ul>
-				</div>
-
-				<!-- TODO - student interface -->
-				<!-- TODO - only show if admin is logged in -->
-				<div class="container" ng-if="false">
-					<ul class="nav nav-tabs" bs-navbar>
-						<li data-match-route="/student/home"><a href="student/home">Home</a></li>
-						<li data-match-route="/student/study-plan"><a href="student/study-plan">Study Plan</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md-10">
-				<div class="view-main" ng-view></div>
-			</div>
-		</div>
+		<div ui-view></div>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
 		
 		<script src="vendor/angular.js"></script>
+		<script src="vendor/angular-ui-router.js"></script>
 		<script src="vendor/angular-strap.js"></script>
 		<script src="vendor/angular-strap.tpl.js"></script>
 		<script src="vendor/angular-messages.js"></script>
@@ -87,9 +63,12 @@
 		<script src="controllers/login.js"></script>
 		<script src="controllers/navbar.js"></script>
 		<script src="controllers/help.js"></script>
-		<script src="controllers/admin.js"></script>
-		<script src="controllers/courses.js"></script>
-		<script src="controllers/course-groups.js"></script>
-		<script src="controllers/degrees.js"></script>
+		<script src="controllers/admin/admin.js"></script>
+		<script src="controllers/admin/admin-dashboard.js"></script>
+		<script src="controllers/admin/admin-help.js"></script>
+		<script src="controllers/admin/courses.js"></script>
+		<script src="controllers/admin/courses/add-course.js"></script>
+		<script src="controllers/admin/course-groups.js"></script>
+		<script src="controllers/admin/degrees.js"></script>
 	</body>
 </html>
