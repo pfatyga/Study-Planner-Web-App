@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+	<head>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Study Planner</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div ng-controller="NavbarController" class="navbar navbar-default navbar-fixed-top" role="navigation" bs-navbar>
+			<div class="navbar-header">
+				<a class="navbar-brand" ui-sref="home">
+					<i class="icon-group"></i>
+					<span class="glyphicon glyphicon-send"></span>
+					<strong>Study Planner</strong>
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li data-match-route="/admin"><a ui-sref="admin.dashboard">Admin</a></li>
+				<!--<li data-match-route="/help"><a ui-sref="help">Help</a></li>-->
+			</ul>
+			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+				<li data-match-route="/login"><a ui-sref="login">Login</a></li>
+			</ul>
+			<ul class="nav navbar-nav pull-right" ng-if="currentUser">
+				<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->
+				<li class="navbar-text">Name</li>
+				<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+			</ul>
+		</div>
+
+		<div ui-view></div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+		
+		<script src="vendor/angular.js"></script>
+		<script src="vendor/angular-ui-router.js"></script>
+		<script src="vendor/angular-strap.js"></script>
+		<script src="vendor/angular-strap.tpl.js"></script>
+		<script src="vendor/angular-messages.js"></script>
+		<script src="vendor/angular-resource.js"></script>
+		<script src="vendor/angular-route.js"></script>
+		<script src="vendor/angular-cookies.js"></script>
+		<script src="vendor/moment.min.js"></script>
+		
+		<script src="app.js"></script>
+		
+		<script src="/socket.io/socket.io.js"></script>
+
+		<script src="directives/ngEnter.js"></script>
+		<script src="directives/pane.js"></script>
+		<script src="directives/tabs.js"></script>
+		<script src="directives/superSelect.js"></script>
+		<script src="directives/superOption.js"></script>
+		
+		<script src="controllers/main.js"></script>
+		<script src="controllers/login.js"></script>
+		<script src="controllers/navbar.js"></script>
+		<script src="controllers/help.js"></script>
+		<script src="controllers/admin/admin.js"></script>
+		<script src="controllers/admin/admin-dashboard.js"></script>
+		<script src="controllers/admin/admin-help.js"></script>
+		<script src="controllers/admin/admin-courses.js"></script>
+		<script src="controllers/admin/courses/admin-course-list.js"></script>
+		<script src="controllers/admin/courses/admin-add-course.js"></script>
+		<script src="controllers/admin/courses/admin-edit-course.js"></script>
+		<script src="controllers/admin/admin-course-groups.js"></script>
+		<script src="controllers/admin/course-groups/admin-course-group-list.js"></script>
+		<script src="controllers/admin/course-groups/admin-add-course-group.js"></script>
+		<script src="controllers/admin/course-groups/admin-edit-course-group.js"></script>
+		<script src="controllers/admin/admin-degrees.js"></script>
+		<script src="controllers/admin/degrees/admin-degree-list.js"></script>
+		<script src="controllers/admin/degrees/admin-add-degree.js"></script>
+		<script src="controllers/admin/degrees/admin-edit-degree.js"></script>
+	</body>
+</html>

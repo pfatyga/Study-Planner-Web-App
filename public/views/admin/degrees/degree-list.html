@@ -1,0 +1,20 @@
+<h2>Degrees</h2>
+<a ui-sref="admin.degrees.add" class="btn btn-primary">Add Degree</a>
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th>Degree Name</th>
+			<th>Degree Path</th>
+			<th>For students entering in...</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="degree in degrees">
+			<td>{{ degree.name }}</td>
+			<td>Starting with {{ degree.startingWith }}</td>
+			<td>{{ degree.semester }}</td>
+			<td><a href="/degrees/detail-degree.html">Details</a> | <a ui-sref="admin.degrees.edit({ degreeId: 0 })">Edit</a> | <a href="javascript:void(0)" class="" data-animation="am-fade-and-scale" data-placement="center" data-template="views/admin/degrees/delete-degree.html" bs-modal="deleteModal">Delete</a></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,16 @@
+<h2>Course Groups</h2>
+<a ui-sref="admin.course-groups.add" class="btn btn-primary">Add Course Group</a>
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th>Course Group Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="courseGroup in courseGroups">
+			<td>{{ courseGroup.name }}</td>
+			<td><a ui-sref="admin.course-groups.edit({ courseGroupId: {{ courseGroup.id }} })">Edit</a> | <a href="javascript:void(0)" class="" data-animation="am-fade-and-scale" data-placement="center" data-template="views/admin/course-groups/delete-course-group.html" bs-modal="deleteModal">Delete</a></td>
+		</tr>
+	</tbody>
+</table>

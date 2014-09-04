@@ -1,0 +1,63 @@
+<h2>Add Course</h2>
+<form class="form-horizontal" name="addCourseForm" role="form">
+	<div class="form-group">
+		<label for="coursePrefix" class="col-sm-2 control-label">Course Prefix</label>
+		<div class="col-sm-10">
+			<input class="form-control input" type="text" id="coursePrefix" name="coursePrefix"
+			ng-model="coursePrefix" placeholder="e.g. CS" required autofocus>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseNumber" class="col-sm-2 control-label">Course Number</label>
+		<div class="col-sm-10">
+			<input class="form-control input" type="text" id="courseNumber" name="courseNumber"
+			ng-model="courseNumber" placeholder="e.g. 284" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseName" class="col-sm-2 control-label">Name of course</label>
+		<div class="col-sm-10">
+			<input class="form-control input" type="text" id="courseName" name="courseName"
+			ng-model="courseName" placeholder="e.g. Data Structures" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseCredit" class="col-sm-2 control-label">Amount of Credits</label>
+		<div class="col-sm-10">
+			<input class="form-control input" type="text" id="courseCredit" name="courseCredit"
+			ng-model="courseCredit" placeholder="e.g. 3" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseCredit" class="col-sm-2 control-label">Semesters Offered</label>
+		<div class="well col-sm-10">
+        	<ul id="check-list-box" class="list-group" style="margin-bottom:0px">
+              <li class="list-group-item"><input type="checkbox" ng-model="Fall"> Fall </li>
+              <li class="list-group-item"><input type="checkbox" ng-model="Spring"> Spring </li>
+              <li class="list-group-item"><input type="checkbox" ng-model="Summer1"> Summer1 </li>
+              <li class="list-group-item"><input type="checkbox" ng-model="Summer2"> Summer2 </li>
+            </ul>            
+        </div>
+	</div>
+	<h3>Pre-Requisites (You can add more later)</h3>
+		<div ng-repeat="course in courses">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" value="">
+						{{ course.prefix + course.number }}
+			  	</label>
+			</div>				
+		</div>
+	<h3>Co-Requisites (You can add more later)</h3>
+		<div ng-repeat="course in courses">
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" value="">
+						{{ course.prefix + course.number }}
+			  	</label>
+			</div>				
+		</div>
+	</br>
+	<button type="submit" class="btn btn-success">Add Course</button>
+	<a class="btn btn-link" ui-sref="admin.courses.list">Cancel</button>
+</form>
