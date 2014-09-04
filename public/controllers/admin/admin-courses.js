@@ -24,7 +24,6 @@ angular.module('MyApp')
 				offeredSummerTwoWebCampus: false,
 			}
 		];
-
 		$scope.deleteModal = {
 			title: "Delete Course",
 			content: "Are you sure you want to delete this course?"

@@ -40,14 +40,15 @@
         </div>
 	</div>
 	<h3>Pre-Requisites (You can add more later)</h3>
-		<div ng-repeat="course in courses">
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" value="">
-						{{ course.prefix + course.number }}
-			  	</label>
-			</div>				
+	<div class="form-group">		
+		<div ng-repeat="preReqGroup in preReqs">
+			<div style="display: inline;" ng-repeat="preReq in preReqGroup">
+				<input style="display:inline; width:10%" class="form-control" placeholder="e.g. CS392" type="text">
+				<button style="display:inline;" type="button" class="btn btn-primary" ng-click="preReqOr($parent.$index)">OR</button>			
+			</div>
+			<button style="display: block" type="button" class="btn btn-primary" ng-click="preReqAnd()">AND</button>
 		</div>
+	</div>	
 	<h3>Co-Requisites (You can add more later)</h3>
 		<div ng-repeat="course in courses">
 			<div class="checkbox">
