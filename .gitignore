@@ -8,4 +8,5 @@ tmp
 .idea
 *.png
 *.jpg
-/nbproject/private/
+nbproject/
+nbproject/private/
