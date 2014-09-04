@@ -1,59 +1,50 @@
 <h2>Add Degree</h2>
-<form name="addDegreeForm" role="form">
+<form class="form-horizontal" name="addDegreeForm" role="form">
 	<div class="form-group">
-		<label for="degreeDates">This degree program is for students entering in</label>
-		<select size="1">
-			<option>Fall</option>
-			<option>Spring</option>
-			<option>...</option>
-		</select>
-		<select size="1">
-			<option>2015</option>
-			<option>2016</option>
-			<option>...</option>
-		</select>
+		<label for="degreeDates" class="col-sm-2 control-label">This degree program is for students entering in</label>
+		<div class="col-sm-5">		
+			<select size="1">
+				<option>Fall</option>
+				<option>Spring</option>
+				<option>...</option>
+			</select>
+			<select size="1">
+				<option>2015</option>
+				<option>2016</option>
+				<option>...</option>
+			</select>
+		</div>
 	</div>
 	<div class="form-group">
-		<label for="degreeName">Degree name</label>
-		<input class="form-control input" type="text" id="degreeName" name="degreeName"
+		<label for="degreeName" class="col-sm-2 control-label">Degree name</label>
+		<div class="col-sm-5">		
+			<input class="form-control input" type="text" id="degreeName" name="degreeName" 
 			ng-model="degreeName" placeholder="e.g. Computer Science (CS)" required autofocus>
-	</div>
-<div class="form-group">
-		<label for="degreeName">Degree path</label>
-		<input class="form-control input" type="text" id="degreeName" name="degreeName"
-			ng-model="degreeName" placeholder="e.g. Starting with CS 115" required autofocus>
-	</div>
-	<h4>Select the courses that are part of this degree program</h4>
-	<div class="form-group">
-		This degree requires the student must take <select size="1"><option>at least</option><option>all</option><option>some</option></select> <select size="1"><option>1</option><option>2</option><option>...</option></select> of the CS Core classes.
-		<ol>
-			<li><input type="checkbox" name="" /> Introduction to Computer Science (CS115)</li>
-			<li><input type="checkbox" name="" /> Data Structures (CS284)</li>
-			<li><input type="checkbox" name="" /> Systems Programming (CS392)</li>
-			<li><input type="checkbox" name="" /> Software Development Process (CS347)</li>
-			<li><input type="checkbox" name="" /> Concurrent Programming (CS511)</li>
-			<li><input type="checkbox" name="" /> Operating Systems (CS492)</li>
-			<li><input type="checkbox" name="" /> Automata and Computation (CS334)</li>
-		</ol>
+		</div>
 	</div>
 	<div class="form-group">
-		This degree requires the student must take <select size="1"><option>at least</option><option>all</option><option>some</option></select> <select size="1"><option>1</option><option>2</option><option>...</option></select> of the Software Development Elective classes.
-		<ol>
-			<li><input type="checkbox" name="" /> Web Programming (CS546)</li>
-			<li><input type="checkbox" name="" /> TCP/IP Networking (CS521)</li>
-			<li><input type="checkbox" name="" /> Interactive Computer Graphics (CS537)</li>
-			<li><input type="checkbox" name="" /> Distributed and Cloud Computing (CS549)</li>
-			<li><input type="checkbox" name="" /> Compiler Design (CS516)</li>
-			<li><input type="checkbox" name="" /> Computer Vision (CS558)</li>
-		</ol>
+		<label for="degreePath" class="col-sm-2 control-label">Degree path</label>
+		<div class="col-sm-5">
+			<input class="form-control input" type="text" id="degreePath" name="degreePath"
+			ng-model="degreePath" placeholder="e.g. Starting with CS 115" required>
+		</div>
 	</div>
 	<div class="form-group">
-		This degree requires the student must take <select size="1"><option>at least</option><option>all</option><option>some</option></select> <select size="1"><option>1</option><option>2</option><option>...</option></select> of the 300 Level Humanity Elective classes.
-		<ol>
-			<li><input type="checkbox" name="" /> Science and the Media (HST320)</li>
-			<li><input type="checkbox" name="" /> Modern Literature (HLI312)</li>
-			<li><input type="checkbox" name="" /> Science Fiction (HLI316)</li>
-		</ol>
+		<label for="Courses" class="col-sm-2 control-label">Courses</label>
+		<div class="col-sm-10">		
+			<div ng-repeat="ReqGroup in reqs">
+				<div style="display: inline;" ng-repeat="Req in ReqGroup">
+					<div class="input-group" style="width: 20%; display: inline-table;">
+						<input style="display:inline; " class="form-control" placeholder="e.g. CS Core Classes" type="text">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+						</span>
+					</div>
+					<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="reqOr($parent.$index)">OR</button>			
+				</div>
+				<button style="display: block" type="button" class="btn btn-primary" ng-click="reqAnd()">AND</button>
+			</div>
+		</div>
 	</div>
 	<button type="submit" class="btn btn-success">Add Degree</button>
 	<a class="btn btn-link" ui-sref="admin.degrees.list">Cancel</button>
