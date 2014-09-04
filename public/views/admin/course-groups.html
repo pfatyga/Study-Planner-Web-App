@@ -12,8 +12,7 @@
 			  <tbody>
 			    <tr ng-repeat="courseGroup in courseGroups">
 			      <td>{{ courseGroup.name }}</td>
-			      <td><a href="/admin/course-groups/edit-course-group.html">Edit</a> | <a href="" ng-click="deleteCourseGroup()">Delete</a></td>
-					<!--<td><button class="btn" data-animation="am-fade-and-scale" data-placement="center" data-template="/views/admin/course-groups/delete-course-group.html" bs-modal="deleteModal">Delete</button></td>-->
+			      <td><a href="/admin/course-groups/edit-course-group.html">Edit</a> | <a href="" class="" data-animation="am-fade-and-scale" data-placement="center" data-template="views/admin/course-groups/delete-course-group.html" bs-modal="deleteModal">Delete</a></td>
 			    </tr>
 			  </tbody>
 			</table>
@@ -24,8 +23,8 @@
 		<pane title="Edit Course Group">
 			<div ng-include src="'/views/admin/course-groups/edit-course-group.html'"></div>
 		</pane>
-		<pane title="Delete Course Group">
+		<!--<pane title="Delete Course Group">
 			<div ng-include src="'/views/admin/course-groups/delete-course-group.html'"></div>
-		</pane>
+		</pane>-->
 	</tabs>
 </div>

@@ -22,24 +22,6 @@ angular.module('MyApp')
 			}*/
 		];
 
-		$scope.addCourseOld = function() {
-			//console.log("adding course");
-			//$scope.courses.push({ name: "" });
-
-			// TODO - Focus on next input
-			
-		};
-
-		$scope.removeCourseOld = function(index) {
-			console.log("removing course at index " + index);
-			if ($scope.courses.length > 1) {
-				$scope.courses.splice(index, 1);
-			}
-			else {
-				$scope.courses[index].name = "";
-			}
-		}
-
 		$scope.addCourse = function(name) {
 			$scope.courses.push({ name: name });
 			name = "";
@@ -52,6 +34,8 @@ angular.module('MyApp')
 		}
 
 		$scope.deleteModal = {
+			title: "Delete Course Group",
+			content: "Are you sure you want to delete this course group?"
 		};
 
 		$scope.deleteCourseGroup = function() {
