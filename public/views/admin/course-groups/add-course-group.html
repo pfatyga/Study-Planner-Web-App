@@ -14,7 +14,7 @@
 				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-enter="addCourse(courseToAdd); courseToAdd='';">
 			<ul class="list-group">
 				<li class="list-group-item" ng-repeat="course in courses" value="{{ course.name }}">{{ course.name }}
-					<a class="list-item-remove"><span class="glyphicon glyphicon-remove"></span></a>				
+					<a href="javascript:void(0)" class="list-item-remove"><span class="glyphicon glyphicon-remove"></span></a>				
 				</li>
 			</ul>
 		</div>

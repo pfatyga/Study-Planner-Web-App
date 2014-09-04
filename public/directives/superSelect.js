@@ -31,7 +31,7 @@ angular.module('MyApp')
 			},
 			template:
 				'<div class="super-select-wrapper">' +
-					'<select multiple size="8" class="superselect" ng-model="model" ng-change="onChange(element)" ng-transclude>' +
+					'<select multiple size="8" class="superselect form-control" ng-model="model" ng-change="onChange(element)" ng-transclude>' +
 					'</select>' +
 					'<button type="button" class="btn btn-danger btn-delete-superoption" ng-click="deleteOptions()">' +
 						'<span class="glyphicon glyphicon-remove"></span>' +
