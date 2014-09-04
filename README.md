@@ -1,8 +1,12 @@
-# Database Practicum (CS 443) project
+# Database Practicum (CS 443) Project: Study Planner Web App
 
 This is the repository for the Database Practicum (CS 443) project.
 
 ## Build
+
+Install [nodejs and npm](http://nodejs.org/).
+
+Then:
 
 	npm install
 
@@ -10,7 +14,7 @@ This is the repository for the Database Practicum (CS 443) project.
 
 	npm start
 
-Now, go to `http://localhost:3000`
+Then, go to `http://localhost:3000`
 
 ## Directory Layout
 
