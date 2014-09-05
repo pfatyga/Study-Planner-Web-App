@@ -3,10 +3,10 @@ angular.module('MyApp')
 		return {
 			restrict: 'E',
 			//terminal: true,
-			//replace: true,
+			replace: true,
 			scope: { val: '=', parentData: '=' },
 			link: function(scope, element, attrs) {
-				console.log(scope.val);
+				//console.log(scope.val);
 
 				// Create template depending on type of requirement
 				var template = "";
@@ -17,9 +17,12 @@ angular.module('MyApp')
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
 						'</select> of the following' +
-						'<div ng-repeat="req in val.requirements">' +
-							'<requirement val="req" parent-data="val.requirements"></requirement>' +
-						'</div>' +
+						'<button type="button" ng-click="deleteSelf()">-</button>' +
+						'<ul style="list-style: none">' +
+							'<li ng-repeat="req in val.requirements">' +
+								'<requirement val="req" parent-data="val.requirements"></requirement>' +
+							'</li>' +
+						'</ul>' +
 						'<button type="button" ng-click="addRequirement()">+</button>' +
 					'</div>'
 				}
@@ -27,13 +30,14 @@ angular.module('MyApp')
 					template +=
 					'<div class="requirement course-requirement">' +
 						'<input type="text">' +
-						'<button type="button" ng-click="">-</button>' +
+						'<button type="button" ng-click="deleteSelf()">-</button>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseGroupRequirement') {
 					template +=
 					'<div class="requirement course-group-requirement">' +
 						'<select>' +
+							'<option value=""></option>' +
 							'<option value="All">All</option>' +
 							'<option value="1">1</option>' +
 							'<option value="2">2</option>' +
@@ -47,14 +51,34 @@ angular.module('MyApp')
 							'<option value="10">10</option>' +
 						'</select> from' +
 						'<input type="text">' +
-						'<button type="button" ng-click="">-</button>' +
+						'<button type="button" ng-click="deleteSelf()">-</button>' +
 					'</div>'
 				}
 
-				// TODO - functions
+				// Changes requirement type
+				scope.editRequirementType = function() {
+				}
+
+				// Removes requirement from parent
+				scope.deleteSelf = function(index) {
+					if (scope.parentData != null) {
+						var index = scope.parentData.indexOf(scope.val);
+						if (index >= 0) {
+							scope.parentData.splice(index, 1);
+						}
+					}
+				}
+
 				if (scope.val.type === 'AllorAnyRequirement') {
 					scope.addRequirement = function() {
-						// TODO - write this
+						scope.val.requirements.push({
+							type: 'CourseGroupRequirement',
+							parent: scope.val,
+							numCourses: 1,
+							courseGroup: 'CS'
+						});
+
+						console.log(scope.val);
 					}
 				}
 
