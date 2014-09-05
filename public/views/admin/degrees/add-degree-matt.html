@@ -1,0 +1,82 @@
+<h2>Add Degree</h2>
+<form class="form-horizontal" name="addDegreeForm" role="form">
+	<div class="form-group">
+		<label for="degreeDates" class="col-sm-2 control-label">This degree program is for students entering in</label>
+		<div class="col-sm-5">		
+			<select size="1">
+				<option>Fall</option>
+				<option>Spring</option>
+			</select>
+			<select size="1">
+				<option>2015</option>
+				<option>2016</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="degreeName" class="col-sm-2 control-label">Degree name</label>
+		<div class="col-sm-5">		
+			<input class="form-control input" type="text" id="degreeName" name="degreeName" 
+			ng-model="degreeName" placeholder="e.g. Computer Science (CS)" required autofocus>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="degreePath" class="col-sm-2 control-label">Degree path</label>
+		<div class="col-sm-5">
+			<input class="form-control input" type="text" id="degreePath" name="degreePath"
+			ng-model="degreePath" placeholder="e.g. Starting with CS 115" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="Requirements" class="col-sm-2 control-label">Requirements</label>
+		<div class="col-sm-10">
+			<div ng-if="rootRequirement.type == 'AllorAnyRequirement'">
+				{{ rootRequirement.type }}<select>
+					<option>All</option>
+					<option>Any</option>
+				</select> of the following
+				<div ng-repeat="requirement in rootRequirement.requirements">
+					{{ requirement.type }}<select>
+						<option></option>
+						<option>All</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+					</select> from 
+					<input type="text">
+					<button type="button" ng-click="deleteRequirement($index)">-</button>
+				</div>
+				<button type="button" ng-click="addRequirement()">+</button>
+			</div>
+			<div ng-if="rootRequirement.type == 'CourseRequirement'">
+				{{ rootRequirement.type }}<input type="text">
+				<button type="button" ng-click="">-</button>
+			</div>
+			<div ng-if="rootRequirement.type == 'CourseGroupRequirement'">
+				{{ rootRequirement.type }}<select>
+					<option></option>
+					<option>All</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+				</select> from 
+				<input type="text">
+				<button type="button" ng-click="deleteRequirement($index)">-</button>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="Requirements" class="col-sm-2 control-label">Requirements</label>
+		<div class="col-sm-10">
+			<requirement val="rootRequirement"></requirement>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-success">Add Degree</button>
+	<a class="btn btn-link" ui-sref="admin.degrees.list">Cancel</button>
+</form>

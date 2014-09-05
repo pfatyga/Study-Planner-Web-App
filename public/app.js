@@ -97,6 +97,11 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui
 				templateUrl: 'views/admin/degrees/add-degree.html',
 				controller: 'AdminAddDegreeController'
 			})
+			.state('admin.degrees.addMatt', {
+				url: '/add-matt',
+				templateUrl: 'views/admin/degrees/add-degree-matt.html',
+				controller: 'AdminAddDegreeMattController'
+			})
 			.state('admin.degrees.edit', {
 				url: '/edit/:degreeId',
 				templateUrl: 'views/admin/degrees/edit-degree.html',
