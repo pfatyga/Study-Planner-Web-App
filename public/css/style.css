@@ -2,8 +2,12 @@
 	position: fixed;
 }
 
-.sidebar-main .nav>.active:focus>a, .sidebar-main .nav>.active:hover>a, .sidebar-main .nav>.active>a {
+.sidebar-main .nav>.active>a {
 	background-color: #eee;
+}
+
+.sidebar-main .nav>.active:focus>a, .sidebar-main .nav>.active:hover>a {
+
 }
 
 .view-main {
