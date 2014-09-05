@@ -21,17 +21,17 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li data-match-route="/admin" class="dropdown">
-					<a ui-sref="admin.dashboard" class="dropdown-toggle">Admin</a>
+				<li ui-sref-active="active" class="dropdown">
+					<a ui-sref="admin" class="dropdown-toggle">Admin</a>
 					<ul class="dropdown-menu">
 						<li><a>Admin</a></li>
 						<li><a>Student</a></li>
 					</ul>
 				</li>
-				<!--<li data-match-route="/help"><a ui-sref="help">Help</a></li>-->
+				<!--<li ui-sref-active="active"><a ui-sref="help">Help</a></li>-->
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-				<li data-match-route="/login"><a ui-sref="login">Login</a></li>
+				<li ui-sref-active="active"><a ui-sref="login">Login</a></li>
 			</ul>
 			<ul class="nav navbar-nav pull-right" ng-if="currentUser">
 				<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->

@@ -2,8 +2,15 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui
 	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
 
-		$urlRouterProvider.otherwise('/');
+		// Set up redirects
+		$urlRouterProvider
+			.when('/admin', '/admin/dashboard')
+			.when('/admin/courses', '/admin/courses/list')
+			.when('/admin/course-groups', '/admin/course-groups/list')
+			.when('/admin/degrees', '/admin/degrees/list')
+			.otherwise('/');
 
+		// Set up states
 		$stateProvider
 			.state('home', {
 				url: '/',
