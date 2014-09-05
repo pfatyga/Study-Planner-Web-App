@@ -94,5 +94,10 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui
 				url: '/edit/:degreeId',
 				templateUrl: 'views/admin/degrees/edit-degree.html',
 				controller: 'AdminEditDegreeController'
+			})
+			.state('admin.degrees.details', {
+				url: '/details/:degreeId',
+				templateUrl: 'views/admin/degrees/detail-degree.html',
+				controller: 'AdminDetailDegreeController'
 			});
 	}]);
