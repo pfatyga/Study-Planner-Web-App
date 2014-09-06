@@ -31,7 +31,7 @@ angular.module('MyApp')
 				else if (scope.val.type === 'CourseRequirement') {
 					template +=
 					'<div class="requirement course-requirement">' +
-						'<input class="form-control" type="text" ng-model="val.courseName">' +
+						'<input class="form-control" type="text" placeholder="e.g. CS 284" ng-model="val.courseName">' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></span></button>' +
 					'</div>'
 				}
@@ -52,7 +52,7 @@ angular.module('MyApp')
 							'<option value="9">9</option>' +
 							'<option value="10">10</option>' +
 						'</select> from ' +
-						'<input class="form-control" type="text" ng-model="val.courseGroup">' +
+						'<input class="form-control" type="text" placeholder="e.g. CS 181 Core" ng-model="val.courseGroup">' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></span></button>' +
 					'</div>'
 				}
@@ -85,7 +85,7 @@ angular.module('MyApp')
 						scope.val.requirements.push({
 							//parent: scope.val,
 							type: 'CourseGroupRequirement',
-							numCourses: '',
+							numCourses: 'All',
 							courseGroup: ''
 						});
 
@@ -104,7 +104,7 @@ angular.module('MyApp')
 						newAllOrAnyRequirement.requirements.push({
 							//parent: newAllOrAnyRequirement,
 							type: 'CourseGroupRequirement',
-							numCourses: '',
+							numCourses: 'All',
 							courseGroup: ''
 						});
 

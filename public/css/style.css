@@ -38,11 +38,23 @@
 
 /* Requirement */
 .requirement {
-	margin: 4px 0;
+	margin: 0 0 12px 0;
+}
+
+.requirement .requirement {
+	margin: 12px 0;
 }
 
 .all-or-any-requirement {
-	margin: 8px 0;
+
+}
+
+.course-requirement {
+
+}
+
+.course-group-requirement {
+
 }
 
 .requirement .btn {
@@ -55,6 +67,7 @@
 
 .requirement ul {
 	list-style: none;
+	margin: 0;
 }
 
 /* superselect */
