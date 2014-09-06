@@ -8,17 +8,23 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="addCourse" class="col-sm-2 control-label">Add Course</label>
+		<label for="courseToAdd" class="col-sm-2 control-label">Add Course</label>
 		<div class="col-sm-2">
 			<input class="form-control input" type="text" id="courseToAdd" name="courseToAdd"
-				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-enter="addCourse(courseToAdd); courseToAdd='';">
-			<ul class="list-group">
-				<li class="list-group-item" ng-repeat="course in courses" value="{{ course.name }}">{{ course.name }}
-					<a href="javascript:void(0)" class="list-item-remove"><span class="glyphicon glyphicon-remove"></span></a>				
+				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-enter="addCourse();">
+			<ul style="list-style: none; padding: 0;">
+				<li ng-repeat="course in courses" value="{{ course.name }}">
+					<div class="input-group">
+						<input class="form-control" type="text" ng-model="course.name">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" ng-click="deleteCourse($index);"><span class="glyphicon glyphicon-remove"></span></button>
+						</span>
+					 </div>	
 				</li>
 			</ul>
 		</div>
 	</div>
+	<pre>{{ courses | json }}</pre>
 	<button type="submit" class="btn btn-success">Add Course Group</button>
-	<a class="btn btn-link" ui-sref="admin.course-groups.list">Cancel</button>
+	<a class="btn btn-link" ui-sref="admin.course-groups.list">Cancel</a>
 </form>

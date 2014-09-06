@@ -19,29 +19,8 @@ angular.module('MyApp')
 			},
 		];
 
-		$scope.courses = [
-			/*{
-				name: ""
-			}*/
-		];
-
-		$scope.addCourse = function(name) {
-			$scope.courses.unshift({ name: name });
-			name = "";
-		}
-
-		$scope.removeCourse = function() {
-			console.log("removing course");
-
-			// TODO - remove selected courses
-		}
-
 		$scope.deleteModal = {
 			title: "Delete Course Group",
 			content: "Are you sure you want to delete this course group?"
-		};
-
-		$scope.deleteCourseGroup = function() {
-			confirm('Are you sure?');
 		};
 	}]);
