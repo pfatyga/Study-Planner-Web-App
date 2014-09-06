@@ -2,27 +2,16 @@ angular.module('MyApp')
 	.controller('AdminAddDegreeMattController', ['$scope', function($scope) {
 		console.log("AdminAddDegreeMattController is running");
 		$scope.rootRequirement = {
-			type: 'AllorAnyRequirement',
+			parent: null,
+			type: 'AllOrAnyRequirement',
 			allOrAny: 'All',
 			requirements: [
 				{
+					parent: $scope.rootRequirement,
 					type: 'CourseGroupRequirement',
-					numCourses: 1,
-					courseGroup: 'CS'
+					numCourses: 0,
+					courseGroup: ''
 				}
 			]
-		}
-
-		$scope.addRequirement = function() {
-			$scope.rootRequirement.requirements.push({
-				type: 'CourseGroupRequirement',
-				parent: $scope.rootRequirement,
-				numCourses: 1,
-				courseGroup: 'CS'
-			});
-		}
-
-		$scope.deleteRequirement = function(index) {
-			$scope.rootRequirement.requirements.splice(index, 1);
 		}
 	}]);

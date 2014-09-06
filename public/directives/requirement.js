@@ -10,33 +10,35 @@ angular.module('MyApp')
 
 				// Create template depending on type of requirement
 				var template = "";
-				if (scope.val.type === 'AllorAnyRequirement') {
+				if (scope.val.type === 'AllOrAnyRequirement') {
 					template +=
 					'<div class="requirement all-or-any-requirement">' +
 						'<select>' +
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
-						'</select> of the following' +
-						'<button type="button" ng-click="deleteSelf()">-</button>' +
+						'</select>' +
+						'<button type="button" ng-click="addCourseRequirement()">+ Course</button>' +
+						'<button type="button" ng-click="addCourseGroupRequirement()">+ Course Group</button>' +
+						'<button type="button" ng-click="addAllOrAnyRequirement()">+ Requirement Group</button>' +
+						'<button type="button" ng-click="deleteSelf()" ng-if="parentData">-</button>' +
 						'<ul style="list-style: none">' +
 							'<li ng-repeat="req in val.requirements">' +
 								'<requirement val="req" parent-data="val.requirements"></requirement>' +
 							'</li>' +
 						'</ul>' +
-						'<button type="button" ng-click="addRequirement()">+</button>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseRequirement') {
 					template +=
 					'<div class="requirement course-requirement">' +
-						'<input type="text">' +
+						'<input ng-model="val.courseName" type="text">' +
 						'<button type="button" ng-click="deleteSelf()">-</button>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseGroupRequirement') {
 					template +=
 					'<div class="requirement course-group-requirement">' +
-						'<select>' +
+						'<select ng-model="val.numCourses">' +
 							'<option value=""></option>' +
 							'<option value="All">All</option>' +
 							'<option value="1">1</option>' +
@@ -50,16 +52,12 @@ angular.module('MyApp')
 							'<option value="9">9</option>' +
 							'<option value="10">10</option>' +
 						'</select> from' +
-						'<input type="text">' +
+						'<input ng-model="val.courseGroup" type="text">' +
 						'<button type="button" ng-click="deleteSelf()">-</button>' +
 					'</div>'
 				}
 
-				// Changes requirement type
-				scope.editRequirementType = function() {
-				}
-
-				// Removes requirement from parent
+				// Removes requirement from parent (if parent exists)
 				scope.deleteSelf = function(index) {
 					if (scope.parentData != null) {
 						var index = scope.parentData.indexOf(scope.val);
@@ -69,16 +67,50 @@ angular.module('MyApp')
 					}
 				}
 
-				if (scope.val.type === 'AllorAnyRequirement') {
-					scope.addRequirement = function() {
+				// Functions for AllOfAnyRequirement
+				if (scope.val.type === 'AllOrAnyRequirement') {
+					// Adds a CourseRequirement
+					scope.addCourseRequirement = function() {
 						scope.val.requirements.push({
-							type: 'CourseGroupRequirement',
-							parent: scope.val,
-							numCourses: 1,
-							courseGroup: 'CS'
+							//parent: scope.val,
+							type: 'CourseRequirement',
+							courseName: ''
 						});
 
-						console.log(scope.val);
+						//console.log(scope.val);
+					}
+
+					// Adds a CourseGroupRequirement
+					scope.addCourseGroupRequirement = function() {
+						scope.val.requirements.push({
+							//parent: scope.val,
+							type: 'CourseGroupRequirement',
+							numCourses: 0,
+							courseGroup: ''
+						});
+
+						//console.log(scope.val);
+					}
+
+					// Adds an AllOrAnyRequirement
+					scope.addAllOrAnyRequirement = function() {
+						var newAllOrAnyRequirement = {
+							//parent: scope.val,
+							type: 'AllOrAnyRequirement',
+							allOrAny: 'All',
+							requirements: []
+						};
+
+						newAllOrAnyRequirement.requirements.push({
+							//parent: newAllOrAnyRequirement,
+							type: 'CourseGroupRequirement',
+							numCourses: 0,
+							courseGroup: ''
+						});
+
+						scope.val.requirements.push(newAllOrAnyRequirement);
+
+						//console.log(scope.val);
 					}
 				}
 
@@ -86,13 +118,6 @@ angular.module('MyApp')
 				var newElement = angular.element(template);
 				$compile(newElement)(scope);
 				element.replaceWith(newElement);
-			},
-			/*template:
-				'<div class="requirement" ng-if="val.type == "AllOrAnyRequirement">' +
-					'{{val.type}}<select>' +
-						'<option value="All">All</option>' +
-						'<option value="Any">Any</option>' +
-					'</select> of the following' +
-				'</div>',*/
+			}
 		};
 	});
