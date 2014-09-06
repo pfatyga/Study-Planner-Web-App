@@ -13,14 +13,14 @@ angular.module('MyApp')
 				if (scope.val.type === 'AllOrAnyRequirement') {
 					template +=
 					'<div class="requirement all-or-any-requirement">' +
-						'<select>' +
+						'<select class="form-control">' +
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
 						'</select>' +
-						'<button type="button" ng-click="addCourseRequirement()">+ Course</button>' +
-						'<button type="button" ng-click="addCourseGroupRequirement()">+ Course Group</button>' +
-						'<button type="button" ng-click="addAllOrAnyRequirement()">+ Requirement Group</button>' +
-						'<button type="button" ng-click="deleteSelf()" ng-if="parentData">-</button>' +
+						'<button type="button" class="btn btn-default" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus"> Course</button>' +
+						'<button type="button" class="btn btn-default" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus"> Course Group</button>' +
+						'<button type="button" class="btn btn-default" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus"> Requirement Group</button>' +
+						'<button type="button" class="btn btn-default" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus"></button>' +
 						'<ul style="list-style: none">' +
 							'<li ng-repeat="req in val.requirements">' +
 								'<requirement val="req" parent-data="val.requirements"></requirement>' +
@@ -31,14 +31,14 @@ angular.module('MyApp')
 				else if (scope.val.type === 'CourseRequirement') {
 					template +=
 					'<div class="requirement course-requirement">' +
-						'<input ng-model="val.courseName" type="text">' +
-						'<button type="button" ng-click="deleteSelf()">-</button>' +
+						'<input class="form-control" type="text" ng-model="val.courseName">' +
+						'<button type="button" class="btn btn-default" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseGroupRequirement') {
 					template +=
 					'<div class="requirement course-group-requirement">' +
-						'<select ng-model="val.numCourses">' +
+						'<select class="form-control" ng-model="val.numCourses">' +
 							'<option value=""></option>' +
 							'<option value="All">All</option>' +
 							'<option value="1">1</option>' +
@@ -51,9 +51,9 @@ angular.module('MyApp')
 							'<option value="8">8</option>' +
 							'<option value="9">9</option>' +
 							'<option value="10">10</option>' +
-						'</select> from' +
-						'<input ng-model="val.courseGroup" type="text">' +
-						'<button type="button" ng-click="deleteSelf()">-</button>' +
+						'</select> from ' +
+						'<input class="form-control" type="text" ng-model="val.courseGroup">' +
+						'<button type="button" class="btn btn-default" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
 					'</div>'
 				}
 
