@@ -1,3 +1,4 @@
+/* Sidebar */
 .sidebar-main {
 	position: fixed;
 }
@@ -10,6 +11,7 @@
 
 }
 
+/* Views */
 .view-main {
 	margin-top: 60px;
 }
@@ -18,6 +20,7 @@
 	margin-top: -16px;
 }
 
+/* Form */
 .input-group-btn select {
 	border-color: #ccc;
 	background: none;
@@ -27,9 +30,31 @@
 	padding-bottom: 7px;
 }
 
+/* Misc */
 .list-item-remove {
-	display:inline-block;
-	float:right;
+	display: inline-block;
+	float: right;
+}
+
+/* Requirement */
+.requirement {
+	margin: 4px 0;
+}
+
+.all-or-any-requirement {
+	margin: 8px 0;
+}
+
+.requirement .btn {
+	margin: 0 1px;
+}
+
+.requirement select {
+	margin: 0 1px;
+}
+
+.requirement ul {
+	list-style: none;
 }
 
 /* superselect */

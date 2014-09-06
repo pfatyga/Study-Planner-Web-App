@@ -17,11 +17,11 @@ angular.module('MyApp')
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
 						'</select>' +
-						'<button type="button" class="btn btn-default" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus"> Course</button>' +
-						'<button type="button" class="btn btn-default" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus"> Course Group</button>' +
-						'<button type="button" class="btn btn-default" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus"> Requirement Group</button>' +
-						'<button type="button" class="btn btn-default" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus"></button>' +
-						'<ul style="list-style: none">' +
+						'<button type="button" class="btn btn-success" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus"> Course</button>' +
+						'<button type="button" class="btn btn-success" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus"> Course Group</button>' +
+						'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus"> Requirement Group</button>' +
+						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus"></button>' +
+						'<ul>' +
 							'<li ng-repeat="req in val.requirements">' +
 								'<requirement val="req" parent-data="val.requirements"></requirement>' +
 							'</li>' +
@@ -32,7 +32,7 @@ angular.module('MyApp')
 					template +=
 					'<div class="requirement course-requirement">' +
 						'<input class="form-control" type="text" ng-model="val.courseName">' +
-						'<button type="button" class="btn btn-default" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
+						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseGroupRequirement') {
@@ -53,7 +53,7 @@ angular.module('MyApp')
 							'<option value="10">10</option>' +
 						'</select> from ' +
 						'<input class="form-control" type="text" ng-model="val.courseGroup">' +
-						'<button type="button" class="btn btn-default" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
+						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></button>' +
 					'</div>'
 				}
 
