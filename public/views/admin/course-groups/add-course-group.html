@@ -11,11 +11,11 @@
 		<label for="courseToAdd" class="col-sm-2 control-label">Add Course</label>
 		<div class="col-sm-2">
 			<input class="form-control input" type="text" id="courseToAdd" name="courseToAdd"
-				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-enter="addCourse();">
+				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-options="course for course in allCourses" bs-typeahead data-placement="bottom-left" data-min-length="0" ng-enter="addCourse();">
 			<ul style="list-style: none; padding: 0;">
-				<li ng-repeat="course in courses" value="{{ course.name }}">
+				<li ng-repeat="course in courses">
 					<div class="input-group">
-						<input class="form-control" type="text" ng-model="course.name">
+						<input class="form-control" type="text" ng-model="course">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button" ng-click="deleteCourse($index);"><span class="glyphicon glyphicon-remove"></span></button>
 						</span>
