@@ -4,9 +4,9 @@ angular.module('MyApp')
 			restrict: 'E',
 			//terminal: true,
 			replace: true,
-			scope: { val: '=', parentData: '=' },
+			scope: { val: '=', parentData: '=', allCourses: '=', allCourseGroups: '=' },
 			link: function(scope, element, attrs) {
-				//console.log(scope.val);
+				//console.log(scope.allCourses);
 
 				// Create template depending on type of requirement
 				var template = "";
@@ -23,7 +23,7 @@ angular.module('MyApp')
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus"></span></button>' +
 						'<ul>' +
 							'<li ng-repeat="req in val.requirements">' +
-								'<requirement val="req" parent-data="val.requirements"></requirement>' +
+								'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
 							'</li>' +
 						'</ul>' +
 					'</div>'
@@ -31,7 +31,7 @@ angular.module('MyApp')
 				else if (scope.val.type === 'CourseRequirement') {
 					template +=
 					'<div class="requirement course-requirement">' +
-						'<input class="form-control" type="text" placeholder="e.g. CS 284" ng-model="val.courseName">' +
+						'<input class="form-control" type="text" placeholder="e.g. CS 105" ng-model="val.courseName" ng-options="course for course in allCourses" bs-typeahead data-min-length="0">' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></span></button>' +
 					'</div>'
 				}
@@ -52,7 +52,7 @@ angular.module('MyApp')
 							'<option value="9">9</option>' +
 							'<option value="10">10</option>' +
 						'</select> from ' +
-						'<input class="form-control" type="text" placeholder="e.g. CS 181 Core" ng-model="val.courseGroup">' +
+						'<input class="form-control" type="text" placeholder="e.g. CS 105 Core" ng-model="val.courseGroup" ng-options="courseGroup for courseGroup in allCourseGroups" bs-typeahead data-min-length="0">' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></span></button>' +
 					'</div>'
 				}
