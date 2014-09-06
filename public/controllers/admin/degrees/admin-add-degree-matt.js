@@ -9,7 +9,7 @@ angular.module('MyApp')
 				{
 					parent: $scope.rootRequirement,
 					type: 'CourseGroupRequirement',
-					numCourses: 0,
+					numCourses: '',
 					courseGroup: ''
 				}
 			]
