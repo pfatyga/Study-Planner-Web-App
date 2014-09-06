@@ -34,6 +34,8 @@
 		</div>
 	</div>
 	<pre>{{ rootRequirement | json }}</pre>
+	<button class="btn btn-default" ng-click="getRequirementsBooleanExpression()">Get boolean expression</button>
+	<pre>{{ requirementsBooleanExpression }}</pre>
 	<button type="submit" class="btn btn-success">Add Degree</button>
 	<a class="btn btn-link" ui-sref="admin.degrees.list">Cancel</button>
 </form>

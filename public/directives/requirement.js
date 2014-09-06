@@ -13,7 +13,7 @@ angular.module('MyApp')
 				if (scope.val.type === 'AllOrAnyRequirement') {
 					template +=
 					'<div class="requirement all-or-any-requirement">' +
-						'<select class="form-control">' +
+						'<select class="form-control" ng-model="allOrAny">' +
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
 						'</select>' +
@@ -22,7 +22,7 @@ angular.module('MyApp')
 						'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus"></span> Requirement Group</button>' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus"></span></button>' +
 						'<ul>' +
-							'<li ng-repeat="req in val.requirements">' +
+							'<li draggable="true" ondragstart="onDragStart(event)" ondragend="onDragEnd(event)" ondragenter="onDragEnter(event)" ondragleave="onDragLeave(event)" ondragover="onDragOver(event)" ondrop="onDrop(event)" ng-repeat="req in val.requirements">' +
 								'<requirement val="req" parent-data="val.requirements"></requirement>' +
 							'</li>' +
 						'</ul>' +
@@ -55,6 +55,54 @@ angular.module('MyApp')
 						'<input class="form-control" type="text" placeholder="e.g. CS 181 Core" ng-model="val.courseGroup">' +
 						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()"><span class="glyphicon glyphicon-minus"></span></button>' +
 					'</div>'
+				}
+
+				// Drag and drop
+				this.onDragStart = function(event) {
+					console.log('onDragStart');
+					//console.log(event);
+					event.target.style.opacity = 0.4;
+
+					event.dataTransfer.effectAllowed = 'move';
+					event.dataTransfer.setData('text/html', event.target.innerHTML);
+				}
+				
+				this.onDragEnd = function(event) {
+					console.log('onDragEnd');
+					event.target.style.opacity = 1;
+				}
+
+				this.onDragEnter = function(event)  {
+					console.log('onDragEnter');
+				}
+
+				this.onDragLeave = function(event)  {
+					console.log('onDragLeave');
+				}
+
+				this.onDragOver = function(event)  {
+					//console.log('onDragOver');
+					if (event.preventDefault) {
+						event.preventDefault();
+					}
+
+					event.dataTransfer.dropEffect = 'move';
+				}
+
+				this.onDrop = function(event) {
+					console.log('onDrop');
+					if (event.stopPropagation) {
+						event.stopPropagation();
+					}
+
+					//console.log(event.dataTransfer);
+
+					var sourceHtml = event.dataTransfer.getData('text/html');
+					//console.log(sourceHtml);
+
+					console.log(event);
+
+					return false;
 				}
 
 				// Removes requirement from parent (if parent exists)
