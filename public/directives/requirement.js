@@ -13,7 +13,7 @@ angular.module('MyApp')
 				if (scope.val.type === 'AllOrAnyRequirement') {
 					template +=
 					'<div class="requirement all-or-any-requirement">' +
-						'<select class="form-control" ng-model="allOrAny">' +
+						'<select class="form-control" ng-model="val.allOrAny">' +
 							'<option value="All">All</option>' +
 							'<option value="Any">Any</option>' +
 						'</select>' +

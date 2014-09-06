@@ -24,10 +24,10 @@ angular.module('MyApp')
 		$scope.getRequirementBooleanExpressionRecursive = function(requirement) {
 			
 			if (requirement.type === 'CourseRequirement') {
-				return requirement.courseName;
+				return '\'' + requirement.courseName + '\'';
 			}
 			else if (requirement.type === 'CourseGroupRequirement') {
-				return requirement.numCourses + ' from ' + requirement.courseGroup;
+				return '\'' + requirement.numCourses + ' from ' + requirement.courseGroup + '\'';
 			}
 			else if (requirement.type === 'AllOrAnyRequirement') {
 				var result = '(';
