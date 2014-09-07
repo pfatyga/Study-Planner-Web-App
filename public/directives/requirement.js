@@ -39,7 +39,6 @@ angular.module('MyApp')
 					template +=
 					'<div class="requirement course-group-requirement">' +
 						'<select class="form-control" ng-model="val.numCourses">' +
-							'<option value=""></option>' +
 							'<option value="All">All</option>' +
 							'<option value="1">1</option>' +
 							'<option value="2">2</option>' +

@@ -57,7 +57,6 @@ angular.module('MyApp')
 		}
 
 		$scope.getRequirementBooleanExpressionRecursive = function(requirement) {
-			
 			if (requirement.type === 'CourseRequirement') {
 				return '\'' + requirement.courseName + '\'';
 			}
