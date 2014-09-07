@@ -13,31 +13,35 @@
 	</head>
 	<body>
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavbarController">
-			<div class="navbar-header">
-				<a class="navbar-brand" ui-sref="home">
-					<i class="icon-group"></i>
-					<span class="glyphicon glyphicon-send"></span>
-					<strong>Study Planner</strong>
-				</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li ui-sref-active="active" class="dropdown">
-					<a ui-sref="admin" class="dropdown-toggle">Admin</a>
-					<ul class="dropdown-menu">
-						<li><a>Admin</a></li>
-						<li><a>Student</a></li>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" ui-sref="home">
+						<i class="icon-group"></i>
+						<span class="glyphicon glyphicon-send"></span>
+						<strong>Study Planner</strong>
+					</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li ui-sref-active="active" class="dropdown">
+							<a ui-sref="admin" class="dropdown-toggle">Admin</a>
+							<ul class="dropdown-menu">
+								<li><a>Admin</a></li>
+								<li><a>Student</a></li>
+							</ul>
+						</li>
+						<!--<li ui-sref-active="active"><a ui-sref="help">Help</a></li>-->
 					</ul>
-				</li>
-				<!--<li ui-sref-active="active"><a ui-sref="help">Help</a></li>-->
-			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
-				<li ui-sref-active="active"><a ui-sref="login">Login</a></li>
-			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="currentUser">
-				<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->
-				<li class="navbar-text">Name</li>
-				<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
-			</ul>
+					<ul class="nav navbar-nav navbar-right" ng-if="!currentUser">
+						<li ui-sref-active="active"><a ui-sref="login">Login</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" ng-if="currentUser">
+						<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->
+						<li class="navbar-text">Name</li>
+						<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		<div class="view-main container-fluid" ui-view></div>

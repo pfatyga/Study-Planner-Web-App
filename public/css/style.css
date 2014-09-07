@@ -1,23 +1,41 @@
-/* Sidebar */
-.sidebar-main {
-	position: fixed;
-}
-
-.sidebar-main .nav>.active>a {
-	background-color: #eee;
-}
-
-.sidebar-main .nav>.active:focus>a, .sidebar-main .nav>.active:hover>a {
-
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+	padding-top: 50px;
 }
 
 /* Views */
 .view-main {
-	margin-top: 60px;
 }
 
 .view-admin {
-	margin-top: -16px;
+}
+
+.admin-main {
+}
+
+/* Sidebar */
+.sidebar {
+	position: fixed;
+	top: 51px;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.nav-sidebar {
+	margin-bottom: 20px;
+	margin-left: -20px;
+}
+
+.nav-sidebar>.active>a {
+	background-color: #eee;
+}
+
+.nav-sidebar>.active:focus>a, .nav-sidebar>.active:hover>a {
+
 }
 
 /* Form */
@@ -34,6 +52,10 @@
 .list-item-remove {
 	display: inline-block;
 	float: right;
+}
+
+.page-header {
+	margin-top: 0;
 }
 
 /* Requirement */
