@@ -1,5 +1,6 @@
 angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui.router', 'mgcrea.ngStrap'])
-	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
+	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider',
+			 function($locationProvider, $stateProvider, $urlRouterProvider) {
 		$locationProvider.html5Mode(true);
 
 		// Set up redirects

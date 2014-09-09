@@ -42,8 +42,7 @@
 						<li ui-sref-active="active"><a ui-sref="login">Login</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right" ng-if="currentUser">
-						<!--<li class="navbar-text" ng-bind="currentUser.username"></li>-->
-						<li class="navbar-text">Name</li>
+						<li class="navbar-text" ng-bind="currentUser.username"></li>
 						<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
 					</ul>
 				</div>
@@ -85,6 +84,9 @@
 		<script src="directives/superOption.js"></script>
 		<script src="directives/editableList.js"></script>
 		<script src="directives/requirement.js"></script>
+
+		<!-- Include angular servies -->
+		<script src="services/auth.js"></script>
 		
 		<!-- Include angular controllers -->
 		<script src="controllers/main.js"></script>
