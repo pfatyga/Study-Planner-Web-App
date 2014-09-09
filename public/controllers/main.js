@@ -1,3 +1,6 @@
 angular.module('MyApp')
-	.controller('MainController', ['$scope', function($scope) {
+	.controller('MainController', ['$scope', '$rootScope', function($scope, $rootScope) {
+		$rootScope.currentUser = {
+			username: 'msmith'
+		};
 	}]);
