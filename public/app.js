@@ -58,6 +58,11 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'ui
 				templateUrl: 'views/admin/courses/add-course.html',
 				controller: 'AdminAddCourseController'
 			})
+			.state('admin.courses.addPeter', {
+				url: '/add-peter',
+				templateUrl: 'views/admin/courses/add-course-peter.html',
+				controller: 'AdminAddCourseController'
+			})
 			.state('admin.courses.edit', {
 				url: '/edit/:courseId',
 				templateUrl: 'views/admin/courses/edit-course.html',

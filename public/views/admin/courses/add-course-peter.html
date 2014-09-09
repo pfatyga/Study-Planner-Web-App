@@ -1,0 +1,127 @@
+<div class="page-header">
+	<h1>Add Course</h1>
+</div>
+<form class="form-horizontal" name="addCourseForm" role="form">
+	<div class="form-group">
+		<label for="coursePrefix" class="col-sm-2 control-label">Course Prefix</label>
+		<div class="col-sm-5">
+			<input class="form-control input" type="text" id="coursePrefix" name="coursePrefix"
+			ng-model="coursePrefix" placeholder="e.g. CS" required autofocus>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseNumber" class="col-sm-2 control-label">Course Number</label>
+		<div class="col-sm-5">
+			<input class="form-control input" type="text" id="courseNumber" name="courseNumber"
+			ng-model="courseNumber" placeholder="e.g. 284" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseName" class="col-sm-2 control-label">Name of course</label>
+		<div class="col-sm-5">
+			<input class="form-control input" type="text" id="courseName" name="courseName"
+			ng-model="courseName" placeholder="e.g. Data Structures" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseCredit" class="col-sm-2 control-label">Amount of Credits</label>
+		<div class="col-sm-1" style="min-width: 115px">
+			<!--<input class="form-control input" type="number" id="courseCredit" name="courseCredit"
+			ng-model="courseCredit" placeholder="e.g. 3" required>-->
+			<select class="form-control">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="courseCredit" class="col-sm-2 control-label">Semesters Offered</label>
+		<div class="col-sm-2">
+			<h4>On Campus</h4>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="fall" id="fall" name="fall">
+				<label for="fall">Fall</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="spring" id="spring" name="spring">
+				<label for="spring">Spring</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="summer1" id="summer1" name="summer1">
+				<label for="summer1">Summer I</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="summer2" id="summer2" name="summer2">
+				<label for="summer2">Summer II</label>
+			</div>
+        </div>
+		<div class="col-sm-2">
+			<h4>Web Campus</h4>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="fallWebCampus" id="fallWebCampus" name="fallWebCampus">
+				<label for="fallWebCampus">Fall</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="springWebCampus" id="springWebCampus" name="springWebCampus">
+				<label for="springWebCampus">Spring</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="summer1WebCampus" id="summer1WebCampus" name="summer1WebCampus">
+				<label for="summer1WebCampus">Summer I</label>
+			</div>
+			<div class="checkbox">
+				<input type="checkbox" ng-model="summer2WebCampus" id="summer2WebCampus" name="summer2WebCampus">
+				<label for="summer2WebCampus">Summer II</label>
+			</div>
+        </div>
+	</div>
+	<div class="form-group">
+		<label for="" class="control-label col-sm-2">Pre-Requisites</label>
+		<div class="col-sm-10">
+			<div ng-repeat="preReqGroup in preReqs" style="margin-bottom:5px">
+				<div style="display: inline;" ng-repeat="preReq in preReqGroup">
+					<div class="panel panel-default" style="width: 25%; padding:10px;">					
+						<div class="col-sm-9 input-group" style="display: inline-table;">
+							<input style="display:inline; " class="form-control" placeholder="e.g. CS392" type="text">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+							</span>
+						</div>
+						<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="preReqOr($parent.$index)">OR</button>
+					</div>
+					<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="preReqOr($parent.$index)">OR</button>
+				</div>
+				<button style="display: block" type="button" class="btn btn-primary" ng-click="preReqAnd()">AND</button>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="" class="control-label col-sm-2">Co-Requisites</label>
+		<div class="col-sm-10">
+			<div ng-repeat="coReqGroup in coReqs" style="margin-bottom:5px">
+				<div style="display: inline;" ng-repeat="coReq in coReqGroup">
+					<div class="input-group" style="width: 19%; display: inline-table;">
+						<input style="display:inline; " class="form-control" placeholder="e.g. CS392" type="text">
+						<span style="padding:0px" class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove	"></span></button>
+						</span>
+					</div>
+					<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="coReqOr($parent.$index)">OR</button>
+				</div>
+				<button style="display: block" type="button" class="btn btn-primary" ng-click="coReqAnd()">AND</button>
+			</div>
+		</div>
+	</div>
+	</br>
+	<button type="submit" class="btn btn-success">Add Course</button>
+	<a class="btn btn-link" ui-sref="admin.courses.list">Cancel</a>
+</form>
