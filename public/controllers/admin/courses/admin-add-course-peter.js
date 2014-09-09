@@ -2,13 +2,13 @@ angular.module('MyApp')
 	.controller('AdminAddCoursePeterController', ['$scope', function($scope) {
 		//console.log("AdminAddCoursePeterController controller running");
 		$scope.preReqs = [
-			[
-				[
-					[
-						{ name: "CS 181" }, {name: "CS 245" }
+			[	//this array element is AND'ed
+				[	//this array element is OR'ed
+					[	//this array element is AND'ed
+						{ name: "CS 181" }	//this array element is OR'ed
 					],
 					[
-						{ name: "CS 192" }, {name: "CS 265" }
+						{ name: "CS 192" }
 					]
 				],
 				[
