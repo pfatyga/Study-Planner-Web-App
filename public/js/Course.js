@@ -4,6 +4,8 @@ function Course() {
 	this.name = '';
 	this.credits = 0;
 
+	this.courseCoordinator = '';
+
 	this.offeredFallOnCampus = false;
 	this.offeredSpringOnCampus = false;
 	this.offeredSummerOneOnCampus = false;
