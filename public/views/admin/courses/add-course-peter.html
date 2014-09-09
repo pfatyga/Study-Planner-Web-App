@@ -89,7 +89,7 @@
 		<div class="col-sm-10">
 			<div ng-repeat="preReqGroup in preReqs" style="margin-bottom:5px">
 				<div ng-repeat="preReqSubGroup in preReqGroup" style="display: inline;">
-					<div class="panel panel-default" style="display:inline-block; padding:10px;">				
+					<div class="panel panel-default" style="vertical-align:top; display:inline-block; padding:10px;">				
 						<div ng-repeat="courseGroup in preReqSubGroup">
 							<div ng-repeat="course in courseGroup">
 								<div class="col-sm-9 input-group" style="display: inline-table;">
@@ -98,14 +98,14 @@
 										<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
 									</span>
 								</div>
-								<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="innerOr($parent.$index)">OR</button>
+								<button style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="innerOr($parent.$index)">OR</button>
 							</div>							
-							<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="innerAnd($parent.$index)">AND</button>	
+							<button style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="innerAnd($parent.$index)">AND</button>	
 						</div>
 					</div>
-					<button style="display:inline; vertical-align: top;" type="button" class="btn btn-primary" ng-click="outerOr($parent.$index)">OR</button>
+					<button style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="outerOr($parent.$index)">OR</button>
 				</div>
-				<button style="display: block" type="button" class="btn btn-primary" ng-click="outerAnd()">AND</button>
+				<button style="display: block" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="outerAnd()">AND</button>
 			</div>
 		</div>
 	</div>

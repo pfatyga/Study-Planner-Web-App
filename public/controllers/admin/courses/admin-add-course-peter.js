@@ -15,7 +15,7 @@ angular.module('MyApp')
 			this.$parent.courseGroup.push({ name: "" });
 		};
 
-		$scope.innerAnd = function(index) {
+		$scope.innerAnd = function() {
 			this.$parent.preReqSubGroup.push([{name: ""}]);
 		};
 
@@ -23,7 +23,7 @@ angular.module('MyApp')
 			this.$parent.preReqGroup.push([[{name: ""}]]);
 		};
 
-		$scope.outerAnd = function(index) {
+		$scope.outerAnd = function() {
 			this.$parent.preReqs.push([[[{name: ""}]]]);
 		};
 
