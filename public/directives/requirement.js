@@ -12,20 +12,23 @@ angular.module('MyApp')
 				var template = "";
 				if (scope.val.type === 'AllOrAnyRequirement') {
 					template +=
-					'<div class="requirement all-or-any-requirement">' +
-						'<select class="form-control" ng-model="val.allOrAny">' +
-							'<option value="All">All</option>' +
-							'<option value="Any">Any</option>' +
-						'</select>' +
-						'<button type="button" class="btn btn-success" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course</button>' +
-						'<button type="button" class="btn btn-success" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course Group</button>' +
-						'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Requirement Group</button>' +
-						'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus-sign"></span></button>' +
-						'<ul>' +
-							'<li ng-repeat="req in val.requirements">' +
-								'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
-							'</li>' +
-						'</ul>' +
+					'<div class="requirement all-or-any-requirement panel panel-default">' +
+						//'<div class="panel-heading">Title</div>' +
+						'<div class="panel-body">' +
+							'<select class="form-control" ng-model="val.allOrAny">' +
+								'<option value="All">All</option>' +
+								'<option value="Any">Any</option>' +
+							'</select>' +
+							'<button type="button" class="btn btn-success" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course</button>' +
+							'<button type="button" class="btn btn-success" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course Group</button>' +
+							'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Requirement Group</button>' +
+							'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus-sign"></span></button>' +
+							'<ul>' +
+								'<li ng-repeat="req in val.requirements">' +
+									'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
+								'</li>' +
+							'</ul>' +
+						'</div>' +
 					'</div>'
 				}
 				else if (scope.val.type === 'CourseRequirement') {
