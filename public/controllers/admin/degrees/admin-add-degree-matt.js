@@ -1,6 +1,5 @@
 angular.module('MyApp')
 	.controller('AdminAddDegreeMattController', ['$scope', function($scope) {
-		//console.log("AdminAddDegreeMattController is running");
 		$scope.allCourses = [
 			'CS 105',
 			'CS 110',

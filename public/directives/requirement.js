@@ -6,6 +6,11 @@ angular.module('MyApp')
 			replace: true,
 			scope: { val: '=', parentData: '=', allCourses: '=', allCourseGroups: '=' },
 			link: function(scope, element, attrs) {
+				// Pass to ui.sortable requirements list
+				var sortableOptions = {
+					connectWith: "sortable-requirements"
+				};
+
 				// Create template depending on type of requirement
 				var template = "";
 				if (scope.val.type === 'AllOrAnyRequirement') {
@@ -22,8 +27,8 @@ angular.module('MyApp')
 							'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Requirement Group</button>' +
 							'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus-sign"></span></button>' +
 							'<p style="margin: 0 2px">of the following</p>' +
-							'<ul>' +
-								'<li ng-repeat="req in val.requirements">' +
+							'<ul ui-sortable="sortableOptions" class="sortable-requirements" ng-model="val.requirements">' +
+								'<li ng-repeat="req in val.requirements"">' +
 									'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
 								'</li>' +
 							'</ul>' +
