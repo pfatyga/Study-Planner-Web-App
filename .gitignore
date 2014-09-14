@@ -2,7 +2,6 @@ logs/*
 node_modules/
 bower_components/
 components/
-vendor/
 tmp
 *~
 .DS_Store
