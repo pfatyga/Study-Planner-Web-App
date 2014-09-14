@@ -43,3 +43,4 @@ Then, go to `http://localhost:3000`
 			student/      - student templates
 		app.js        -  main application module
 		index.html    -  main template
+    server.js  - simple node express server
