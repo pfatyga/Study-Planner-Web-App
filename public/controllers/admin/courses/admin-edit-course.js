@@ -1,7 +1,10 @@
 angular.module('MyApp')
-	.controller('AdminEditCourseController', ['$scope', '$stateParams', function($scope, $stateParams) {
-		//console.log("AdminAddCourseController controller running");
-		console.log('courseId: ' + $stateParams.courseGroupId);
+	.controller('AdminEditCourseController', ['$scope', '$stateParams', 'Course', function($scope, $stateParams, Course) {
+		console.log('courseId: ' + $stateParams.courseId);
+
+		$scope.course = Course.getCourse($stateParams.courseId);
+		console.log($scope.course);
+
 		$scope.preReqs = [
 			[
 				{ name: "" }
