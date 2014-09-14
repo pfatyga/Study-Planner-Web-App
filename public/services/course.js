@@ -97,7 +97,7 @@ angular.module('MyApp')
 			},
 
 			editCourse: function(course) {
-				// TODO
+				this.courses[course.id] = course;
 			},
 
 			deleteCourse: function(course) {
