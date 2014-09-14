@@ -6,9 +6,14 @@ This is the repository for the Database Practicum (CS 443) project.
 
 Install [nodejs and npm](http://nodejs.org/).
 
+Install bower with npm:
+
+    npm install -g bower
+
 Then:
 
 	npm install
+    bower install
 
 ## Run
 
