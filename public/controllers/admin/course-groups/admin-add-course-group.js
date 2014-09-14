@@ -1,9 +1,11 @@
 angular.module('MyApp')
-	.controller('AdminAddCourseGroupController', ['$scope', '$state', 'Course', 'CourseGroup',
-				function($scope, $state, Course, CourseGroup) {
+	.controller('AdminAddCourseGroupController', ['$scope', '$state', 'CourseManager', 'CourseGroupManager',
+				function($scope, $state, CourseManager, CourseGroupManager) {
 		// Get list of all courses for autocomplete
-		$scope.allCourses = Course.getCourses().map(function(course) {
-			return course.prefix + ' ' + course.number;
+		CourseManager.getCourses(function(courses) {
+			$scope.allCourses = courses.map(function(course) {
+				return course.prefix + ' ' + course.number;
+			});
 		});
 
 		$scope.newCourseGroup = {
