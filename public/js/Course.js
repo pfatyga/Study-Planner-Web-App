@@ -1,10 +1,10 @@
 function Course() {
 	this.prefix = '';
-	this.number = 0;
+	this.number = '';
 	this.name = '';
-	this.credits = 0;
-
-	this.courseCoordinator = '';
+	this.description = '';
+	this.coordinator = '';
+	this.credits = '';
 
 	this.offeredFallOnCampus = false;
 	this.offeredSpringOnCampus = false;

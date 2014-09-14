@@ -5,6 +5,8 @@
 				"prefix": "CS",
 				"number": 105,
 				"name": "Introduction to Scientific Computing",
+				"description": "",
+				"coordinator": "",
 				"preRequisites": [
 				],
 				"coRequisites": [
@@ -24,6 +26,8 @@
 				"prefix": "CS",
 				"number": 110,
 				"name": "Creative Problem Solving with Computing",
+				"description": "",
+				"coordinator": "",
 				"preRequisites": [
 				],
 				"coRequisites": [
@@ -43,6 +47,8 @@
 				"prefix": "CS",
 				"number": 115,
 				"name": "Introduction to Computer Science",
+				"description": "",
+				"coordinator": "",
 				"preRequisites": [
 				],
 				"coRequisites": [
@@ -60,8 +66,96 @@
 			{
 				"id": 3,
 				"prefix": "CS",
+				"number": 135,
+				"name": "Discrete Stuctures",
+				"description": "",
+				"coordinator": "",
+				"preRequisites": [
+				],
+				"coRequisites": [
+				],
+				"credits": 3.0,
+				"offeredFallOnCampus": true,
+				"offeredSpringOnCampus": true,
+				"offeredSummerOneOnCampus": false,
+				"offeredSummerTwoOnCampus": false,
+				"offeredFallWebCampus": false,
+				"offeredSpringWebCampus": false,
+				"offeredSummerOneWebCampus": false,
+				"offeredSummerTwoWebCampus": false
+			},
+			{
+				"id": 4,
+				"prefix": "CS",
+				"number": 146,
+				"name": "Introduction to Web Programming and Project Development",
+				"description": "",
+				"coordinator": "",
+				"preRequisites": [
+				],
+				"coRequisites": [
+				],
+				"credits": 3.0,
+				"offeredFallOnCampus": true,
+				"offeredSpringOnCampus": false,
+				"offeredSummerOneOnCampus": false,
+				"offeredSummerTwoOnCampus": false,
+				"offeredFallWebCampus": false,
+				"offeredSpringWebCampus": false,
+				"offeredSummerOneWebCampus": false,
+				"offeredSummerTwoWebCampus": false
+			},
+			{
+				"id": 5,
+				"prefix": "CS",
+				"number": 181,
+				"name": "Introduction to Computer Science Honors I",
+				"description": "",
+				"coordinator": "",
+				"preRequisites": [
+				],
+				"coRequisites": [
+				],
+				"credits": 3.0,
+				"offeredFallOnCampus": true,
+				"offeredSpringOnCampus": false,
+				"offeredSummerOneOnCampus": false,
+				"offeredSummerTwoOnCampus": false,
+				"offeredFallWebCampus": false,
+				"offeredSpringWebCampus": false,
+				"offeredSummerOneWebCampus": false,
+				"offeredSummerTwoWebCampus": false
+			},
+			{
+				"id": 6,
+				"prefix": "CS",
+				"number": 182,
+				"name": "Introduction to Computer Science Honors II",
+				"description": "",
+				"coordinator": "",
+				"preRequisites": [
+					"CS 181"
+				],
+				"coRequisites": [
+					"CS 135"
+				],
+				"credits": 3.0,
+				"offeredFallOnCampus": false,
+				"offeredSpringOnCampus": true,
+				"offeredSummerOneOnCampus": false,
+				"offeredSummerTwoOnCampus": false,
+				"offeredFallWebCampus": false,
+				"offeredSpringWebCampus": false,
+				"offeredSummerOneWebCampus": false,
+				"offeredSummerTwoWebCampus": false
+			},
+			{
+				"id": 7,
+				"prefix": "CS",
 				"number": 284,
 				"name": "Data Stuctures",
+				"description": "",
+				"coordinator": "",
 				"preRequisites": [
 					"CS 115"
 				],

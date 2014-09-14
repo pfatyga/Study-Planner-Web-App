@@ -85,20 +85,78 @@ angular.module('MyApp')
 				return $.extend(new Course(), data);
 			}),
 
-			getCourses: function() {
-				return this.courses;
+			//courses: [],
+
+			// Returns array of courses
+			getCourses: function(callback) {
+				console.log('getting courses');
+				if (this.courses.length == 0 ) {
+					// Get data from json file
+					return $http.get('data/courses.json')
+						.success(function(data) {
+							this.courses = data.courses.map(function(course) {
+								return $.extend(new Course(), course);
+							});
+							console.log(this.courses);
+							callback(this.courses);
+						})
+						.error(function() {
+							console.log('failed to read \'data/courses.json\'');
+							return null;
+						});
+				}
+				else {
+					console.log(this.courses);
+					callback(this.courses);
+				}
 			},
 
-			getCourse: function(courseId) {
-				// TODO - error checking
-				return this.courses[courseId];
+			getCourse: function(courseId, callback) {
+				console.log('getting course');
+				if (this.courses.length == 0 ) {
+					return $http.get('data/courses.json')
+						.success(function(data) {
+							this.courses = data.courses.map(function(course) {
+								return $.extend(new Course(), course);
+							});
+							callback(this.courses[courseId]);
+						})
+						.error(function() {
+							console.log('failed to read \'data/courses.json\'');
+							return null;
+						});
+				}
+				else {
+					callback(this.courses[courseId]);
+				}
 			},
 
 			addCourse: function(course) {
-				// TODO
+				console.log('adding course');
+				if (this.courses.length == 0 ) {
+					$http.get('data/courses.json')
+						.success(function(data) {
+							this.courses = data.courses.map(function(course) {
+								return $.extend(new Course(), course);
+							});
+
+							course.id = this.courses.length;
+							this.courses.push(course);
+							console.log(this.courses);
+						})
+						.error(function() {
+							console.log('failed to read \'data/courses.json\'');
+						});
+				}
+				else {
+					course.id = this.courses.length;
+					this.courses.push(course);
+					console.log(this.courses);
+				}
 			},
 
 			editCourse: function(course) {
+				console.log('editing course');
 				this.courses[course.id] = course;
 			},
 

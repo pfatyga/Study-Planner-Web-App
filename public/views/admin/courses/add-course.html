@@ -1,26 +1,26 @@
 <div class="page-header">
 	<h1>Add Course</h1>
 </div>
-<form class="form-horizontal" name="addCourseForm" role="form">
+<form class="form-horizontal" name="addCourseForm" role="form" ng-submit="addCourse()">
 	<div class="form-group">
 		<label for="coursePrefix" class="col-sm-2 control-label">Course Prefix</label>
 		<div class="col-sm-5">
 			<input class="form-control input" type="text" id="coursePrefix" name="coursePrefix"
-			ng-model="coursePrefix" placeholder="e.g. CS" required autofocus>
+			ng-model="newCourse.prefix" placeholder="e.g. CS" required autofocus>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="courseNumber" class="col-sm-2 control-label">Course Number</label>
 		<div class="col-sm-5">
 			<input class="form-control input" type="text" id="courseNumber" name="courseNumber"
-			ng-model="courseNumber" placeholder="e.g. 284" required>
+			ng-model="newCourse.number" placeholder="e.g. 284" required>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="courseName" class="col-sm-2 control-label">Name of course</label>
 		<div class="col-sm-5">
 			<input class="form-control input" type="text" id="courseName" name="courseName"
-			ng-model="courseName" placeholder="e.g. Data Structures" required>
+			ng-model="newCourse.name" placeholder="e.g. Data Structures" required>
 		</div>
 	</div>
 	<div class="form-group">
@@ -28,7 +28,7 @@
 		<div class="col-sm-1" style="min-width: 115px">
 			<!--<input class="form-control input" type="number" id="courseCredit" name="courseCredit"
 			ng-model="courseCredit" placeholder="e.g. 3" required>-->
-			<select class="form-control">
+			<select class="form-control" ng-model="newCourse.credits">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -44,42 +44,42 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="courseCredit" class="col-sm-2 control-label">Semesters Offered</label>
+		<label for="" class="col-sm-2 control-label">Semesters Offered</label>
 		<div class="col-sm-2">
 			<h4>On Campus</h4>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="fall" id="fall" name="fall">
+				<input type="checkbox" ng-model="newCourse.offeredFallOnCampus" id="fall" name="fall">
 				<label for="fall">Fall</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="spring" id="spring" name="spring">
+				<input type="checkbox" ng-model="newCourse.offeredSpringOnCampus" id="spring" name="spring">
 				<label for="spring">Spring</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="summer1" id="summer1" name="summer1">
+				<input type="checkbox" ng-model="newCourse.offeredSummerOneOnCampus" id="summer1" name="summer1">
 				<label for="summer1">Summer I</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="summer2" id="summer2" name="summer2">
+				<input type="checkbox" ng-model="newCourse.offeredSummerTwoOnCampus" id="summer2" name="summer2">
 				<label for="summer2">Summer II</label>
 			</div>
         </div>
 		<div class="col-sm-2">
 			<h4>Web Campus</h4>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="fallWebCampus" id="fallWebCampus" name="fallWebCampus">
+				<input type="checkbox" ng-model="newCourse.offeredFallWebCampus" id="fallWebCampus" name="fallWebCampus">
 				<label for="fallWebCampus">Fall</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="springWebCampus" id="springWebCampus" name="springWebCampus">
+				<input type="checkbox" ng-model="newCourse.offeredSpringWebCampus" id="springWebCampus" name="springWebCampus">
 				<label for="springWebCampus">Spring</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="summer1WebCampus" id="summer1WebCampus" name="summer1WebCampus">
+				<input type="checkbox" ng-model="newCourse.offeredSummerOneWebCampus" id="summer1WebCampus" name="summer1WebCampus">
 				<label for="summer1WebCampus">Summer I</label>
 			</div>
 			<div class="checkbox">
-				<input type="checkbox" ng-model="summer2WebCampus" id="summer2WebCampus" name="summer2WebCampus">
+				<input type="checkbox" ng-model="newCourse.offeredSummerTwoWebCampus" id="summer2WebCampus" name="summer2WebCampus">
 				<label for="summer2WebCampus">Summer II</label>
 			</div>
         </div>
