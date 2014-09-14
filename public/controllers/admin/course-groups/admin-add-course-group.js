@@ -36,7 +36,7 @@ angular.module('MyApp')
 		}
 
 		$scope.addCourseGroup = function() {
-			CourseGroup.addCourseGroup($scope.newCourseGroup);
+			CourseGroupManager.addCourseGroup($scope.newCourseGroup);
 			$state.go('admin.course-groups');
 		}
 	}]);
