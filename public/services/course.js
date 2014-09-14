@@ -1,5 +1,5 @@
 angular.module('MyApp')
-	.factory('Course', [function() {
+	.factory('Course', ['$http', function($http) {
 		return {
 			// Test courses, should be loaded from a database
 			courses: [
@@ -81,7 +81,9 @@ angular.module('MyApp')
 					offeredSummerOneWebCampus: false,
 					offeredSummerTwoWebCampus: false,
 				}
-			],
+			].map(function(data) {
+				return $.extend(new Course(), data);
+			}),
 
 			getCourses: function() {
 				return this.courses;
