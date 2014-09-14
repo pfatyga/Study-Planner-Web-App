@@ -8,7 +8,7 @@ angular.module('MyApp')
 			signup: function(user) {
 			},
 			login: function(user) {
-				$rootScope.currentUser = data;
+				$rootScope.currentUser = user;
 				$location.path('/');
 				$alert({
 					title: 'Success!',
