@@ -1,12 +1,12 @@
 <div class="page-header">
 	<h1>Add Course Group</h1>
 </div>
-<form class="form-horizontal" name="addCourseGroupForm" role="form">
+<form class="form-horizontal" name="addCourseGroupForm" role="form" ng-submit="addCourseGroup()">
 	<div class="form-group">
 		<label for="courseGroupName" class="col-sm-2 control-label">Name of course group</label>
 		<div class="col-sm-5">
 			<input class="form-control input" type="text" id="courseGroupName" name="courseGroupName"
-				ng-model="courseGroupName" placeholder="e.g. Technical Electives" required autofocus>
+				ng-model="newCourseGroup.name" placeholder="e.g. Technical Electives" required autofocus>
 		</div>
 	</div>
 	<div class="form-group">
@@ -14,8 +14,8 @@
 		<div class="col-sm-2">
 			<input class="form-control input" type="text" id="courseToAdd" name="courseToAdd"
 				ng-model="courseToAdd" placeholder="e.g. CS 284" ng-options="course for course in allCourses" bs-typeahead data-placement="bottom-left" data-min-length="0" ng-enter="addCourse();">
-			<ul style="list-style: none; padding: 0;">
-				<li ng-repeat="course in courses">
+			<ul style="list-style: none; padding: 0;" ng-model="newCourseGroup.courses">
+				<li ng-repeat="course in newCourseGroup.courses">
 					<div class="input-group">
 						<input class="form-control" type="text" ng-model="course">
 						<span class="input-group-btn">
@@ -26,7 +26,7 @@
 			</ul>
 		</div>
 	</div>
-	<pre>{{ courses | json }}</pre>
+	<pre>{{ newCourseGroup.courses | json }}</pre>
 	<button type="submit" class="btn btn-success">Add Course Group</button>
 	<a class="btn btn-link" ui-sref="admin.course-groups.list">Cancel</a>
 </form>

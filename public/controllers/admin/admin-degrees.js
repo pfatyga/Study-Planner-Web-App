@@ -1,20 +1,6 @@
 angular.module('MyApp')
-	.controller('AdminDegreesController', ['$scope', function($scope) {
-		// TODO - use databse
-		$scope.degrees = [
-			{
-				id: 0,
-				name: 'Computer Science (CS)',
-				startingWith: 'CS 115',
-				semester: 'Fall 2015'
-			},
-			{
-				id: 1,
-				name: 'Cybersecurity (CyS)',
-				startingWith: 'CS 105',
-				semester: 'Fall 2015'
-			}
-		];
+	.controller('AdminDegreesController', ['$scope', 'Degree', function($scope, Degree) {
+		$scope.degrees = Degree.getDegrees();
 
 		$scope.deleteModal = {
 			title: "Delete Degree",

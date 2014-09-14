@@ -96,11 +96,13 @@ angular.module('MyApp')
 
 			getCourseGroup: function(courseGroupId) {
 				// TODO - error checking
+				// TODO - id is not always index
 				return this.courseGroups[courseGroupId];
 			},
 
 			addCourseGroup: function(courseGroup) {
-				// TODO
+				courseGroup.id = this.courseGroups.length;
+				this.courseGroups.push(courseGroup);
 			},
 
 			editCourseGroup: function(courseGroup) {
