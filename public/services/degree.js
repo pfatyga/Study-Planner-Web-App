@@ -15,7 +15,9 @@ angular.module('MyApp')
 					startingWith: 'CS 105',
 					semester: 'Fall 2015'
 				}
-			],
+			].map(function(data) {
+				return $.extend(new Degree(), data);
+			}),
 
 			getDegrees: function() {
 				return this.degrees;

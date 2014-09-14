@@ -88,7 +88,9 @@ angular.module('MyApp')
 					name: "Software Development Electives",
 					courses: []
 				},
-			],
+			].map(function(data) {
+				return $.extend(new CourseGroup(), data);
+			}),
 
 			getCourseGroups: function() {
 				return this.courseGroups;
