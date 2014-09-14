@@ -1,5 +1,5 @@
 angular.module('MyApp')
-	.factory('Course', ['$http', function($http) {
+	.factory('CourseManager', ['$http', function($http) {
 		return {
 			// Test courses, should be loaded from a database
 			courses: [

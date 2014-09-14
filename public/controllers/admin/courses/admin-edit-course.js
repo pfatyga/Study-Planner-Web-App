@@ -1,11 +1,12 @@
 angular.module('MyApp')
-	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'Course',
-				function($scope, $stateParams, $state, Course) {
+	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'CourseManager',
+				function($scope, $stateParams, $state, CourseManager) {
 		// Get course to be edited
-		$scope.course = Course.getCourse($stateParams.courseId);
+		$scope.course = CourseManager.getCourse($stateParams.courseId);
 
 		// Clone course
-		$scope.editedCourse = JSON.parse(JSON.stringify($scope.course));
+		$scope.editedCourse = $.extend(new Course(), JSON.parse(JSON.stringify($scope.course)));
+		console.log($scope.editedCourse);
 
 		// Saves the edited course
 		$scope.saveCourse = function() {

@@ -1,5 +1,5 @@
 angular.module('MyApp')
-	.factory('CourseGroup', [function() {
+	.factory('CourseGroupManager', [function() {
 		return {
 			// Test course groups, should be loaded from a database
 			courseGroups: [

@@ -1,6 +1,6 @@
 angular.module('MyApp')
-	.controller('AdminCourseGroupsController', ['$scope', 'CourseGroup', function($scope, CourseGroup) {
-		$scope.courseGroups = CourseGroup.getCourseGroups();
+	.controller('AdminCourseGroupsController', ['$scope', 'CourseGroupManager', function($scope, CourseGroupManager) {
+		$scope.courseGroups = CourseGroupManager.getCourseGroups();
 
 		$scope.deleteModal = {
 			title: "Delete Course Group",

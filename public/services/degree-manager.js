@@ -1,5 +1,5 @@
 angular.module('MyApp')
-	.factory('Degree', [function() {
+	.factory('DegreeManager', [function() {
 		return {
 			// Test degrees, should be loaded from a database
 			degrees: [
