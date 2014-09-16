@@ -2,19 +2,10 @@
 	<h1>Courses</h1>
 </div>
 <a ui-sref="admin.courses.add" class="btn btn-primary">Add Course</a>
-<table class="table table-responsive">
-	<thead>
-		<tr>
-			<th>Number</th>
-			<th>Name</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="course in courses">
-			<td>{{ course.prefix }} {{ course.number }}</td>
-			<td>{{ course.name }}</td>
-			<td><a ui-sref="admin.courses.edit({ courseId: {{ course.id }} })">Edit</a> | <a href="javascript:void(0)" class="" data-animation="am-fade-and-scale" data-placement="center" data-template="views/admin/courses/delete-course.html" bs-modal="deleteModal">Delete</a></td>
-		</tr>    
-	</tbody>
+<table class="table table-responsive" ng-table="courseTableParams">
+	<tr ng-repeat="course in $data">
+		<td data-title="'Number'" sortable="'number'">{{ course.prefix }} {{ course.number }}</td>
+		<td data-title="'Name'">{{ course.name }}</td>
+		<td data-title="'Action'"><a ui-sref="admin.courses.edit({ courseId: {{ course.id }} })">Edit</a> | <a href="javascript:void(0)" class="" data-animation="am-fade-and-scale" data-placement="center" data-template="views/admin/courses/delete-course.html" bs-modal="deleteModal">Delete</a></td>
+	</tr>
 </table>

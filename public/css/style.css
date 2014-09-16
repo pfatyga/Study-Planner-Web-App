@@ -105,6 +105,7 @@ body {
 	
 }
 
+
 /* superselect */
 .superselect {
 	min-width: 50%;
@@ -112,4 +113,19 @@ body {
 
 .btn-delete-superoption {
 	vertical-align: top;
+}
+
+
+/* ngTable */
+.ng-table th {
+	text-align: left;
+}
+
+.ng-table th.sortable.sort-desc, .ng-table th.sortable.sort-asc {
+	background: none;
+}
+
+.ng-table th.sortable div:after, .ng-table th.sortable div:before {
+	right: inherit;
+	margin-left: 10px;
 }
