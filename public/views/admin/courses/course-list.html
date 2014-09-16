@@ -1,7 +1,7 @@
 <div class="page-header">
 	<h1>Courses</h1>
 </div>
-<a ui-sref="admin.courses.add" class="btn btn-primary">Add Course</a>
+<a ui-sref="admin.courses.add" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Add Course</a>
 <table class="table table-responsive" ng-table="courseTableParams">
 	<tr ng-repeat="course in $data">
 		<td data-title="'Number'" sortable="'number'">{{ course.prefix }} {{ course.number }}</td>
