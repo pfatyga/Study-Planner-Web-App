@@ -119,6 +119,12 @@ body {
 /* ngTable */
 .ng-table th {
 	text-align: left;
+	-webkit-touch-callout: inherit;
+	-webkit-user-select: inherit;
+	-khtml-user-select: inherit;
+	-moz-user-select: inherit;
+	-ms-user-select: inherit;
+	user-select: inherit;
 }
 
 .ng-table th.sortable.sort-desc, .ng-table th.sortable.sort-asc {
