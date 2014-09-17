@@ -1,6 +1,15 @@
 angular.module('MyApp')
-	.controller('AdminAddCourseController', ['$scope', function($scope) {
-		//console.log("AdminAddCourseController controller running");
+	.controller('AdminAddCourseController', ['$scope', '$state', 'CourseManager',
+				function($scope, $state, CourseManager) {
+		$scope.newCourse = new Course();
+
+		// Adds the new course to the system
+		$scope.addCourse = function() {
+			// TODO - validate
+			CourseManager.addCourse($scope.newCourse);
+			$state.go('admin.courses');
+		}
+
 		$scope.preReqs = [
 			[
 				{ name: "" }

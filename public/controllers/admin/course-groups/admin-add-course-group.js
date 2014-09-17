@@ -1,10 +1,17 @@
 angular.module('MyApp')
-	.controller('AdminAddCourseGroupController', ['$scope', function($scope) {
-		$scope.allCourses = [
-			'CS 105',
-			'CS 110',
-			'CS 115'
-		];
+	.controller('AdminAddCourseGroupController', ['$scope', '$state', 'CourseManager', 'CourseGroupManager',
+				function($scope, $state, CourseManager, CourseGroupManager) {
+		// Get list of all courses for autocomplete
+		CourseManager.getCourses(function(courses) {
+			$scope.allCourses = courses.map(function(course) {
+				return course.prefix + ' ' + course.number;
+			});
+		});
+
+		$scope.newCourseGroup = {
+			name: "",
+			courses: []
+		};
 
 		$scope.courses = [
 		];
@@ -15,16 +22,21 @@ angular.module('MyApp')
 				return;
 			}
 
-			var isAlreadyInGroup = $scope.courses.indexOf($scope.courseToAdd) >= 0;
+			var isAlreadyInGroup = $scope.newCourseGroup.courses.indexOf($scope.courseToAdd) >= 0;
 			if (isAlreadyInGroup) {
 				return;
 			}
 
-			$scope.courses.unshift(""+$scope.courseToAdd);
+			$scope.newCourseGroup.courses.unshift(""+$scope.courseToAdd);
 			$scope.courseToAdd = "";
 		}
 
 		$scope.deleteCourse = function(index) {
-			$scope.courses.splice(index, 1);
+			$scope.newCourseGroup.courses.splice(index, 1);
+		}
+
+		$scope.addCourseGroup = function() {
+			CourseGroupManager.addCourseGroup($scope.newCourseGroup);
+			$state.go('admin.course-groups');
 		}
 	}]);

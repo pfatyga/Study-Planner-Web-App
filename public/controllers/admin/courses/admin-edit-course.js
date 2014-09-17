@@ -1,7 +1,23 @@
 angular.module('MyApp')
-	.controller('AdminEditCourseController', ['$scope', '$stateParams', function($scope, $stateParams) {
-		//console.log("AdminAddCourseController controller running");
-		console.log('courseId: ' + $stateParams.courseGroupId);
+	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'CourseManager',
+				function($scope, $stateParams, $state, CourseManager) {
+		// Get course to be edited
+		CourseManager.getCourse($stateParams.courseId, function(course) {
+			$scope.course = course;
+			console.log($scope.course);
+
+			// Clone course
+			$scope.editedCourse = $.extend(new Course(), JSON.parse(JSON.stringify($scope.course)));
+			console.log($scope.editedCourse);
+		});
+
+		// Saves the edited course
+		$scope.saveCourse = function() {
+			// TODO - validate
+			CourseManager.editCourse($scope.editedCourse);
+			$state.go('admin.courses');
+		}
+
 		$scope.preReqs = [
 			[
 				{ name: "" }
