@@ -105,6 +105,7 @@ body {
 	
 }
 
+
 /* superselect */
 .superselect {
 	min-width: 50%;
@@ -112,4 +113,38 @@ body {
 
 .btn-delete-superoption {
 	vertical-align: top;
+}
+
+
+/* Form headings */
+.form-group h4 {
+	margin: 0;
+	padding-top: 7px;
+}
+
+
+/* Checkbox */
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+	margin-left: 0;
+}
+
+
+/* ngTable */
+.ng-table th {
+	text-align: left;
+	-webkit-touch-callout: inherit;
+	-webkit-user-select: inherit;
+	-khtml-user-select: inherit;
+	-moz-user-select: inherit;
+	-ms-user-select: inherit;
+	user-select: inherit;
+}
+
+.ng-table th.sortable.sort-desc, .ng-table th.sortable.sort-asc {
+	background: none;
+}
+
+.ng-table th.sortable div:after, .ng-table th.sortable div:before {
+	right: inherit;
+	margin-left: 10px;
 }
