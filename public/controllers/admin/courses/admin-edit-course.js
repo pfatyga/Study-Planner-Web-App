@@ -1,6 +1,8 @@
 angular.module('MyApp')
 	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'CourseManager',
-				function($scope, $stateParams, $state, CourseManager) {
+				function($scope, $stateParams, $state, CourseManager) {		
+		$scope.title = "Edit Course";
+		$scope.submit_text = "Save Course";
 		// Get course to be edited
 		CourseManager.getCourse($stateParams.courseId, function(course) {
 			$scope.course = course;

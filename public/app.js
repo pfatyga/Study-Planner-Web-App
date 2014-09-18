@@ -55,7 +55,7 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
 			})
 			.state('admin.courses.add', {
 				url: '/add',
-				templateUrl: 'views/admin/courses/add-course.html',
+				templateUrl: 'views/admin/courses/course-form.html',
 				controller: 'AdminAddCourseController'
 			})
 			.state('admin.courses.addPeter', {
@@ -65,7 +65,7 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
 			})
 			.state('admin.courses.edit', {
 				url: '/edit/:courseId',
-				templateUrl: 'views/admin/courses/edit-course.html',
+				templateUrl: 'views/admin/courses/course-form.html',
 				controller: 'AdminEditCourseController'
 			})
 			.state('admin.course-groups', {
