@@ -11,6 +11,13 @@ angular.module('MyApp')
 			]
 		];
 
+        $scope.buttonClass = function(last) {
+            if(last == true)
+                return "btn-primary";
+            else
+                return "btn-success";
+        };
+
 		$scope.innerOr = function() {
 			this.$parent.courseGroup.push({ name: "" });
 		};

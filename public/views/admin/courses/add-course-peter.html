@@ -106,14 +106,14 @@
 										<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"></span></button>
 									</span>
 								</div>
-								<button ng-show="!$last || show" style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="innerOr($parent.$index)">OR</button>
+								<button ng-show="!$last || show" style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn" ng-class="buttonClass($last)" ng-click="innerOr()">OR</button>
 							</div>
-							<button ng-show="!$last || show" style="margin-bottom:5px; display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="innerAnd($parent.$index)">AND</button>
+							<button ng-show="!$last || show" style="margin-bottom:5px; display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn" ng-class="buttonClass($last)" ng-click="innerAnd()">AND</button>
 						</div>
 					</div>
-					<button style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="outerOr($parent.$index)">OR</button>
+					<button style="display:inline; vertical-align: top;" ng-disabled="!$last" type="button" class="btn" ng-class="buttonClass($last)" ng-click="outerOr()">OR</button>
 				</div>
-				<button style="display: block" ng-disabled="!$last" type="button" class="btn btn-primary" ng-click="outerAnd()">AND</button>
+				<button style="display: block" ng-disabled="!$last" type="button" class="btn" ng-class="buttonClass($last)" ng-click="outerAnd()">AND</button>
 			</div>
 		</div>
 	</div>
