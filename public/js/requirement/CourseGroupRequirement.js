@@ -11,6 +11,12 @@ CourseGroupRequirement.prototype.constructor = CourseGroupRequirement;
 
 CourseGroupRequirement.prototype.type = 'CourseGroupRequirement';
 
+CourseGroupRequirement.prototype.checkPreqs = function(course, coursesTaken) {
+	// TODO - check if number of courses from group is in coursesTaken
+
+	return false;
+}
+
 CourseGroupRequirement.prototype.toString = function() {
 	return '\'' + this.numCourses + ' from ' + this.courseGroupName + '\'';
 }

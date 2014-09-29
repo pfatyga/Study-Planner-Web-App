@@ -37,8 +37,8 @@ angular.module('MyApp')
 
 		$scope.rootRequirement = {
 			//parent: null,
-			type: 'AllOrAnyRequirement',
-			allOrAny: 'All',
+			type: 'BoolRequirement',
+			andOrOr: 'AND',
 			requirements: [
 				{
 					//parent: $scope.rootRequirement,
@@ -62,14 +62,14 @@ angular.module('MyApp')
 			else if (requirement.type === 'CourseGroupRequirement') {
 				return '\'' + requirement.numCourses + ' from ' + requirement.courseGroup + '\'';
 			}
-			else if (requirement.type === 'AllOrAnyRequirement') {
+			else if (requirement.type === 'BoolRequirement') {
 				var result = '(';
 
 				for (var i = 0; i < requirement.requirements.length; i++) {
 					result += $scope.getRequirementBooleanExpressionRecursive(requirement.requirements[i]);
 					
 					if (i + 1 < requirement.requirements.length) {
-						if (requirement.allOrAny === 'All') {
+						if (requirement.andOrOr === 'AND') {
 							result += ' AND ';
 						}
 						else {

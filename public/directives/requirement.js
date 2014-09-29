@@ -13,20 +13,20 @@ angular.module('MyApp')
 
 				// Create template depending on type of requirement
 				var template = "";
-				if (scope.val.type === 'AllOrAnyRequirement') {
+				if (scope.val.type === 'BoolRequirement') {
 					template +=
 					'<div class="requirement all-or-any-requirement panel panel-default">' +
 						//'<div class="panel-heading">Title</div>' +
 						'<div class="panel-body">' +
-							'<select class="form-control" ng-model="val.allOrAny">' +
-								'<option value="All">All</option>' +
-								'<option value="Any">Any</option>' +
+							'<select class="form-control" ng-model="val.andOrOr">' +
+								'<option value="AND">AND</option>' +
+								'<option value="OR">OR</option>' +
 							'</select>' +
 							'<button type="button" class="btn btn-success" ng-click="addCourseRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course</button>' +
 							'<button type="button" class="btn btn-success" ng-click="addCourseGroupRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Course Group</button>' +
-							'<button type="button" class="btn btn-success" ng-click="addAllOrAnyRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Requirement Group</button>' +
+							'<button type="button" class="btn btn-success" ng-click="addBoolRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Bool Requirement</button>' +
 							'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus-sign"></span></button>' +
-							'<p style="margin: 0 2px">of the following</p>' +
+							'<p style="margin: 0 2px"></p>' +
 							'<ul ui-sortable="sortableOptions" class="sortable-requirements" ng-model="val.requirements">' +
 								'<li ng-repeat="req in val.requirements"">' +
 									'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
@@ -73,8 +73,8 @@ angular.module('MyApp')
 					}
 				}
 
-				// Functions for AllOfAnyRequirement
-				if (scope.val.type === 'AllOrAnyRequirement') {
+				// Functions for BoolRequirement
+				if (scope.val.type === 'BoolRequirement') {
 					// Adds a CourseRequirement
 					scope.addCourseRequirement = function() {
 						scope.val.requirements.push({
@@ -98,23 +98,23 @@ angular.module('MyApp')
 						//console.log(scope.val);
 					}
 
-					// Adds an AllOrAnyRequirement
-					scope.addAllOrAnyRequirement = function() {
-						var newAllOrAnyRequirement = {
+					// Adds a BoolRequirement
+					scope.addBoolRequirement = function() {
+						var newBoolRequirement = {
 							//parent: scope.val,
-							type: 'AllOrAnyRequirement',
-							allOrAny: 'All',
+							type: 'BoolRequirement',
+							andOrOr: 'AND',
 							requirements: []
 						};
 
-						newAllOrAnyRequirement.requirements.push({
-							//parent: newAllOrAnyRequirement,
+						newBoolRequirement.requirements.push({
+							//parent: newBoolRequirement,
 							type: 'CourseGroupRequirement',
 							numCourses: 'All',
 							courseGroup: ''
 						});
 
-						scope.val.requirements.push(newAllOrAnyRequirement);
+						scope.val.requirements.push(newBoolRequirement);
 
 						//console.log(scope.val);
 					}
