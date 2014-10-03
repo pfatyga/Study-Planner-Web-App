@@ -4,7 +4,7 @@ function Requirement() {
 
 Requirement.prototype.type = 'unknown';
 
-Requirement.prototype.checkPreqs = function(course, coursesTaken) {
+Requirement.prototype.checkPrereqs = function(coursesTaken) {
 	return true;
 }
 
