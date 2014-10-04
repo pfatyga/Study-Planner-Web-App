@@ -18,7 +18,7 @@ angular.module('MyApp')
 					'<div class="requirement all-or-any-requirement panel panel-default">' +
 						//'<div class="panel-heading">Title</div>' +
 						'<div class="panel-body">' +
-							'<select class="form-control" ng-model="val.andOrOr">' +
+							'<select class="form-control" ng-model="val.operator">' +
 								'<option value="AND">AND</option>' +
 								'<option value="OR">OR</option>' +
 							'</select>' +
@@ -27,9 +27,9 @@ angular.module('MyApp')
 							'<button type="button" class="btn btn-success" ng-click="addBoolRequirement()"><span class="glyphicon glyphicon-plus-sign"></span> Bool Requirement</button>' +
 							'<button type="button" class="btn btn-danger" ng-click="deleteSelf()" ng-if="parentData"><span class="glyphicon glyphicon-minus-sign"></span></button>' +
 							'<p style="margin: 0 2px"></p>' +
-							'<ul ui-sortable="sortableOptions" class="sortable-requirements" ng-model="val.requirements">' +
-								'<li ng-repeat="req in val.requirements"">' +
-									'<requirement data-val="req" data-parent-data="val.requirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
+							'<ul ui-sortable="sortableOptions" class="sortable-childRequirements" ng-model="val.childRequirements">' +
+								'<li ng-repeat="req in val.childRequirements"">' +
+									'<requirement data-val="req" data-parent-data="val.childRequirements" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>' +
 								'</li>' +
 							'</ul>' +
 						'</div>' +
@@ -77,7 +77,7 @@ angular.module('MyApp')
 				if (scope.val.type === 'BoolRequirement') {
 					// Adds a CourseRequirement
 					scope.addCourseRequirement = function() {
-						scope.val.requirements.push({
+						scope.val.childRequirements.push({
 							//parent: scope.val,
 							type: 'CourseRequirement',
 							courseName: ''
@@ -88,7 +88,7 @@ angular.module('MyApp')
 
 					// Adds a CourseGroupRequirement
 					scope.addCourseGroupRequirement = function() {
-						scope.val.requirements.push({
+						scope.val.childRequirements.push({
 							//parent: scope.val,
 							type: 'CourseGroupRequirement',
 							numCourses: 'All',
@@ -103,18 +103,18 @@ angular.module('MyApp')
 						var newBoolRequirement = {
 							//parent: scope.val,
 							type: 'BoolRequirement',
-							andOrOr: 'AND',
-							requirements: []
+							operator: 'AND',
+							childRequirements: []
 						};
 
-						newBoolRequirement.requirements.push({
+						newBoolRequirement.childRequirements.push({
 							//parent: newBoolRequirement,
 							type: 'CourseGroupRequirement',
 							numCourses: 'All',
 							courseGroup: ''
 						});
 
-						scope.val.requirements.push(newBoolRequirement);
+						scope.val.childRequirements.push(newBoolRequirement);
 
 						//console.log(scope.val);
 					}

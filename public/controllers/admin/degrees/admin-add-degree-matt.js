@@ -38,8 +38,8 @@ angular.module('MyApp')
 		$scope.rootRequirement = {
 			//parent: null,
 			type: 'BoolRequirement',
-			andOrOr: 'AND',
-			requirements: [
+			operator: 'AND',
+			childRequirements: [
 				{
 					//parent: $scope.rootRequirement,
 					type: 'CourseGroupRequirement',
