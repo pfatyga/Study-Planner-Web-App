@@ -65,11 +65,11 @@ angular.module('MyApp')
 			else if (requirement.type === 'BoolRequirement') {
 				var result = '(';
 
-				for (var i = 0; i < requirement.requirements.length; i++) {
-					result += $scope.getRequirementBooleanExpressionRecursive(requirement.requirements[i]);
+				for (var i = 0; i < requirement.childRequirements.length; i++) {
+					result += $scope.getRequirementBooleanExpressionRecursive(requirement.childRequirements[i]);
 					
-					if (i + 1 < requirement.requirements.length) {
-						if (requirement.andOrOr === 'AND') {
+					if (i + 1 < requirement.childRequirements.length) {
+						if (requirement.operator === 'AND') {
 							result += ' AND ';
 						}
 						else {
