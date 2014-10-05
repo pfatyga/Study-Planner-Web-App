@@ -1,7 +1,8 @@
 // Single course requirement
-function CourseRequirement(courseName) {
+function CourseRequirement(coursePrefix, courseName) {
 	Requirement.call(this);
 
+	this.coursePrefix = coursePrefix || '';
 	this.courseName = courseName || '';
 }
 
@@ -18,5 +19,12 @@ CourseRequirement.prototype.checkPrereqs = function(coursesTaken) {
 }
 
 CourseRequirement.prototype.toString = function() {
-	return '\'' + this.courseName + '\'';
+	return '\'' + this.coursePrefix + ' ' + this.courseName + '\'';
+}
+
+
+// Assumes expression looks like 'CS 115'
+CourseRequirement.fromExpression = function(expression) {
+	var parts = expression.split(' ');
+	return new CourseRequirement(parts[0], parts[1]);
 }
