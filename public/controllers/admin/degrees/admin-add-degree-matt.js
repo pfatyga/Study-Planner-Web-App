@@ -1,5 +1,8 @@
 angular.module('MyApp')
 	.controller('AdminAddDegreeMattController', ['$scope', function($scope) {
+		// Test RequirementExpressionParser
+		RequirementExpressionParser.test();
+
 		$scope.allCourses = [
 			'CS 105',
 			'CS 110',
