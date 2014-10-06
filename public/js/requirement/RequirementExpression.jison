@@ -8,9 +8,10 @@
 ")"						return ')';
 "AND"					return 'AND';
 "OR"					return 'OR';
-[0-9]					return 'DIGIT';
-[A-Z]					return 'UPPERCASE_LETTER';
-[a-z_]+					return 'WORD';
+[A-Z]{2}				return 'COURSE_PREFIX';
+[0-9]{3}				return 'COURSE_NUMBER';
+[0-9]+|"All"			return 'NUM_COURSES';
+[a-zA-Z_]+				return 'COURSE_GROUP';
 <<EOF>>					return 'EOF';
 
 /lex
@@ -34,28 +35,14 @@ Expression
 
 
 CourseExpression
-	: CoursePrefix CourseNumber
-		{ $$ = { type: 'CourseRequirement', course: $CoursePrefix + ' ' + $CourseNumber }; }
-	;
-
-CoursePrefix
-	: UPPERCASE_LETTER UPPERCASE_LETTER
-		{ $$ = $1 + $2; }
-	;
-
-CourseNumber
-	: DIGIT DIGIT DIGIT
-		{ $$ = '' + $1 + $2 + $3; }
+	: COURSE_PREFIX COURSE_NUMBER
+		{ $$ = { type: 'CourseRequirement', course: $1 + ' ' + $2 }; }
 	;
 
 
 CourseGroupExpression
-	: DIGIT 'from' WORD
+	: NUM_COURSES 'from' COURSE_GROUP
 		{ $$ = { type: 'CourseGroupRequirement', numCourses: $1, courseGroup: $3 }; }
-	;
-
-CourseGroupName
-	: DIGIT
 	;
 
 
