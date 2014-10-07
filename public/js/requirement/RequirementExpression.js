@@ -72,12 +72,12 @@
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,6],$V1=[1,7],$V2=[1,8],$V3=[5,16,18,19],$V4=[16,18,19],$V5=[9,11,14];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,6],$V1=[1,7],$V2=[1,8],$V3=[1,9],$V4=[5,15,17,18],$V5=[15,17,18],$V6=[9,10,12,13];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"E":3,"Expression":4,"EOF":5,"CourseExpression":6,"CourseGroupExpression":7,"BoolExpression":8,"COURSE_PREFIX":9,"COURSE_NUMBER":10,"NUM_COURSES":11,"from":12,"COURSE_GROUP":13,"(":14,"ExpressionList":15,")":16,"Operator":17,"AND":18,"OR":19,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",9:"COURSE_PREFIX",10:"COURSE_NUMBER",11:"NUM_COURSES",12:"from",13:"COURSE_GROUP",14:"(",16:")",18:"AND",19:"OR"},
-productions_: [0,[3,2],[4,1],[4,1],[4,1],[6,2],[7,3],[8,3],[15,3],[15,1],[17,1],[17,1]],
+symbols_: {"error":2,"E":3,"Expression":4,"EOF":5,"CourseExpression":6,"CourseGroupExpression":7,"BoolExpression":8,"STRING":9,"NUMBER":10,"from":11,"All":12,"(":13,"ExpressionList":14,")":15,"Operator":16,"AND":17,"OR":18,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",9:"STRING",10:"NUMBER",11:"from",12:"All",13:"(",15:")",17:"AND",18:"OR"},
+productions_: [0,[3,2],[4,1],[4,1],[4,1],[6,2],[7,3],[7,3],[8,3],[14,3],[14,1],[16,1],[16,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -89,22 +89,22 @@ break;
 case 5:
  this.$ = { type: 'CourseRequirement', course: $$[$0-1] + ' ' + $$[$0] }; 
 break;
-case 6:
+case 6: case 7:
  this.$ = { type: 'CourseGroupRequirement', numCourses: $$[$0-2], courseGroup: $$[$0] }; 
 break;
-case 7:
+case 8:
  this.$ = { type: 'BoolRequirement', operator: $$[$0-1].operator, childRequirements: $$[$0-1].elements }; 
 break;
-case 8:
+case 9:
  this.$ = $$[$0-2]; this.$.operator = $$[$0-1], this.$.elements.push($$[$0]); 
 break;
-case 9:
+case 10:
  this.$ = { elements: [$$[$0]] }; 
 break;
 }
 },
-table: [{3:1,4:2,6:3,7:4,8:5,9:$V0,11:$V1,14:$V2},{1:[3]},{5:[1,9]},o($V3,[2,2]),o($V3,[2,3]),o($V3,[2,4]),{10:[1,10]},{12:[1,11]},{4:13,6:3,7:4,8:5,9:$V0,11:$V1,14:$V2,15:12},{1:[2,1]},o($V3,[2,5]),{13:[1,14]},{16:[1,15],17:16,18:[1,17],19:[1,18]},o($V4,[2,9]),o($V3,[2,6]),o($V3,[2,7]),{4:19,6:3,7:4,8:5,9:$V0,11:$V1,14:$V2},o($V5,[2,10]),o($V5,[2,11]),o($V4,[2,8])],
-defaultActions: {9:[2,1]},
+table: [{3:1,4:2,6:3,7:4,8:5,9:$V0,10:$V1,12:$V2,13:$V3},{1:[3]},{5:[1,10]},o($V4,[2,2]),o($V4,[2,3]),o($V4,[2,4]),{10:[1,11]},{11:[1,12]},{11:[1,13]},{4:15,6:3,7:4,8:5,9:$V0,10:$V1,12:$V2,13:$V3,14:14},{1:[2,1]},o($V4,[2,5]),{9:[1,16]},{9:[1,17]},{15:[1,18],16:19,17:[1,20],18:[1,21]},o($V5,[2,10]),o($V4,[2,6]),o($V4,[2,7]),o($V4,[2,8]),{4:22,6:3,7:4,8:5,9:$V0,10:$V1,12:$V2,13:$V3},o($V6,[2,11]),o($V6,[2,12]),o($V5,[2,9])],
+defaultActions: {10:[2,1]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -581,28 +581,26 @@ case 0:/* skip whitespace */
 break;
 case 1:return 12;
 break;
-case 2:return 14;
+case 2:return 11;
 break;
-case 3:return 16;
+case 3:return 13;
 break;
-case 4:return 18;
+case 4:return 15;
 break;
-case 5:return 19;
+case 5:return 17;
 break;
-case 6:return 9;
+case 6:return 18;
 break;
-case 7:return 10;
+case 7:return 9;
 break;
-case 8:return 11;
+case 8:return 10;
 break;
-case 9:return 13;
-break;
-case 10:return 5;
+case 9:return 5;
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:from\b)/,/^(?:\()/,/^(?:\))/,/^(?:AND\b)/,/^(?:OR\b)/,/^(?:[A-Z]{2})/,/^(?:[0-9]{3})/,/^(?:[0-9]+|All\b)/,/^(?:[a-zA-Z_]+)/,/^(?:$)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10],"inclusive":true}}
+rules: [/^(?:\s+)/,/^(?:All\b)/,/^(?:from\b)/,/^(?:\()/,/^(?:\))/,/^(?:AND\b)/,/^(?:OR\b)/,/^(?:[a-zA-Z_]+)/,/^(?:[0-9]+)/,/^(?:$)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9],"inclusive":true}}
 });
 return lexer;
 })();

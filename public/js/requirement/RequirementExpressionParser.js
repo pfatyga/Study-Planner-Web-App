@@ -13,5 +13,5 @@ RequirementExpressionParser.test = function() {
 	parser.parse('CS 443');
 	parser.parse('(CS 443 AND (CS 511 OR CS 600))');
 	parser.parse('(CS 443 AND 2 from TechElectives AND (CS 511 OR CS 600))');
-	parser.parse('(CS 443 AND All from Math AND (CS 511 OR CS 600))');
+	parser.parse('(CS 443 AND All from CSCore AND (CS 511 OR CS 600))');
 }

@@ -3,15 +3,14 @@
 %%
 
 \s+						/* skip whitespace */
+"All"					return 'All';
 "from"					return 'from';
 "("						return '(';
 ")"						return ')';
 "AND"					return 'AND';
 "OR"					return 'OR';
-[A-Z]{2}				return 'COURSE_PREFIX';
-[0-9]{3}				return 'COURSE_NUMBER';
-[0-9]+|"All"			return 'NUM_COURSES';
-[a-zA-Z_]+				return 'COURSE_GROUP';
+[a-zA-Z_]+				return 'STRING';
+[0-9]+					return 'NUMBER';
 <<EOF>>					return 'EOF';
 
 /lex
@@ -35,13 +34,15 @@ Expression
 
 
 CourseExpression
-	: COURSE_PREFIX COURSE_NUMBER
+	: STRING NUMBER
 		{ $$ = { type: 'CourseRequirement', course: $1 + ' ' + $2 }; }
 	;
 
 
 CourseGroupExpression
-	: NUM_COURSES 'from' COURSE_GROUP
+	: NUMBER 'from' STRING
+		{ $$ = { type: 'CourseGroupRequirement', numCourses: $1, courseGroup: $3 }; }
+	| 'All' 'from' STRING
 		{ $$ = { type: 'CourseGroupRequirement', numCourses: $1, courseGroup: $3 }; }
 	;
 
