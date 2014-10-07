@@ -35,21 +35,21 @@ Expression
 
 CourseExpression
 	: STRING NUMBER
-		{ $$ = { type: 'CourseRequirement', course: $1 + ' ' + $2 }; }
+		{ $$ = new CourseRequirement($1, $2); }
 	;
 
 
 CourseGroupExpression
 	: NUMBER 'from' STRING
-		{ $$ = { type: 'CourseGroupRequirement', numCourses: $1, courseGroup: $3 }; }
+		{ $$ = new CourseGroupRequirement($1, $3); }
 	| 'All' 'from' STRING
-		{ $$ = { type: 'CourseGroupRequirement', numCourses: $1, courseGroup: $3 }; }
+		{ $$ = new CourseGroupRequirement($1, $3); }
 	;
 
 
 BoolExpression
 	: '(' ExpressionList ')'
-		{ $$ = { type: 'BoolRequirement', operator: $ExpressionList.operator, childRequirements: $ExpressionList.elements }; }
+		{ $$ = new BoolRequirement($ExpressionList.operator, $ExpressionList.elements); }
 	;
 
 ExpressionList

@@ -1,9 +1,9 @@
 // Boolean expression requirement
-function BoolRequirement() {
+function BoolRequirement(operator, childRequirements) {
 	Requirement.call(this);
 
-	this.operator = 'AND';
-	this.childRequirements = [];
+	this.operator = operator || 'AND';
+	this.childRequirements = childRequirements || [];
 }
 
 BoolRequirement.prototype = Object.create(Requirement.prototype);

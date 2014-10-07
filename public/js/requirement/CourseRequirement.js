@@ -1,9 +1,9 @@
 // Single course requirement
-function CourseRequirement(coursePrefix, courseName) {
+function CourseRequirement(coursePrefix, courseNumber) {
 	Requirement.call(this);
 
 	this.coursePrefix = coursePrefix || '';
-	this.courseName = courseName || '';
+	this.courseNumber = courseNumber || '';
 }
 
 CourseRequirement.prototype = Object.create(Requirement.prototype);
@@ -19,7 +19,7 @@ CourseRequirement.prototype.checkPrereqs = function(coursesTaken) {
 }
 
 CourseRequirement.prototype.toString = function() {
-	return '\'' + this.coursePrefix + ' ' + this.courseName + '\'';
+	return '\'' + this.coursePrefix + ' ' + this.courseNumber + '\'';
 }
 
 

@@ -87,13 +87,13 @@ case 1:
  console.log($$[$0-1]); return $$[$0-1]; 
 break;
 case 5:
- this.$ = { type: 'CourseRequirement', course: $$[$0-1] + ' ' + $$[$0] }; 
+ this.$ = new CourseRequirement($$[$0-1], $$[$0]); 
 break;
 case 6: case 7:
- this.$ = { type: 'CourseGroupRequirement', numCourses: $$[$0-2], courseGroup: $$[$0] }; 
+ this.$ = new CourseGroupRequirement($$[$0-2], $$[$0]); 
 break;
 case 8:
- this.$ = { type: 'BoolRequirement', operator: $$[$0-1].operator, childRequirements: $$[$0-1].elements }; 
+ this.$ = new BoolRequirement($$[$0-1].operator, $$[$0-1].elements); 
 break;
 case 9:
  this.$ = $$[$0-2]; this.$.operator = $$[$0-1], this.$.elements.push($$[$0]); 
