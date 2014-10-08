@@ -15,6 +15,9 @@
     "morgan": "~1.0.0"
   },
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-qunit": "^0.3.3",
+    "jison": "^0.4.13",
+    "node-qunit-phantomjs": "^0.2.2"
   }
 }

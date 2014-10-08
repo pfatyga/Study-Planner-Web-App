@@ -1,5 +1,6 @@
 var fs = require("fs");
 var gulp = require('gulp');
+var qunit = require('node-qunit-phantomjs');
 var jison = require('jison');
 
 gulp.task('jison', function() {
@@ -11,4 +12,5 @@ gulp.task('jison', function() {
 });
 
 gulp.task('test', function() {
+	qunit('./public/test/test-runner.html');
 })
