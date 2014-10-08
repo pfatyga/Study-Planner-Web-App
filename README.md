@@ -21,6 +21,12 @@ Then:
 
 Then, go to `http://localhost:3000`
 
+## Unit Tests
+
+	node test
+
+Then, go to `http://localhost:3000`
+
 ## Directory Layout
 
 	public/
@@ -37,6 +43,7 @@ Then, go to `http://localhost:3000`
             course-manager.js       - manages courses in system
             course-group-manager.js - manages course groups in system
             degree-manager.js       - manages degrees in system
+		test/         - unit tests
 		vendor/       - vendor javascript files
 		views/        - templates
 			admin/        - admin templates

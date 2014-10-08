@@ -1,8 +1,9 @@
-QUnit.test('Hello Test', function(assert) {
-	assert.ok(1 == '1', 'Passed!');
+QUnit.test('RequirementExpressionParser1', function(assert) {
+	RequirementExpressionParser.parse('CS 443');
+	assert.ok(true, 'Passed!');
 });
 
-QUnit.test('RequirementExpressionParser', function(assert) {
+QUnit.test('RequirementExpressionParser2', function(assert) {
 	console.log('RequirementExpressionParser Test');
 	assert.ok(true, 'Passed!');
 });
