@@ -54,16 +54,3 @@ BoolRequirement.prototype.toString = function() {
 
 	return result;
 }
-
-
-// Assumes expression looks like '(expression AND/OR expression AND/OR expression ...)'
-BoolRequirement.fromExpression = function(expression) {
-	// Get rid of parenthesis
-	expression = expression.substring(1, expression.length - 1);
-
-	var boolRequirement = new BoolRequirement();
-
-	// TODO
-
-	return boolRequirement;
-}

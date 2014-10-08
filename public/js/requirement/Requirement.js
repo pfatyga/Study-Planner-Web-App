@@ -11,7 +11,3 @@ Requirement.prototype.checkPrereqs = function(coursesTaken) {
 Requirement.prototype.toString = function() {
 	return '';
 }
-
-
-Requirement.fromExpression = function(expression) {
-}

@@ -21,10 +21,3 @@ CourseRequirement.prototype.checkPrereqs = function(coursesTaken) {
 CourseRequirement.prototype.toString = function() {
 	return '\'' + this.coursePrefix + ' ' + this.courseNumber + '\'';
 }
-
-
-// Assumes expression looks like 'CS 115'
-CourseRequirement.fromExpression = function(expression) {
-	var parts = expression.split(' ');
-	return new CourseRequirement(parts[0], parts[1]);
-}
