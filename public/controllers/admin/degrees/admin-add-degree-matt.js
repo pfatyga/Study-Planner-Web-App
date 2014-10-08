@@ -1,7 +1,10 @@
 angular.module('MyApp')
 	.controller('AdminAddDegreeMattController', ['$scope', function($scope) {
 		// Test RequirementExpressionParser
-		RequirementExpressionParser.test();
+		RequirementExpressionParser.parse('CS 443');
+		RequirementExpressionParser.parse('(CS 443 AND (CS 511 OR CS 600))');
+		RequirementExpressionParser.parse('(CS 443 AND 2 from TechElectives AND (CS 511 OR CS 600))');
+		RequirementExpressionParser.parse('(CS 443 AND All from CSCore AND (CS 511 OR CS 600))');
 
 		$scope.allCourses = [
 			'CS 105',
