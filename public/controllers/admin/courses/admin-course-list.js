@@ -1,7 +1,13 @@
 angular.module('MyApp')
-	.controller('AdminCourseListController', ['$scope', '$filter', 'ngTableParams', 'CourseManager',
-				function($scope, $filter, ngTableParams, CourseManager) {
+	.controller('AdminCourseListController', ['$scope', '$filter', 'ngTableParams', 'CourseManager', 'Courses',
+				function($scope, $filter, ngTableParams, CourseManager, Courses) {
 		console.log('AdminCourseListController');
+
+		var c = Courses.query(function() {
+			console.log('courses:');
+			console.log(c);
+		});
+
 		// Get courses from CourseManager
 		CourseManager.getCourses(function(courses) {
 			$scope.courses = courses;
