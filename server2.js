@@ -192,27 +192,7 @@ app.post('/api/courses', function(request, response, next) {
 // Edit a course
 app.put('/api/courses/:id', function(request, response, next) {
 	// TODO
-	response.send({
-		"id": 2,
-		"prefix": "CS",
-		"number": 115,
-		"name": "Introduction to Computer Science",
-		"description": "",
-		"coordinator": "",
-		"preRequisites": [
-		],
-		"coRequisites": [
-		],
-		"credits": 3.0,
-		"offeredFallOnCampus": true,
-		"offeredSpringOnCampus": true,
-		"offeredSummerOneOnCampus": false,
-		"offeredSummerTwoOnCampus": false,
-		"offeredFallWebCampus": false,
-		"offeredSpringWebCampus": false,
-		"offeredSummerOneWebCampus": false,
-		"offeredSummerTwoWebCampus": false
-	});
+	
 });
 
 // Delete a course
