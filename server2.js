@@ -137,6 +137,89 @@ app.get('/api/courses', function(request, response, next) {
 	});
 });
 
+// Get course
+app.get('/api/courses/:id', function(request, response, next) {
+	// TODO
+	response.send({
+		"id": 2,
+		"prefix": "CS",
+		"number": 115,
+		"name": "Introduction to Computer Science",
+		"description": "",
+		"coordinator": "",
+		"preRequisites": [
+		],
+		"coRequisites": [
+		],
+		"credits": 3.0,
+		"offeredFallOnCampus": true,
+		"offeredSpringOnCampus": true,
+		"offeredSummerOneOnCampus": false,
+		"offeredSummerTwoOnCampus": false,
+		"offeredFallWebCampus": false,
+		"offeredSpringWebCampus": false,
+		"offeredSummerOneWebCampus": false,
+		"offeredSummerTwoWebCampus": false
+	});
+});
+
+// Create a new course
+app.post('/api/courses', function(request, response, next) {
+	// TODO
+	response.send({
+		"id": 2,
+		"prefix": "CS",
+		"number": 115,
+		"name": "Introduction to Computer Science",
+		"description": "",
+		"coordinator": "",
+		"preRequisites": [
+		],
+		"coRequisites": [
+		],
+		"credits": 3.0,
+		"offeredFallOnCampus": true,
+		"offeredSpringOnCampus": true,
+		"offeredSummerOneOnCampus": false,
+		"offeredSummerTwoOnCampus": false,
+		"offeredFallWebCampus": false,
+		"offeredSpringWebCampus": false,
+		"offeredSummerOneWebCampus": false,
+		"offeredSummerTwoWebCampus": false
+	});
+});
+
+// Edit a course
+app.put('/api/courses/:id', function(request, response, next) {
+	// TODO
+	response.send({
+		"id": 2,
+		"prefix": "CS",
+		"number": 115,
+		"name": "Introduction to Computer Science",
+		"description": "",
+		"coordinator": "",
+		"preRequisites": [
+		],
+		"coRequisites": [
+		],
+		"credits": 3.0,
+		"offeredFallOnCampus": true,
+		"offeredSpringOnCampus": true,
+		"offeredSummerOneOnCampus": false,
+		"offeredSummerTwoOnCampus": false,
+		"offeredFallWebCampus": false,
+		"offeredSpringWebCampus": false,
+		"offeredSummerOneWebCampus": false,
+		"offeredSummerTwoWebCampus": false
+	});
+});
+
+// Delete a course
+app.delete('/api/courses/:id', function(request, response, next) {
+	// TODO
+});
+
 // Get course groups
 app.get('/api/course-groups', function(request, response, next) {
 	// TODO - get course groups from database
