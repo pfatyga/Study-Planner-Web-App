@@ -1,8 +1,15 @@
 angular.module('MyApp')
-	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'CourseManager',
-				function($scope, $stateParams, $state, CourseManager) {		
+	.controller('AdminEditCourseController', ['$scope', '$stateParams', '$state', 'CourseManager', 'Courses',
+				function($scope, $stateParams, $state, CourseManager, Courses) {		
 		$scope.title = "Edit Course";
 		$scope.submit_text = "Save Course";
+
+		var c = Courses.get({ id: $stateParams.courseId }, function(course) {
+			console.log('course:');
+			console.log(c);
+			console.log(course);
+		});
+
 		// Get course to be edited
 		CourseManager.getCourse($stateParams.courseId, function(course) {
 			$scope.course = course;

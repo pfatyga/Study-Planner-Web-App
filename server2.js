@@ -56,159 +56,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // API
+var api = require('./api.js')(app, connection);
 
-// Get courses
-app.get('/api/courses', function(request, response, next) {
-	//console.log('getting courses from database');
-	// TODO - write SQL query to actually get courses
-	connection.query('SELECT 1 + 1 AS courses', function(error, rows, fields) {
-		if (error) {
-			console.error('error getting courses: ' + error.stack);
-			return next(error);
-		}
+app.get('/api/courses', api.getCourses);
+app.get('/api/courses/:id', api.getCourse);
+app.post('/api/courses', api.postCourse);
+app.put('/api/courses/:id', api.putCourse);
+app.delete('/api/courses/:id', api.deleteCourse);
 
-		//console.log('sending courses');
-		// TODO - send actual courses from database
-		response.send([
-			{
-				"id": 0,
-				"prefix": "CS",
-				"number": 105,
-				"name": "Introduction to Scientific Computing",
-				"description": "",
-				"coordinator": "",
-				"preRequisites": [
-				],
-				"coRequisites": [
-				],
-				"credits": 3.0,
-				"offeredFallOnCampus": true,
-				"offeredSpringOnCampus": true,
-				"offeredSummerOneOnCampus": false,
-				"offeredSummerTwoOnCampus": false,
-				"offeredFallWebCampus": false,
-				"offeredSpringWebCampus": false,
-				"offeredSummerOneWebCampus": false,
-				"offeredSummerTwoWebCampus": false
-			},
-			{
-				"id": 1,
-				"prefix": "CS",
-				"number": 110,
-				"name": "Creative Problem Solving with Computing",
-				"description": "",
-				"coordinator": "",
-				"preRequisites": [
-				],
-				"coRequisites": [
-				],
-				"credits": 3.0,
-				"offeredFallOnCampus": true,
-				"offeredSpringOnCampus": false,
-				"offeredSummerOneOnCampus": false,
-				"offeredSummerTwoOnCampus": false,
-				"offeredFallWebCampus": false,
-				"offeredSpringWebCampus": false,
-				"offeredSummerOneWebCampus": false,
-				"offeredSummerTwoWebCampus": false
-			},
-			{
-				"id": 2,
-				"prefix": "CS",
-				"number": 115,
-				"name": "Introduction to Computer Science",
-				"description": "",
-				"coordinator": "",
-				"preRequisites": [
-				],
-				"coRequisites": [
-				],
-				"credits": 3.0,
-				"offeredFallOnCampus": true,
-				"offeredSpringOnCampus": true,
-				"offeredSummerOneOnCampus": false,
-				"offeredSummerTwoOnCampus": false,
-				"offeredFallWebCampus": false,
-				"offeredSpringWebCampus": false,
-				"offeredSummerOneWebCampus": false,
-				"offeredSummerTwoWebCampus": false
-			},
-		]);
-	});
-});
+app.get('/api/course-groups', api.getCourseGroups);
+/*app.get('/api/course-groups/:id', api.getCourseGroup);
+app.post('/api/course-groups', api.postCourseGroup);
+app.put('/api/course-groups/:id', api.putCourseGroup);
+app.delete('/api/course-groups/:id', api.deleteCourseGroup);*/
 
-// Get course
-app.get('/api/courses/:id', function(request, response, next) {
-	// TODO
-	response.send({
-		"id": 2,
-		"prefix": "CS",
-		"number": 115,
-		"name": "Introduction to Computer Science",
-		"description": "",
-		"coordinator": "",
-		"preRequisites": [
-		],
-		"coRequisites": [
-		],
-		"credits": 3.0,
-		"offeredFallOnCampus": true,
-		"offeredSpringOnCampus": true,
-		"offeredSummerOneOnCampus": false,
-		"offeredSummerTwoOnCampus": false,
-		"offeredFallWebCampus": false,
-		"offeredSpringWebCampus": false,
-		"offeredSummerOneWebCampus": false,
-		"offeredSummerTwoWebCampus": false
-	});
-});
-
-// Create a new course
-app.post('/api/courses', function(request, response, next) {
-	// TODO
-	response.send({
-		"id": 2,
-		"prefix": "CS",
-		"number": 115,
-		"name": "Introduction to Computer Science",
-		"description": "",
-		"coordinator": "",
-		"preRequisites": [
-		],
-		"coRequisites": [
-		],
-		"credits": 3.0,
-		"offeredFallOnCampus": true,
-		"offeredSpringOnCampus": true,
-		"offeredSummerOneOnCampus": false,
-		"offeredSummerTwoOnCampus": false,
-		"offeredFallWebCampus": false,
-		"offeredSpringWebCampus": false,
-		"offeredSummerOneWebCampus": false,
-		"offeredSummerTwoWebCampus": false
-	});
-});
-
-// Edit a course
-app.put('/api/courses/:id', function(request, response, next) {
-	// TODO
-	
-});
-
-// Delete a course
-app.delete('/api/courses/:id', function(request, response, next) {
-	// TODO
-});
-
-// Get course groups
-app.get('/api/course-groups', function(request, response, next) {
-	// TODO - get course groups from database
-});
-
-// Get degrees
-app.get('/api/degrees', function(request, response, next) {
-	// TODO - get degrees from database
-});
+app.get('/api/degrees', api.getDegrees);
+/*app.get('/api/degrees/:id', api.getDegree);
+app.post('/api/degrees', api.postDegree);
+app.put('/api/degrees/:id', api.putDegree);
+app.delete('/api/degrees/:id', api.deleteDegree);*/
 
 
 // Fix issue with linking to pages

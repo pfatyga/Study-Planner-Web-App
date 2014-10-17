@@ -3,12 +3,14 @@ angular.module('MyApp')
 				function($scope, $filter, ngTableParams, CourseManager, Courses) {
 		console.log('AdminCourseListController');
 
-		var c = Courses.query(function() {
+		// Get courses from Courses service
+		var courses = Courses.query(function() {
 			console.log('courses:');
-			console.log(c);
+			console.log(courses);
 		});
 
 		// Get courses from CourseManager
+		// TODO - use Courses service instead
 		CourseManager.getCourses(function(courses) {
 			$scope.courses = courses;
 		});
