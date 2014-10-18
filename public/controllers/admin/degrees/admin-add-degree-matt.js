@@ -7,6 +7,7 @@ angular.module('MyApp')
 		RequirementExpressionParser.parse('(CS 443 AND All from CSCore AND (CS 511 OR CS 600))');
 
         $scope.title = "Add Degree";
+        $scope.submitText = "Add Degree"
 
 		$scope.allCourses = [
 			'CS 105',

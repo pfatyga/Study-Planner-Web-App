@@ -2,7 +2,7 @@ angular.module('MyApp')
 	.controller('AdminAddCourseController', ['$scope', '$state', 'CourseManager',
 				function($scope, $state, CourseManager) {
 		$scope.title = "Add Course";
-		$scope.submit_text = "Add Course";
+		$scope.submitText = "Add Course";
 
 		$scope.newCourse = new Course();
 

@@ -3,6 +3,7 @@ angular.module('MyApp')
 		console.log('degreeId: ' + $stateParams.courseGroupId);
 
         $scope.title = "Edit Degree";
+        $scope.submitText = "Save Degree";
 
         $scope.allCourses = [
             'CS 105',
