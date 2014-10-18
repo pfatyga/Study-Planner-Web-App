@@ -22,7 +22,7 @@ BoolRequirement.prototype.checkPrereqs = function(coursesTaken) {
 
 		return true;
 	}
-	else {
+	else {  //this.operator === 'OR'
 		// Return true if at least one of child requirements has been met
 		for (var i = 0; i < this.childRequirements.length; ++i) {
 			if (this.childRequirements[i].checkPrereqs(coursesTaken)) {
