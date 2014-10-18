@@ -1,6 +1,7 @@
 angular.module('MyApp')
 	.controller('AdminAddDegreeController', ['$scope', function($scope) {
 		console.log("AdminAddDegreeController is running");
+        $scope.title = "Add Degree";
 		$scope.reqs = 
 			[
 				[{name:""}]

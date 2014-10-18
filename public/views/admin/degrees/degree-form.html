@@ -1,0 +1,48 @@
+<div class="page-header">
+    <h1>{{ title }}</h1>
+</div>
+<form class="form-horizontal" name="addDegreeForm" role="form">
+    <div class="form-group">
+        <label for="degreeName" class="col-sm-2 control-label">Degree Name</label>
+        <div class="col-sm-5">
+            <input class="form-control input" type="text" id="degreeName" name="degreeName" ng-model="degreeName" placeholder="e.g. CS starting in Fall 2015" required autofocus>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="major" class="col-sm-2 control-label">Major</label>
+        <div class="col-sm-5">
+            <input class="form-control input" type="text" id="major" name="major" ng-model="major" placeholder="e.g. Computer Science (CS)" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="degreeDates" class="col-sm-2 control-label">For students entering in</label>
+        <div class="col-sm-5 form-inline">
+            <select class="form-control">
+                <option>Fall</option>
+                <option>Spring</option>
+            </select>
+            <select class="form-control">
+                <option>2015</option>
+                <option>2016</option>
+            </select>
+        </div>
+    </div>
+    <!--<div class="form-group">
+        <label for="degreePath" class="col-sm-2 control-label">Degree path</label>
+        <div class="col-sm-5">
+            <input class="form-control input" type="text" id="degreePath" name="degreePath"
+            ng-model="degreePath" placeholder="e.g. Starting with CS 115" required>
+        </div>
+    </div>-->
+    <div class="form-group">
+        <label for="Requirements" class="col-sm-2 control-label">Requirements (<a href="">Help</a>)</label>
+        <div class="col-sm-10 form-inline">
+            <requirement data-val="rootRequirement" data-all-courses="allCourses" data-all-course-groups="allCourseGroups"></requirement>
+        </div>
+    </div>
+    <pre>{{ rootRequirement | json }}</pre>
+    <button type="button" class="btn btn-default" ng-click="getRequirementsBooleanExpression()">Get boolean expression</button>
+    <pre>{{ requirementsBooleanExpression }}</pre>
+    <button type="submit" class="btn btn-success">Add Degree</button>
+    <a class="btn btn-link" ui-sref="admin.degrees.list">Cancel</a>
+</form>
