@@ -12,8 +12,6 @@ CourseRequirement.prototype.constructor = CourseRequirement;
 CourseRequirement.prototype.type = 'CourseRequirement';
 
 CourseRequirement.prototype.checkPrereqs = function(coursesTaken) {
-	// TODO - check if coursesTaken includes course
-
 	return contains(coursesTaken, this.coursePrefix + this.courseNumber);
 }
 

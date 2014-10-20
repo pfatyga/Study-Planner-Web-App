@@ -23,7 +23,7 @@
 
 E
 	: Expression EOF
-		{ console.log($1); return $1; }
+		{ return $1; }
 	;
 
 Expression

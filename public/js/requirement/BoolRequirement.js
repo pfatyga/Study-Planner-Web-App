@@ -12,7 +12,7 @@ BoolRequirement.prototype.constructor = BoolRequirement;
 BoolRequirement.prototype.type = 'BoolRequirement';
 
 BoolRequirement.prototype.checkPrereqs = function(coursesTaken) {
-	if (this.operator = 'AND') {
+	if (this.operator === 'AND') {
 		// Return true if all child requirements have been met
 		for (var i = 0; i < this.childRequirements.length; ++i) {
 			if (!this.childRequirements[i].checkPrereqs(coursesTaken)) {
@@ -22,7 +22,7 @@ BoolRequirement.prototype.checkPrereqs = function(coursesTaken) {
 
 		return true;
 	}
-	else {
+	else {  //this.operator === 'OR'
 		// Return true if at least one of child requirements has been met
 		for (var i = 0; i < this.childRequirements.length; ++i) {
 			if (this.childRequirements[i].checkPrereqs(coursesTaken)) {

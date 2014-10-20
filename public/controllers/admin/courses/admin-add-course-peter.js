@@ -15,7 +15,7 @@ angular.module('MyApp')
             if(last == true)
                 return "btn-primary";
             else
-                return "btn-success";
+                return "btn-gray";
         };
 
 		$scope.innerOr = function() {
