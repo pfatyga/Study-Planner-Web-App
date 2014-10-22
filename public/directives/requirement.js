@@ -107,13 +107,6 @@ angular.module('MyApp')
 							childRequirements: []
 						};
 
-						newBoolRequirement.childRequirements.push({
-							//parent: newBoolRequirement,
-							type: 'CourseGroupRequirement',
-							numCourses: 'All',
-							courseGroup: ''
-						});
-
 						scope.val.childRequirements.push(newBoolRequirement);
 
 						//console.log(scope.val);

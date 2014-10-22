@@ -49,12 +49,7 @@ angular.module('MyApp')
 			type: 'BoolRequirement',
 			operator: 'AND',
 			childRequirements: [
-				{
-					//parent: $scope.rootRequirement,
-					type: 'CourseGroupRequirement',
-					numCourses: 'All',
-					courseGroup: ''
-				}
+
 			]
 		}
 
