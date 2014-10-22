@@ -117,5 +117,20 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
 				url: '/details/:degreeId',
 				templateUrl: 'views/admin/degrees/detail-degree.html',
 				controller: 'AdminDetailDegreeController'
-			});
+			})
+            .state('student', {
+                url: '/student',
+                templateUrl: 'views/student/student.html',
+                controller: 'StudentController'
+            })
+            .state('student.dashboard', {
+                url: '/dashboard',
+                templateUrl: 'views/student/dashboard.html',
+                controller: 'StudentDashboardController'
+            })
+            .state('student.study-plan', {
+                url: '/study-plan',
+                templateUrl: 'views/student/study-plan/study-plan.html',
+                controller: 'StudentStudyPlanController'
+            });
 	}]);

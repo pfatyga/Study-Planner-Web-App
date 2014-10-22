@@ -32,10 +32,12 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-left">
 						<li ui-sref-active="active" class="dropdown">
-							<a ui-sref="admin" class="dropdown-toggle">Admin</a>
-							<ul class="dropdown-menu">
-								<li><a>Admin</a></li>
-								<li><a>Student</a></li>
+							<a type="button" class=" dropdown-toggle" data-toggle="dropdown">
+                            {{ userType }} <span class="caret"></span>
+                            </a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a ui-sref="admin">Admin</a></li>
+								<li><a ui-sref="student">Student</a></li>
 							</ul>
 						</li>
 						<!--<li ui-sref-active="active"><a ui-sref="help">Help</a></li>-->
@@ -120,5 +122,8 @@
 		<script src="controllers/admin/degrees/admin-add-degree.js"></script>
 		<script src="controllers/admin/degrees/admin-add-degree-matt.js"></script>
 		<script src="controllers/admin/degrees/admin-edit-degree.js"></script>
+        <script src="controllers/student/student.js"></script>
+        <script src="controllers/student/student-dashboard.js"></script>
+        <script src="controllers/student/study-plan/student-study-plan.js"></script>
 	</body>
 </html>
