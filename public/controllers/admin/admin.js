@@ -1,3 +1,4 @@
 angular.module('MyApp')
-	.controller('AdminController', ['$scope', function($scope) {
+	.controller('AdminController', ['$scope', '$rootScope', function($scope, $rootScope) {
+		$rootScope.userType = 'Admin';
 	}]);

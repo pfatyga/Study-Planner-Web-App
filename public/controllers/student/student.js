@@ -1,3 +1,4 @@
 angular.module('MyApp')
-    .controller('StudentController', ['$scope', function($scope) {
+    .controller('StudentController', ['$scope', '$rootScope', function($scope, $rootScope) {
+		$rootScope.userType = 'Student';
     }]);

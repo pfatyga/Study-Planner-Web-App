@@ -9,6 +9,7 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
 			.when('/admin/courses', '/admin/courses/list')
 			.when('/admin/course-groups', '/admin/course-groups/list')
 			.when('/admin/degrees', '/admin/degrees/list')
+			.when('/student', '/student/dashboard')
 			.otherwise('/');
 
 		// Set up states
