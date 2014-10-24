@@ -128,7 +128,12 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
                 templateUrl: 'views/student/dashboard.html',
                 controller: 'StudentDashboardController'
             })
-            .state('student.study-plan', {
+            .state('student.study-plan-builder', {
+                url: '/study-plan-builder',
+                templateUrl: 'views/student/study-plan/study-plan-builder.html',
+                controller: 'StudentStudyPlanBuilderController'
+            })
+			.state('student.study-plan', {
                 url: '/study-plan',
                 templateUrl: 'views/student/study-plan/study-plan.html',
                 controller: 'StudentStudyPlanController'
