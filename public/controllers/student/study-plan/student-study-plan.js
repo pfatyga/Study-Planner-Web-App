@@ -1,24 +1,23 @@
 angular.module('MyApp')
     .controller('StudentStudyPlanController', ['$scope', "DegreeManager", function($scope, DegreeManager) {
-        $scope.degrees = DegreeManager.getDegrees();
-        $scope.selectedDegree = $scope.degrees[0].name;
-
         $scope.semesters = [
-            "Spring",
-            /* "Summer", */
-            "Fall"
-        ]
-        $scope.selectedSemester = $scope.semesters[0];
-
-        $scope.years = [
-            2015,
-            2016,
-            2017,
-            2018,
-            2019,
-            2020,
-            2021,
-            2022
-        ]
-        $scope.selectedYear = $scope.years[0];
+			{
+				name: 'Fall 2015',
+				courses: [
+					'CS 111',
+					'CS 112',
+					'CS 113',
+					'MA 331'
+				]
+			},
+			{
+				name: 'Spring 2016',
+				courses: [
+					'CS 211',
+					'CS 212',
+					'CS 573 or CS 546 or CS 549',
+					'MA 431'
+				]
+			}
+		];
     }]);
