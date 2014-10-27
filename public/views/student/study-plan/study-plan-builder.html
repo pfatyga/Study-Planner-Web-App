@@ -33,14 +33,28 @@
     </div>
 
     <div class="form-group">
-        <label for="graduation" class="col-sm-2 control-label">Expected Graduation Semester</label>
+        <label for="beginning" class="col-sm-2 control-label">Beginning Semester</label>
         <div class="col-sm-2">
-            <select class="form-control" ng-model="selectedSemester">
+            <select class="form-control" ng-model="selectedBeginningSemester">
                 <option ng-repeat="semester in semesters">{{ semester }}</option>
             </select>
         </div>
         <div class="col-sm-2" style="min-width: 115px">
-            <select class="form-control" ng-model="selectedYear">
+            <select class="form-control" ng-model="selectedBeginningYear">
+                <option ng-repeat="year in years">{{ year }}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="graduation" class="col-sm-2 control-label">Expected Graduation Semester</label>
+        <div class="col-sm-2">
+            <select class="form-control" ng-model="selectedGraduationSemester">
+                <option ng-repeat="semester in semesters">{{ semester }}</option>
+            </select>
+        </div>
+        <div class="col-sm-2" style="min-width: 115px">
+            <select class="form-control" ng-model="selectedGraduationYear">
                 <option ng-repeat="year in years">{{ year }}</option>
             </select>
         </div>

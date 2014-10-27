@@ -8,8 +8,9 @@ angular.module('MyApp')
             "Spring",
             /* "Summer", */
             "Fall"
-        ]
-        $scope.selectedSemester = $scope.semesters[0];
+        ];
+        $scope.selectedBeginningSemester = $scope.semesters[1];
+        $scope.selectedGraduationSemester = $scope.semesters[0];
 
         $scope.years = [
             2015,
@@ -20,8 +21,10 @@ angular.module('MyApp')
             2020,
             2021,
             2022
-        ]
-        $scope.selectedYear = $scope.years[0];
+        ];
+
+        $scope.selectedBeginningYear = $scope.years[0];
+        $scope.selectedGraduationYear = $scope.years[4];
 
 		$scope.generateStudyPlan = function() {
 			$state.go('student.study-plan');
