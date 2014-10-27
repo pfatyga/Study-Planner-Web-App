@@ -3,9 +3,20 @@
 </div>
 <div ng-repeat="semester in semesters">
 	<h3>{{ semester.name }}</h3>
-	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="course in semester.courses">
-			<p>{{ course }}</p>
-		</li>
-	</ul>
+	<table class="table table-responsive">
+		<thead>
+			<tr>
+				<th>Course</th>
+				<th>Credits</th>
+				<th>Requirement</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="course in semester.courses">
+				<td width="30%">{{ course.name }}</td>
+				<td width="20%">{{ course.credits }}</td>
+				<td width="50%">{{ course.requirement }}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
