@@ -119,6 +119,11 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ui.router', '
 				templateUrl: 'views/admin/degrees/detail-degree.html',
 				controller: 'AdminDetailDegreeController'
 			})
+            .state('admin.degrees.clone', {
+                url: '/list',
+                templateUrl: 'views/admin/degrees/detail-list.html',
+                controller: 'AdminDetailListController'
+            })
             .state('student', {
                 url: '/student',
                 templateUrl: 'views/student/student.html',
