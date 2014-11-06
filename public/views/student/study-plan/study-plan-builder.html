@@ -13,7 +13,8 @@
 
     <div class="form-group">
         <label for="coursesTaken" class="col-sm-2 control-label">Courses Taken</label>
-        <div class="col-sm-2">
+        <div class="col-sm-4">
+		<!--
             <input class="form-control input" type="text" id="courseToAdd" name="courseToAdd"
                    ng-model="courseToAdd" placeholder="e.g. CS 284" ng-options="course for course in allCourses" bs-typeahead data-placement="bottom-left" data-min-length="0" ng-enter="addCourse();">
             <ul style="list-style: none; padding: 0;" ng-model="newCourseGroup.courses">
@@ -26,10 +27,19 @@
                     </div>
                 </li>
             </ul>
+-->
+		<ul style="width: 100%; height: 250px; overflow-y: scroll; list-style-type: none;">
+			<li ng-repeat="course in courses">
+			<label for="{{ course }}">{{ course }}</label>
+			<input style="position: relative; top: 3px;" type="checkbox" name="{{ course }}" value="{{ course }}">
+			</li>
+		</ul>
         </div>
+		<!--
         <div class="col-sm-2">
             <button class="btn btn-success" type="button" >Add To List</button>
         </div>
+		-->
     </div>
 
     <div class="form-group">

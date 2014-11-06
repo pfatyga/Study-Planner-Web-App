@@ -29,4 +29,34 @@ angular.module('MyApp')
 		$scope.generateStudyPlan = function() {
 			$state.go('student.study-plan');
 		};
+
+		$scope.courses = [
+			'CS-105',
+			'CS-110',
+			'CS-115',
+			'CS-135',
+			'CS-146',
+			'CS-181',
+			'CS-182',
+			'CS-284',
+			'CS-306',
+			'CS-334',
+			'CS-347',
+			'CS-370',
+			'CS-383',
+			'CS-385',
+			'CS-392',
+			'CS-423',
+			'CS-442',
+			'CS-443',
+			'CS-465',
+			'CS-485',
+			'CS-488',
+			'CS-492',
+			'CS-496',
+			'CS-497',
+			'CS-498',
+			'CS-499'
+		];
+
     }]);
