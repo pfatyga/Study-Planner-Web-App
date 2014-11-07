@@ -17,6 +17,14 @@ CourseGroupRequirement.prototype.checkPrereqs = function(coursesTaken) {
 	return false;
 }
 
+CourseGroupRequirement.prototype.getRequiredCoursesList = function() {
+	var courses = [];
+
+	// TODO
+
+	return [courses];
+}
+
 CourseGroupRequirement.prototype.toString = function() {
 	return '\'' + this.numCourses + ' from ' + this.courseGroupName + '\'';
 }
