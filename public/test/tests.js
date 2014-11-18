@@ -63,6 +63,220 @@ QUnit.test('Check Prereqs CS010', function(assert) {
 });*/
 
 
+var set1Courses = [
+	{ number: 'CS11', prereqs: [] },
+	{ number: 'CS12', prereqs: [] },
+	{ number: 'CS13', prereqs: [] },
+	{ number: 'CS14', prereqs: [] },
+	{ number: 'CS15', prereqs: [] },
+	{ number: 'CS21', prereqs: [] },
+	{ number: 'CS22', prereqs: [] },
+	{ number: 'CS23', prereqs: [] },
+	{ number: 'CS24', prereqs: [] },
+	{ number: 'CS25', prereqs: [] },
+	{ number: 'CS31', prereqs: [] },
+	{ number: 'CS32', prereqs: [] },
+	{ number: 'CS33', prereqs: [] },
+	{ number: 'CS34', prereqs: [] },
+	{ number: 'CS35', prereqs: [] },
+	{ number: 'CS41', prereqs: [] },
+	{ number: 'CS42', prereqs: [] },
+	{ number: 'CS43', prereqs: [] },
+	{ number: 'CS44', prereqs: [] },
+	{ number: 'CS45', prereqs: [] },
+	{ number: 'CS51', prereqs: [] },
+	{ number: 'CS52', prereqs: [] },
+	{ number: 'CS53', prereqs: [] },
+	{ number: 'CS54', prereqs: [] },
+	{ number: 'CS55', prereqs: [] },
+	{ number: 'CS61', prereqs: [] },
+	{ number: 'CS62', prereqs: [] },
+	{ number: 'CS63', prereqs: [] },
+	{ number: 'CS64', prereqs: [] },
+	{ number: 'CS65', prereqs: [] },
+	{ number: 'CS71', prereqs: [] },
+	{ number: 'CS72', prereqs: [] },
+	{ number: 'CS73', prereqs: [] },
+	{ number: 'CS74', prereqs: [] },
+	{ number: 'CS75', prereqs: [] },
+	{ number: 'CS81', prereqs: [] },
+	{ number: 'CS82', prereqs: [] },
+	{ number: 'CS83', prereqs: [] },
+	{ number: 'CS84', prereqs: [] },
+	{ number: 'CS85', prereqs: [] }
+];
+
+var set2Courses = [
+	{ number: 'CS11', prereqs: [] },
+	{ number: 'CS12', prereqs: [] },
+	{ number: 'CS13', prereqs: [] },
+	{ number: 'CS14', prereqs: [] },
+	{ number: 'CS15', prereqs: [] },
+	{ number: 'CS21', prereqs: ['CS11'] },
+	{ number: 'CS22', prereqs: ['CS12'] },
+	{ number: 'CS23', prereqs: ['CS13'] },
+	{ number: 'CS24', prereqs: ['CS14'] },
+	{ number: 'CS25', prereqs: ['CS15'] },
+	{ number: 'CS31', prereqs: ['CS21'] },
+	{ number: 'CS32', prereqs: ['CS22'] },
+	{ number: 'CS33', prereqs: ['CS23'] },
+	{ number: 'CS34', prereqs: ['CS24'] },
+	{ number: 'CS35', prereqs: ['CS25'] },
+	{ number: 'CS41', prereqs: ['CS31'] },
+	{ number: 'CS42', prereqs: ['CS32'] },
+	{ number: 'CS43', prereqs: ['CS33'] },
+	{ number: 'CS44', prereqs: ['CS34'] },
+	{ number: 'CS45', prereqs: ['CS35'] },
+	{ number: 'CS51', prereqs: ['CS41'] },
+	{ number: 'CS52', prereqs: ['CS42'] },
+	{ number: 'CS53', prereqs: ['CS43'] },
+	{ number: 'CS54', prereqs: ['CS44'] },
+	{ number: 'CS55', prereqs: ['CS45'] },
+	{ number: 'CS61', prereqs: ['CS51'] },
+	{ number: 'CS62', prereqs: ['CS52'] },
+	{ number: 'CS63', prereqs: ['CS53'] },
+	{ number: 'CS64', prereqs: ['CS54'] },
+	{ number: 'CS65', prereqs: ['CS55'] },
+	{ number: 'CS71', prereqs: ['CS61'] },
+	{ number: 'CS72', prereqs: ['CS62'] },
+	{ number: 'CS73', prereqs: ['CS63'] },
+	{ number: 'CS74', prereqs: ['CS64'] },
+	{ number: 'CS75', prereqs: ['CS65'] },
+	{ number: 'CS81', prereqs: ['CS71'] },
+	{ number: 'CS82', prereqs: ['CS72'] },
+	{ number: 'CS83', prereqs: ['CS73'] },
+	{ number: 'CS84', prereqs: ['CS74'] },
+	{ number: 'CS85', prereqs: ['CS75'] }
+];
+
+var set3Courses = [
+	{ number: 'CS11', prereqs: [] },
+	{ number: 'CS12', prereqs: [] },
+	{ number: 'CS13', prereqs: [] },
+	{ number: 'CS14', prereqs: [] },
+	{ number: 'CS15', prereqs: [] },
+	{ number: 'CS21', prereqs: ['CS11'] },
+	{ number: 'CS22', prereqs: [] },
+	{ number: 'CS23', prereqs: [] },
+	{ number: 'CS24', prereqs: [] },
+	{ number: 'CS25', prereqs: [] },
+	{ number: 'CS31', prereqs: ['CS12'] },
+	{ number: 'CS32', prereqs: ['CS21'] },
+	{ number: 'CS33', prereqs: ['CS32'] },
+	{ number: 'CS34', prereqs: [] },
+	{ number: 'CS35', prereqs: [] },
+	{ number: 'CS41', prereqs: [] },
+	{ number: 'CS42', prereqs: [] },
+	{ number: 'CS43', prereqs: ['CS22', 'CS33'] },
+	{ number: 'CS44', prereqs: ['CS43'] },
+	{ number: 'CS45', prereqs: [] },
+	{ number: 'CS51', prereqs: ['CS32'] },
+	{ number: 'CS52', prereqs: ['CS53'] },
+	{ number: 'CS53', prereqs: ['CS14', 'CS54'] },
+	{ number: 'CS54', prereqs: ['CS15', 'CS44'] },
+	{ number: 'CS55', prereqs: [] },
+	{ number: 'CS61', prereqs: [] },
+	{ number: 'CS62', prereqs: ['CS51'] },
+	{ number: 'CS63', prereqs: [] },
+	{ number: 'CS64', prereqs: ['CS55'] },
+	{ number: 'CS65', prereqs: ['CS54'] },
+	{ number: 'CS71', prereqs: [] },
+	{ number: 'CS72', prereqs: ['CS73'] },
+	{ number: 'CS73', prereqs: ['CS74'] },
+	{ number: 'CS74', prereqs: ['CS65'] },
+	{ number: 'CS75', prereqs: [] },
+	{ number: 'CS81', prereqs: [] },
+	{ number: 'CS82', prereqs: ['CS62', 'CS72', 'CS81'] },
+	{ number: 'CS83', prereqs: [] },
+	{ number: 'CS84', prereqs: ['CS63'] },
+	{ number: 'CS85', prereqs: [] }
+];
+
+var set4Courses = [
+	{ number: 'CS11', prereqs: [] },
+	{ number: 'CS12', prereqs: [] },
+	{ number: 'CS13', prereqs: [] },
+	{ number: 'CS14', prereqs: [] },
+	{ number: 'CS15', prereqs: [] },
+	{ number: 'CS21', prereqs: [] },
+	{ number: 'CS22', prereqs: [] },
+	{ number: 'CS23', prereqs: [] },
+	{ number: 'CS24', prereqs: [] },
+	{ number: 'CS25', prereqs: [] },
+	{ number: 'CS31', prereqs: [] },
+	{ number: 'CS32', prereqs: [] },
+	{ number: 'CS33', prereqs: [] },
+	{ number: 'CS34', prereqs: [] },
+	{ number: 'CS35', prereqs: [] },
+	{ number: 'CS41', prereqs: [] },
+	{ number: 'CS42', prereqs: [] },
+	{ number: 'CS43', prereqs: [] },
+	{ number: 'CS44', prereqs: [] },
+	{ number: 'CS45', prereqs: [] },
+	{ number: 'CS51', prereqs: [] },
+	{ number: 'CS52', prereqs: [] },
+	{ number: 'CS53', prereqs: [] },
+	{ number: 'CS54', prereqs: [] },
+	{ number: 'CS55', prereqs: [] },
+	{ number: 'CS61', prereqs: [] },
+	{ number: 'CS62', prereqs: [] },
+	{ number: 'CS63', prereqs: [] },
+	{ number: 'CS64', prereqs: [] },
+	{ number: 'CS65', prereqs: [] },
+	{ number: 'CS71', prereqs: [] },
+	{ number: 'CS72', prereqs: [] },
+	{ number: 'CS73', prereqs: [] },
+	{ number: 'CS74', prereqs: [] },
+	{ number: 'CS75', prereqs: [] },
+	{ number: 'CS81', prereqs: [] },
+	{ number: 'CS82', prereqs: [] },
+	{ number: 'CS83', prereqs: [] },
+	{ number: 'CS84', prereqs: [] },
+	{ number: 'CS85', prereqs: [] }
+];
+
+var set5Courses = [
+	{ number: 'CS11', prereqs: [] },
+	{ number: 'CS12', prereqs: [] },
+	{ number: 'CS13', prereqs: [] },
+	{ number: 'CS14', prereqs: [] },
+	{ number: 'CS15', prereqs: [] },
+	{ number: 'CS21', prereqs: [] },
+	{ number: 'CS22', prereqs: [] },
+	{ number: 'CS23', prereqs: [] },
+	{ number: 'CS24', prereqs: [] },
+	{ number: 'CS25', prereqs: [] },
+	{ number: 'CS31', prereqs: [] },
+	{ number: 'CS32', prereqs: [] },
+	{ number: 'CS33', prereqs: [] },
+	{ number: 'CS34', prereqs: [] },
+	{ number: 'CS35', prereqs: [] },
+	{ number: 'CS41', prereqs: [] },
+	{ number: 'CS42', prereqs: [] },
+	{ number: 'CS43', prereqs: [] },
+	{ number: 'CS44', prereqs: [] },
+	{ number: 'CS45', prereqs: [] },
+	{ number: 'CS51', prereqs: [] },
+	{ number: 'CS52', prereqs: [] },
+	{ number: 'CS53', prereqs: [] },
+	{ number: 'CS54', prereqs: [] },
+	{ number: 'CS55', prereqs: [] },
+	{ number: 'CS61', prereqs: [] },
+	{ number: 'CS62', prereqs: [] },
+	{ number: 'CS63', prereqs: [] },
+	{ number: 'CS64', prereqs: [] },
+	{ number: 'CS65', prereqs: [] },
+	{ number: 'CS71', prereqs: [] },
+	{ number: 'CS72', prereqs: [] },
+	{ number: 'CS73', prereqs: [] },
+	{ number: 'CS74', prereqs: [] },
+	{ number: 'CS75', prereqs: [] },
+	{ number: 'CS81', prereqs: [] },
+	{ number: 'CS82', prereqs: [] },
+	{ number: 'CS83', prereqs: [] },
+	{ number: 'CS84', prereqs: [] },
+	{ number: 'CS85', prereqs: [] }
+];
 
 var printCourses = function(courses) {
 	for (var i = 0; i < courses.length; ++i) {
@@ -79,10 +293,6 @@ var printCourses = function(courses) {
 	}
 }
 
-var setPrereqs = function(courses, a, b, prereqs) {
-	courses[numberToIndex(a, b)].prereqs = prereqs;
-}
-
 var numberToIndex = function(a, b) {
 	var aa = a - 1;
 	var bb = b - 1;
@@ -90,69 +300,8 @@ var numberToIndex = function(a, b) {
 	return (aa * 5) + bb;
 }
 
-var getSet1Courses = function() {
-	var allCourses = [];
-
-	var i;
-	var j;
-
-	for (i = 1; i <= 8; ++i) {
-		for (j = 1; j <= 5; ++j) {
-			allCourses[numberToIndex(i, j)] = { number: 'CS' + i + j, prereqs: [] };
-		}
-	}
-
-	return allCourses;
-}
-
-var getSet2Courses = function() {
-	var allCourses = [];
-
-	var i;
-	var j;
-
-	for (i = 1; i <= 8; ++i) {
-		for (j = 1; j <= 5; ++j) {
-			allCourses[numberToIndex(i, j)] = { number: 'CS' + i + j, prereqs: [] };
-			if (i > 1) {
-				var prereq = 'CS' + (i - 1) + j;
-				allCourses[numberToIndex(i, j)].prereqs.push(prereq);
-			}
-		}
-	}
-
-	return allCourses;
-}
-
-var getSet3Courses = function() {
-	var allCourses = getSet1Courses();
-
-	setPrereqs(allCourses, 2, 1, ['CS11']);
-	setPrereqs(allCourses, 3, 1, ['CS12']);
-	setPrereqs(allCourses, 3, 2, ['CS21']);
-	// TODO - rest of prereqs
-
-	return allCourses;
-}
-
-var getSet4Courses = function() {
-	var allCourses = getSet1Courses();
-
-	// TODO - prereqs
-
-	return allCourses;
-}
-
-var getSet5Courses = function() {
-	var allCourses = getSet1Courses();
-
-	// TODO - prereqs
-
-	return allCourses;
-}
-
 QUnit.test('StudyPlan Set 1', function(assert) {
-	var courses = getSet1Courses();
+	var courses = set1Courses;
 
 	printCourses(courses);
 
@@ -169,7 +318,7 @@ QUnit.test('StudyPlan Set 1', function(assert) {
 });
 
 QUnit.test('StudyPlan Set 2', function(assert) {
-	var courses = getSet2Courses();
+	var courses = set2Courses;
 
 	printCourses(courses);
 
@@ -186,7 +335,7 @@ QUnit.test('StudyPlan Set 2', function(assert) {
 });
 
 QUnit.test('StudyPlan Set 3', function(assert) {
-	var courses = getSet3Courses();
+	var courses = set3Courses;
 
 	printCourses(courses);
 
