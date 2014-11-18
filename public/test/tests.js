@@ -64,7 +64,15 @@ QUnit.test('Check Prereqs CS010', function(assert) {
 
 
 
-
+var printCourses = function(courses) {
+	for (var i = 0; i < courses.length; ++i) {
+		var prereqs = '';
+		for (var j = 0; j < courses[i].prereqs.length; ++j) {
+			prereqs += courses[i].prereqs[j] + ' ';
+		}
+		console.log(courses[i].number + ', prereqs: ' + prereqs);
+	}
+}
 
 var numberToIndex = function(a, b) {
 	var aa = a - 1;
@@ -141,15 +149,16 @@ var getSet5Courses = function() {
 QUnit.test('StudyPlan Set 1', function(assert) {
 	var courses = getSet1Courses();
 
-	for (var i = 0; i < courses.length; ++i) {
-		var prereqs = '';
-		for (var j = 0; j < courses[i].prereqs.length; ++j) {
-			prereqs += courses[i].prereqs[j] + ' ';
-		}
-		console.log(courses[i].number + ', prereqs: ' + prereqs);
-	}
+	printCourses(courses);
+
+	var start = new Date();
 
 	// TODO - test
+
+	var end = new Date();
+	
+	var diff = end.getTime() - start.getTime();
+	console.log('Time to build study plan: ' + diff + ' ms\n');
 
 	assert.ok(true, 'Passed!');
 });
@@ -157,15 +166,16 @@ QUnit.test('StudyPlan Set 1', function(assert) {
 QUnit.test('StudyPlan Set 2', function(assert) {
 	var courses = getSet2Courses();
 
-	for (var i = 0; i < courses.length; ++i) {
-		var prereqs = '';
-		for (var j = 0; j < courses[i].prereqs.length; ++j) {
-			prereqs += courses[i].prereqs[j] + ' ';
-		}
-		console.log(courses[i].number + ', prereqs: ' + prereqs);
-	}
+	printCourses(courses);
+
+	var start = new Date();
 
 	// TODO - test
+
+	var end = new Date();
+	
+	var diff = end.getTime() - start.getTime();
+	console.log('Time to build study plan: ' + diff + ' ms\n');
 
 	assert.ok(true, 'Passed!');
 });
@@ -173,15 +183,16 @@ QUnit.test('StudyPlan Set 2', function(assert) {
 QUnit.test('StudyPlan Set 3', function(assert) {
 	var courses = getSet3Courses();
 
-	for (var i = 0; i < courses.length; ++i) {
-		var prereqs = '';
-		for (var j = 0; j < courses[i].prereqs.length; ++j) {
-			prereqs += courses[i].prereqs[j] + ' ';
-		}
-		console.log(courses[i].number + ', prereqs: ' + prereqs);
-	}
+	printCourses(courses);
+
+	var start = new Date();
 
 	// TODO - test
+
+	var end = new Date();
+	
+	var diff = end.getTime() - start.getTime();
+	console.log('Time to build study plan: ' + diff + ' ms\n');
 
 	assert.ok(true, 'Passed!');
 });
