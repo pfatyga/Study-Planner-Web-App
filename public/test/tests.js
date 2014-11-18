@@ -66,12 +66,21 @@ QUnit.test('Check Prereqs CS010', function(assert) {
 
 var printCourses = function(courses) {
 	for (var i = 0; i < courses.length; ++i) {
-		var prereqs = '';
-		for (var j = 0; j < courses[i].prereqs.length; ++j) {
-			prereqs += courses[i].prereqs[j] + ' ';
+		if (courses[i].prereqs.length == 0) {
+			console.log(courses[i].number);
 		}
-		console.log(courses[i].number + ', prereqs: ' + prereqs);
+		else {
+			var prereqs = '';
+			for (var j = 0; j < courses[i].prereqs.length; ++j) {
+				prereqs += courses[i].prereqs[j] + ' ';
+			}
+			console.log(courses[i].number + ', prereqs: ' + prereqs);
+		}
 	}
+}
+
+var setPrereqs = function(courses, a, b, prereqs) {
+	courses[numberToIndex(a, b)].prereqs = prereqs;
 }
 
 var numberToIndex = function(a, b) {
@@ -86,12 +95,10 @@ var getSet1Courses = function() {
 
 	var i;
 	var j;
-	var index = 0;
 
 	for (i = 1; i <= 8; ++i) {
 		for (j = 1; j <= 5; ++j) {
 			allCourses[numberToIndex(i, j)] = { number: 'CS' + i + j, prereqs: [] };
-			++index;
 		}
 	}
 
@@ -103,16 +110,14 @@ var getSet2Courses = function() {
 
 	var i;
 	var j;
-	var index = 0;
 
 	for (i = 1; i <= 8; ++i) {
 		for (j = 1; j <= 5; ++j) {
-			allCourses[index] = { number: 'CS' + i + j, prereqs: [] };
+			allCourses[numberToIndex(i, j)] = { number: 'CS' + i + j, prereqs: [] };
 			if (i > 1) {
 				var prereq = 'CS' + (i - 1) + j;
 				allCourses[numberToIndex(i, j)].prereqs.push(prereq);
 			}
-			++index;
 		}
 	}
 
@@ -122,10 +127,10 @@ var getSet2Courses = function() {
 var getSet3Courses = function() {
 	var allCourses = getSet1Courses();
 
-	allCourses[numberToIndex(2, 1)].prereqs.push('CS11');
-	allCourses[numberToIndex(3, 1)].prereqs.push('CS12');
-	allCourses[numberToIndex(3, 2)].prereqs.push('CS21');
-	// TODO - prereqs
+	setPrereqs(allCourses, 2, 1, ['CS11']);
+	setPrereqs(allCourses, 3, 1, ['CS12']);
+	setPrereqs(allCourses, 3, 2, ['CS21']);
+	// TODO - rest of prereqs
 
 	return allCourses;
 }
