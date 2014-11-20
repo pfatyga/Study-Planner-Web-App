@@ -198,15 +198,15 @@ var set4Courses = [
 	{ number: 'CS13', prereqs: [] },
 	{ number: 'CS14', prereqs: [] },
 	{ number: 'CS15', prereqs: [] },
-	{ number: 'CS21', prereqs: [] },
-	{ number: 'CS22', prereqs: [] },
-	{ number: 'CS23', prereqs: [] },
-	{ number: 'CS24', prereqs: [] },
-	{ number: 'CS25', prereqs: [] },
-	{ number: 'CS31', prereqs: [] },
-	{ number: 'CS32', prereqs: [] },
-	{ number: 'CS33', prereqs: [] },
-	{ number: 'CS34', prereqs: [] },
+	{ number: 'CS21', prereqs: ['CS11', 'CS12'] },
+	{ number: 'CS22', prereqs: ['CS12'] },
+	{ number: 'CS23', prereqs: ['CS13', 'CS14'] },
+	{ number: 'CS24', prereqs: ['CS14'] },
+	{ number: 'CS25', prereqs: ['CS14'] },
+	{ number: 'CS31', prereqs: ['CS12'] },
+	{ number: 'CS32', prereqs: ['CS22', 'CS24'] },
+	{ number: 'CS33', prereqs: ['CS23'] },
+	{ number: 'CS34', prereqs: ['CS23', 'CS25'] },
 	{ number: 'CS35', prereqs: [] },
 	{ number: 'CS41', prereqs: [] },
 	{ number: 'CS42', prereqs: [] },
@@ -214,24 +214,24 @@ var set4Courses = [
 	{ number: 'CS44', prereqs: [] },
 	{ number: 'CS45', prereqs: [] },
 	{ number: 'CS51', prereqs: [] },
-	{ number: 'CS52', prereqs: [] },
-	{ number: 'CS53', prereqs: [] },
-	{ number: 'CS54', prereqs: [] },
+	{ number: 'CS52', prereqs: ['CS41', 'CS43'] },
+	{ number: 'CS53', prereqs: ['CS42'] },
+	{ number: 'CS54', prereqs: ['CS35'] },
 	{ number: 'CS55', prereqs: [] },
 	{ number: 'CS61', prereqs: [] },
 	{ number: 'CS62', prereqs: [] },
-	{ number: 'CS63', prereqs: [] },
+	{ number: 'CS63', prereqs: ['CS34'] },
 	{ number: 'CS64', prereqs: [] },
-	{ number: 'CS65', prereqs: [] },
-	{ number: 'CS71', prereqs: [] },
-	{ number: 'CS72', prereqs: [] },
-	{ number: 'CS73', prereqs: [] },
-	{ number: 'CS74', prereqs: [] },
-	{ number: 'CS75', prereqs: [] },
-	{ number: 'CS81', prereqs: [] },
-	{ number: 'CS82', prereqs: [] },
-	{ number: 'CS83', prereqs: [] },
-	{ number: 'CS84', prereqs: [] },
+	{ number: 'CS65', prereqs: ['CS24'] },
+	{ number: 'CS71', prereqs: ['CS61', 'CS62'] },
+	{ number: 'CS72', prereqs: ['CS62'] },
+	{ number: 'CS73', prereqs: ['CS63', 'CS64'] },
+	{ number: 'CS74', prereqs: ['CS43', 'CS64', 'CS45'] },
+	{ number: 'CS75', prereqs: ['CS64', 'CS44'] },
+	{ number: 'CS81', prereqs: ['CS62'] },
+	{ number: 'CS82', prereqs: ['CS72', 'CS74'] },
+	{ number: 'CS83', prereqs: ['CS73'] },
+	{ number: 'CS84', prereqs: ['CS73', 'CS75'] },
 	{ number: 'CS85', prereqs: [] }
 ];
 
@@ -396,7 +396,7 @@ QUnit.test('StudyPlan Set 1', function(assert) {
 	console.log('Time to build study plan: ' + diff + ' ms\n');
 	console.log(JSON.stringify(output));
 
-	assert.ok(output != null, 'Passed!');
+	assert.ok(output != null, 'Valid Schedule');
 });
 
 QUnit.test('StudyPlan Set 2', function(assert) {
@@ -414,7 +414,7 @@ QUnit.test('StudyPlan Set 2', function(assert) {
 	console.log('Time to build study plan: ' + diff + ' ms\n');
 	console.log(JSON.stringify(output));
 
-	assert.ok(output != null, 'Passed!');
+	assert.ok(output != null, 'Valid Schedule');
 });
 
 QUnit.test('StudyPlan Set 3', function(assert) {
@@ -435,4 +435,20 @@ QUnit.test('StudyPlan Set 3', function(assert) {
 	assert.ok(output == null, 'Impossible Schedule');
 });
 
+QUnit.test('StudyPlan Set 4', function(assert) {
+	var courses = set4Courses;
 
+	printCourses(courses);
+
+	var start = new Date();
+
+	var output = generateSchedule(courses);
+
+	var end = new Date();
+	
+	var diff = end.getTime() - start.getTime();
+	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log(JSON.stringify(output));
+
+	assert.ok(output != null, 'Valid Schedule');
+});
