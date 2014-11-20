@@ -304,7 +304,24 @@ var courseToIndex = function(courseName) {
 	return numberToIndex(courseName.charAt(2), courseName.charAt(3));
 }
 
+var isCourseInSemesters = function (semesters, course) {
+	for(var i = 0; i < semesters.length; i++) {
+		if(contains(semesters[i], course))		
+		{
+			//console.log(course + ":\n" + JSON.stringify(semester));
+			return true;		
+		}
+	}	
+	return false;
+}
+
 var checkPrereqs = function checkPrereqs(semesters, course) {
+	for(var i = 0; i < course.prereqs.length; i++) {
+		if(!isCourseInSemesters(semesters, course.prereqs[i])) {
+			console.log("checkPrereqs returning false for " + course.number);
+			return false;
+		}
+	}
 	return true;
 };
 
@@ -343,15 +360,21 @@ var generateSchedule = function(courses) {
 	console.log(JSON.stringify(orderedCourses));
 	for(var i = 0; i < 8; i++) {
 		semesters[i] = [];
+		var currentSemester = [];
 		var index = 0;
-		while(semesters[i].length < 5 && index < orderedCourses.length) {			
-			if (checkPrereqs(semesters, orderedCourses[index]))
-				semesters[i].push(orderedCourses.splice(index, 1)[0].number);
-			else
+		while(currentSemester.length < 5 && index < orderedCourses.length) {			
+			if (checkPrereqs(semesters, orderedCourses[index])) {
+				//console.log("adding course " + orderedCourses[index].number);
+				currentSemester.push(orderedCourses.splice(index, 1)[0].number);
+			}
+			else {
+				//console.log("prereqs not meant for course " + orderedCourses[index]);
 				index++;
+			}
 		}
+		semesters[i] = currentSemester;
 		if(semesters[i].length < 5) {
-			console.log("Impossible to schedule courses.");			
+			console.log("Impossible to schedule courses.\n" + JSON.stringify(semesters));
 			return null;
 		}
 	}
@@ -409,7 +432,7 @@ QUnit.test('StudyPlan Set 3', function(assert) {
 	console.log('Time to build study plan: ' + diff + ' ms\n');
 	console.log(JSON.stringify(output));
 
-	assert.ok(output != null, 'Passed!');
+	assert.ok(output == null, 'Impossible Schedule');
 });
 
 
