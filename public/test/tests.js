@@ -293,6 +293,20 @@ var printCourses = function(courses) {
 	}
 }
 
+var printSemesters = function(semesters) {
+    if(semesters != null)
+        semesters.forEach(function (semester, index) {
+            var semesterText = "Semester " + (index+1) + ": ";
+            semester.forEach(function (course, index) {
+                if(index == 0)
+                    semesterText += course;
+                else
+                    semesterText += (", " + course);
+            });
+            console.log(semesterText);
+        });
+}
+
 var numberToIndex = function(a, b) {
 	var aa = a - 1;
 	var bb = b - 1;
@@ -318,7 +332,7 @@ var isCourseInSemesters = function (semesters, course) {
 var checkPrereqs = function checkPrereqs(semesters, course) {
 	for(var i = 0; i < course.prereqs.length; i++) {
 		if(!isCourseInSemesters(semesters, course.prereqs[i])) {
-			console.log("checkPrereqs returning false for " + course.number);
+			//console.log("checkPrereqs returning false for " + course.number);
 			return false;
 		}
 	}
@@ -357,7 +371,7 @@ var sortCoursesByLengthOfPostRequisitesChain = function sortCoursesByLengthOfPos
 var generateSchedule = function(courses) {
 	var semesters = [];
 	var orderedCourses = sortCoursesByLengthOfPostRequisitesChain(courses);
-	console.log(JSON.stringify(orderedCourses));
+	//console.log(JSON.stringify(orderedCourses));
 	for(var i = 0; i < 8; i++) {
 		semesters[i] = [];
 		var currentSemester = [];
@@ -394,8 +408,9 @@ QUnit.test('StudyPlan Set 1', function(assert) {
 	
 	var diff = end.getTime() - start.getTime();
 	console.log('Time to build study plan: ' + diff + ' ms\n');
-	console.log(JSON.stringify(output));
-
+	//console.log(JSON.stringify(output));
+    printSemesters(output);
+    
 	assert.ok(output != null, 'Valid Schedule');
 });
 
@@ -412,7 +427,8 @@ QUnit.test('StudyPlan Set 2', function(assert) {
 	
 	var diff = end.getTime() - start.getTime();
 	console.log('Time to build study plan: ' + diff + ' ms\n');
-	console.log(JSON.stringify(output));
+	//console.log(JSON.stringify(output));
+    printSemesters(output);
 
 	assert.ok(output != null, 'Valid Schedule');
 });
@@ -430,7 +446,8 @@ QUnit.test('StudyPlan Set 3', function(assert) {
 	
 	var diff = end.getTime() - start.getTime();
 	console.log('Time to build study plan: ' + diff + ' ms\n');
-	console.log(JSON.stringify(output));
+	//console.log(JSON.stringify(output));
+    printSemesters(output);
 
 	assert.ok(output == null, 'Impossible Schedule');
 });
@@ -448,7 +465,8 @@ QUnit.test('StudyPlan Set 4', function(assert) {
 	
 	var diff = end.getTime() - start.getTime();
 	console.log('Time to build study plan: ' + diff + ' ms\n');
-	console.log(JSON.stringify(output));
+	//console.log(JSON.stringify(output));
+    printSemesters(output);
 
 	assert.ok(output != null, 'Valid Schedule');
 });
@@ -466,7 +484,8 @@ QUnit.test('StudyPlan Set 5', function(assert) {
 	
 	var diff = end.getTime() - start.getTime();
 	console.log('Time to build study plan: ' + diff + ' ms\n');
-	console.log(JSON.stringify(output));
+	//console.log(JSON.stringify(output));
+    printSemesters(output);
 
 	assert.ok(output != null, 'Valid Schedule');
 });
