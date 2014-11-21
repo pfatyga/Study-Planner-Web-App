@@ -388,7 +388,8 @@ var generateSchedule = function(courses) {
 		}
 		semesters[i] = currentSemester;
 		if(semesters[i].length < 5) {
-			console.log("Impossible to schedule courses.\n" + JSON.stringify(semesters));
+			console.log("Impossible to schedule courses.\nCourse remaining: " + JSON.stringify(orderedCourses));
+			printSemesters(semesters);
 			return null;
 		}
 	}
@@ -407,10 +408,10 @@ QUnit.test('StudyPlan Set 1', function(assert) {
 	var end = new Date();
 	
 	var diff = end.getTime() - start.getTime();
-	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log('Time to build study plan: ' + diff + ' ms');
 	//console.log(JSON.stringify(output));
     printSemesters(output);
-    
+    console.log("\n\n");
 	assert.ok(output != null, 'Valid Schedule');
 });
 
@@ -426,10 +427,10 @@ QUnit.test('StudyPlan Set 2', function(assert) {
 	var end = new Date();
 	
 	var diff = end.getTime() - start.getTime();
-	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log('Time to build study plan: ' + diff + ' ms');
 	//console.log(JSON.stringify(output));
     printSemesters(output);
-
+    console.log("\n\n");
 	assert.ok(output != null, 'Valid Schedule');
 });
 
@@ -445,10 +446,10 @@ QUnit.test('StudyPlan Set 3', function(assert) {
 	var end = new Date();
 	
 	var diff = end.getTime() - start.getTime();
-	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log('Time to build study plan: ' + diff + ' ms');
 	//console.log(JSON.stringify(output));
     printSemesters(output);
-
+    console.log("\n\n");
 	assert.ok(output == null, 'Impossible Schedule');
 });
 
@@ -464,10 +465,10 @@ QUnit.test('StudyPlan Set 4', function(assert) {
 	var end = new Date();
 	
 	var diff = end.getTime() - start.getTime();
-	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log('Time to build study plan: ' + diff + ' ms');
 	//console.log(JSON.stringify(output));
     printSemesters(output);
-
+    console.log("\n\n");
 	assert.ok(output != null, 'Valid Schedule');
 });
 
@@ -483,9 +484,9 @@ QUnit.test('StudyPlan Set 5', function(assert) {
 	var end = new Date();
 	
 	var diff = end.getTime() - start.getTime();
-	console.log('Time to build study plan: ' + diff + ' ms\n');
+	console.log('Time to build study plan: ' + diff + ' ms');
 	//console.log(JSON.stringify(output));
     printSemesters(output);
-
+    console.log("\n\n");
 	assert.ok(output != null, 'Valid Schedule');
 });
