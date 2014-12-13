@@ -1,6 +1,6 @@
-# Database Practicum (CS 443) Project: Study Planner Web App
+# Study Planner Web App
 
-This is the repository for the Database Practicum (CS 443) project.
+This is the repository for our Study Planner Web Application
 
 ## Build
 
